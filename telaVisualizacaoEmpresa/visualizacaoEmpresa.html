@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+    <title>Visão inclusiva</title>
+    <!-- Principal CSS do Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Estilos customizados para esse template -->
+    <link href="form-validation.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-image: url("img/background.png");
+            background-size: cover;
+            /* Ajusta o tamanho da imagem ao tamanho da janela */
+            background-repeat: no-repeat;
+            /* Evita a repetição da imagem */
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Estilo personalizado para caixas de input */
+
+        .custom-input {
+            border-radius: 10px;
+            /* Borda arredondada */
+            background-color: #C2D7E8;
+            /* Cor de fundo personalizada */
+        }
+
+        /* Estilo para o cabeçalho */
+
+        .header {
+            background-color: #C2D7E8;
+            padding: 20px 0;
+            border-radius: 0 0 10px 10px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            /* Alinhe à direita */
+            align-items: center;
+            /* Alinhe verticalmente ao centro */
+        }
+
+        .header-logo-responsive {
+            margin-left: 1%;
+            width: 10%;
+            /* Tamanho da logo */
+            height: auto;
+            float: left;
+            /* Alinhar a logo à esquerda */
+        }
+
+        .header-links-responsive {
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 150%;
+            color: #ffffff;
+            /* Cor dos links */
+        }
+
+        .custom-heading-responsive {
+            color: #2C5DAE;
+            font-size: 350%;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 36px;
+            letter-spacing: -1.65px;
+        }
+
+        .d-flex {
+            margin-top: 20px;
+            /* Afastar a frase do botão */
+        }
+
+        .btn-custom {
+            margin-right: 10%;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin-top: -2%;
+        }
+
+        .pictures {
+            width: 85%;
+            max-width: 100%;
+            position: absolute;
+            margin-top: 2%;
+        }
+
+        #picture__input {
+            display: none;
+        }
+
+        .picture_perfil {
+            width: 200px;
+            aspect-ratio: 8/8;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            border: 2px dashed #aaa;
+            cursor: pointer;
+            transition: color 300ms ease-in-out, background 300ms ease-in-out;
+            border-radius: 5%;
+            margin-bottom: 25px;
+            margin-top: 100px;
+            position: relative;
+        }
+
+        .picture_banner {
+            width: 80%;
+            display: flex;
+            aspect-ratio: 18 / 4;
+            position: absolute;
+            background: #ddd;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            border: 2px dashed #cecdcd;
+            cursor: pointer;
+            transition: color 300ms ease-in-out, background 300ms ease-in-out;
+            border-radius: 5%;
+        }
+
+        .picture_perfil, .picture_banner:hover {
+            color: #777;
+            background: #ccc;
+        }
+
+        .box {
+            color: rgb(82, 82, 82);
+            position: absolute;
+            top: 50%;
+            right: 58%;
+            transform: translate(-40%, -40%);
+            padding: 15px;
+            width: 20%;
+            margin-top: 22%;
+        }
+
+        .boxText {
+            position: absolute;
+            top: 50%;
+            left: 70%;
+            transform: translate(-40%, -40%);
+            padding: 15px;
+            width: 20%;
+            color: rgb(82, 82, 82);
+            margin-top: 22%;
+        }
+
+        .form-control {
+            border-radius: 5%;
+        }
+
+        .inputBox {
+            position: relative;
+            margin-bottom: 30PX;
+
+        }
+
+        .inputUser {
+            background: none;
+            border: none;
+            border-bottom: 1px solid rgb(82, 82, 82);
+            outline: none;
+            font-size: 15px;
+            width: 100%;
+            letter-spacing: 2px;
+        }
+
+        .labelInput {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            pointer-events: none;
+            transition: .5s;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <img class="header-logo-responsive" src="img/logo1.png" alt="">
+        <div class="header-links-responsive">
+            <a class="header-links-responsive" href="#">Home</a>
+            <a class="header-links-responsive" href="#">Sobre nós</a>
+            <a class="header-links-responsive" href="#">Ajuda</a>
+        </div>
+        <div class="d-flex align-items-center ml-4" style="width: 300px;">
+            <!-- Aumente a largura do contêiner -->
+            <h3 class="frase-responsive" style="font-size: 18px;">Já possui cadastro?</h3>
+            <button class="btn btn-primary btn-custom ml-2">Login</button>
+        </div>
+    </div>
+    <div class="container center-form">
+        <!-- Adicione a classe "center-form" para centralizar -->
+        <div class="py-5 text-center">
+            <h2 class="custom-heading-responsive">Empresa</h2>
+            <p class="lead"></p>
+            <div class="pictures">
+                <label class="picture_banner" for="picture__input" tab="0">
+                    <span class="picture__image">Inserir banner</span>
+                </label>
+                <input type="file" accept="image/*" id="picture__input" />
+    
+                <label class="picture_perfil" for="picture__input" tab="0">
+                    <span class="picture__image">Inserir imagem de perfil</span>
+                </label>
+                <input type="file" accept="image/*" id="picture__input" />
+            </div>
+        </div>
+
+        
+        <div class="box">
+            <form action="">
+
+                <div class="inputBox">
+                    <input type="text" name="empresa" id="empresa" class="inputUser" required>
+                    <label for="empresa" class="labelInput">Empresa</label>
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="telefone" id="telefone" class="inputUser" required>
+                    <label for="telefone" class="labelInput">Telefone</label>
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="cid" id="cid" class="inputUser" required>
+                    <label for="cid" class="labelInput">CID</label>
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="endereco" id="endereco" class="inputUser" required>
+                    <label for="endereco" class="labelInput">Endereço</label>
+                </div>
+                <div class="inputBox">
+                    <input type="email" name="email" id="email" class="inputUser" required>
+                    <label for="email" class="labelInput">Email</label>
+                </div>
+            </form>
+        </div>
+        <div class="boxText">
+            <form action="">
+                <div class="form-group">
+                    <label for="sobre" class="txt">Sobre:</label>
+                    <textarea class="form-control" id="sobre" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="vagas" class="txt">Vagas:</label>
+                    <textarea class="form-control" id="vagas" rows="3"></textarea>
+                </div>
+
+            </form>
+        </div>
+    
+    </div>
+
+</body>
+
+</html>
