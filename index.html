@@ -211,8 +211,8 @@
 <script src="../../dist/js/bootstrap.min.js"></script>
 <script src="../../assets/js/vendor/holder.min.js"></script>
 <script>
-  // Verificar se as senhas coincidem
-  const senha = document.getElementById('senha');
+// Verificar se as senhas coincidem
+const senha = document.getElementById('senha');
   const confirmarSenha = document.getElementById('confirmarSenha');
   const senhaMismatch = document.getElementById('senhaMismatch');
 
@@ -231,7 +231,6 @@
       senhaMismatch.style.display = 'none';
     }
   });
-
   // Carrega as opções de países a partir do arquivo "paises.json"
   fetch('js/paises.json')
     .then(response => response.json())
