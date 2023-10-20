@@ -1,0 +1,117 @@
+/* estilos.css */
+
+body {
+    background: linear-gradient(#698fb3,#FFFFFF);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  
+  
+  .Frame {
+      width: 100%;
+      border-left: 100%;
+      right: 0px;
+      height: 106px;
+      top: 0px;
+      left: auto;
+      position: absolute;
+      background: #98cfc9;;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    .Home, .SobreNS, .Ajuda, .Button, .JPossuiUmaConta, .LogoFf1 {
+      text-align: center;
+    }
+  
+    .Home, .SobreNS, .Ajuda, .Button, .JPossuiUmaConta {
+      position: absolute;
+      font-family: Montserrat;
+      font-weight: 500;
+      word-wrap: break-word;
+    }
+    
+    .Home, .SobreNS, .Ajuda {
+      height: 46px;
+      font-size: 32px;
+      color: white;
+      text-align: center;
+    }
+    
+    .Home {
+      width: 112px;
+      left: 511px;
+      top: 31px;
+    }
+    
+    .SobreNS {
+      width: 169px;
+      left: 641px;
+      top: 31px;
+    }
+    
+    .Ajuda {
+      width: 101px;
+      left: 828px;
+      top: 31px;
+    }
+    
+    .Button {
+      width: 104px;
+      height: 33px;
+      left: 1300px;
+      top: 31px;
+    }
+    
+    .Rectangle2 {
+      width: 100px;
+      height: 33px;
+      left: 100px;
+      top: 0px;
+      position: absolute;
+      background: white;
+      border-radius: 6px;
+      border: 0.50px #18A0FB solid;
+    }
+    
+    .LogIn {
+      left: 130px;
+      top: 7.07px;
+      position: absolute;
+      font-size: 15px;
+      color: #18A0FB;
+      text-align: center;
+    }
+    
+    .JPossuiUmaConta {
+      width: 230px;
+      height: 51px;
+      left: 1200px;
+      top: 31px;
+      color: #004466;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 36px;
+    }
+    .LogoFf1 {
+      width: 230px;
+      height: 80px;
+      margin-top: 12px; /* Margem superior de 10 pixels */
+      margin-right: 20px; /* Margem direita de 20 pixels */
+      margin-bottom: 5px; /* Margem inferior de 10 pixels, mesma que a margem superior */
+      margin-left: 5px; /* Margem esquerda de 20 pixels, mesma que a margem direita */
+  
+    } 
+  .Frame2{
+    width: 100%;
+    border-left: 100px;
+    right: 0px;
+    height: 106px;
+    top: 106px;
+    left: auto;
+    position: absolute;
+    background: #98cfc9;;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: 1px solid #000;
+  }
+    
+    
