@@ -1,75 +1,83 @@
  /* Estilo do plano de fundo */
  body {
-  background-image: url('img/fundo.jpeg'); /* Substitua pelo nome da imagem correta */
-  background-size: cover; /* Ajusta o tamanho da imagem ao tamanho da janela */
-  background-repeat: no-repeat; /* Evita a repetição da imagem */
-}
+   background-image: url('/Visao_inclusiva/img/Fundoazulclaro.png');
+   /* Substitua pelo nome da imagem correta */
+   background-size: cover;
+   /* Ajusta o tamanho da imagem ao tamanho da janela */
+   background-repeat: no-repeat;
+   /* Evita a repetição da imagem */
+ }
 
-/* Estilo para o cabeçalho abaixo */
-.header {
-  background-color: #C2D7E8;
-  padding: 20px 0;
-  border-radius: 0 0 10px 10px;
-  text-align: center;
-  display: flex;
-  justify-content: space-between; /* Alinhe à direita */
-  align-items: center; /* Alinhe verticalmente ao centro */
-}
+ /* Estilo para o cabeçalho abaixo */
+ .header {
+   background-color: #C2D7E8;
+   padding: 20px 0;
+   border-radius: 0 0 10px 10px;
+   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+   text-align: center;
+   display: flex;
+   justify-content: space-between;
+   /* Alinhe à direita */
+   align-items: center;
+   /* Alinhe verticalmente ao centro */
+ }
 
-.header-logo-responsive {
-  margin-left: 1%;
-  width: 10%;
-  /* Tamanho da logo */
-  height: auto;
-  float: left;
-  /* Alinhar a logo à esquerda */
-}
+ .header-logo-responsive {
+   margin-left: 1%;
+   width: 10%;
+   /* Tamanho da logo */
+   height: auto;
+   float: left;
+   /* Alinhar a logo à esquerda */
+ }
 
-.header-links-responsive {
-  text-decoration: none;
-  margin: 0 20px;
-  font-size: 150%;
-  color: #ffffff;
-  /* Cor dos links */
-}
+ .header-links-responsive {
+   text-decoration: none;
+   margin: 0 20px;
+   font-size: 150%;
+   color: #ffffff;
+   /* Cor dos links */
+ }
 
-.custom-heading-responsive {
-  color: #2C5DAE;
-  font-size: 350%;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 36px;
-  letter-spacing: -1.65px;
-}
-
-.d-flex {
-  margin-top: 20px; /* Afastar a frase do botão */
-}
-
-.btn-custom {
-  margin-right: 10%;
-  padding-left: 20px;
-  padding-right: 20px;
-  margin-top: -2%;
-}
-
-/* Estilo para o cabeçalho acima */
+ .custom-heading-responsive {
+   color: #2C5DAE;
+   font-size: 350%;
+   font-style: normal;
+   font-weight: 700;
+   line-height: 36px;
+   letter-spacing: -1.65px;
+ }
 
 
-/* Centralizar o formulário */
-.center-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-}
 
-/* Estilo personalizado para caixas de input */
-.custom-input {
-  border-radius: 10px;
-  /* Borda arredondada */
-  background-color: #C2D7E8;
-  /* Cor de fundo personalizada */
-}
+ .d-flex {
+   margin-top: 20px;
+   /* Afastar a frase do botão */
+ }
 
+ .btn-custom {
+   margin-right: 10%;
+   padding-left: 20px;
+   padding-right: 20px;
+   margin-top: -2%;
+ }
+
+ /* Estilo para o cabeçalho acima */
+
+
+ /* Centralizar o formulário */
+ .center-form {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   min-height: 100vh;
+ }
+
+ /* Estilo personalizado para caixas de input */
+ .custom-input {
+   border-radius: 10px;
+   /* Borda arredondada */
+   background-color: white;
+   /* Cor de fundo personalizada */
+ }
