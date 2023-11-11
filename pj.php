@@ -107,7 +107,7 @@
       <p class="lead"></p>
     </div>
     <div class="col-md-8 order-md-1">
-      <form class="needs-validation" novalidate>
+      <form class="needs-validation" novalidate name = "Cadastro" action = "Cadastrar.php" method = "POST">
         <div class="mb-3">
           <label for="razaoSocial"></label>
           <input type="text" class="form-control custom-input" id="razaoSocial" placeholder="Razão Social" required>
