@@ -123,10 +123,24 @@
         </div>
       </div>
       <div class="mb-3">
+        <label for="ramo"></label>
+        <input type="text" class="form-control custom-input" id="ramo" placeholder="Ramo de Atividade" required>
+        <div class="invalid-feedback" style="width: 100%;">
+          O ramo é obrigatória.
+        </div>
+      </div>
+      <div class="mb-3">
         <label for="email"><span class="text-muted"></span></label>
-        <input type="email" class="form-control custom-input" id="email" placeholder="fulano@exemplo.com" required>
+        <input type="email" class="form-control custom-input" id="email" placeholder="rh@empresa.com" required>
         <div class="invalid-feedback">
           Por favor, insira um endereço de e-mail válido.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="telefone"></label>
+        <input type="int" class="form-control custom-input" id="telefone" placeholder="Telefone" required>
+        <div class="invalid-feedback" style="width: 100%;">
+          O telefone para contrato é obrigatória.
         </div>
       </div>
       <div class="mb-3">
@@ -134,6 +148,22 @@
         <input type="text" class="form-control custom-input" id="endereco" placeholder="Rua, nº 0" required>
         <div class="invalid-feedback">
           Por favor, insira seu endereço.
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="cidade"></label>
+          <input type="text" class="form-control custom-input" id="cidade" placeholder="Cidade" required>
+          <div class="invalid-feedback">
+            Por favor, insira uma cidade válida.
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="bairro"></label>
+          <input type="text" class="form-control custom-input" id="bairro" placeholder="Bairro" required>
+          <div class="invalid-feedback">
+            Por favor, insira um bairro válido.
+          </div>
         </div>
       </div>
       <div class="row">
