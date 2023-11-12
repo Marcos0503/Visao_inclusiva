@@ -1,13 +1,13 @@
 <?php
     $razaoSocial = $_POST['nome_empresa'];
     $cnpj = $_POST['CNPJ'];
-    $ramo = $_POST['ramo_empresa'];
     $email = $_POST['email_empresa'];
     $telefone = $_POST['telefone'];
+    $ramo = $_POST['ramo_empresa'];
     $endereco = $_POST['rua'];
-    $cidade = $_POST['cidade'];
-    $bairro = $_POST['bairro'];
     $pais = $_POST['pais'];
+    $bairro = $_POST['bairro'];
+    $cidade = $_POST['cidade'];
     $estado = $_POST['estado'];
     $cep = $_POST['CEP'];
     $senha = $_POST['senha'];
