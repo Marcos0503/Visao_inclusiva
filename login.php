@@ -18,6 +18,15 @@
             background-repeat: no-repeat;
         }
 
+        .login-container {
+            background-color: rgba(222, 222, 222, 0.8); /* cor branca com opacidade de 80% */
+            border-radius: 15px;
+            padding: 20px;
+            margin: 0 auto; /* centraliza horizontalmente */
+            width: 60%;
+            margin-top: 5%; /* ajuste conforme necessário */
+        }
+
         .center-form {
             display: flex;
             flex-direction: column;
@@ -29,62 +38,53 @@
         .custom-input {
             border-radius: 10px;
             background-color: #C2D7E8;
-            width: 60%;
-        }
-
-        .header-links-responsive {
-            text-decoration: none;
-            margin: 0 20px;
-            font-size: 150%;
-            color: #ffffff;
+            width: 100%;
+            margin-top: 5%;
         }
 
         .custom-heading-responsive {
             color: #2C5DAE;
             font-size: 450%;
             font-weight: 700;
-            margin-top: 10%;
-            margin-bottom: -25%;
-        }
-
-        .d-flex {
-            margin-top: 20px;
+            margin-bottom: -6%;
         }
 
         .btn-primary.btn-custom-sm {
-            margin-left: 38%;
-            width: 25%;
+            width: 30%;
+            margin-top: 10px;
+            margin-left: 35%;
+            margin-bottom: 8%;
         }
-
     </style>
 </head>
-
 <body>
     <div class="container center-form">
-        <div class="py-5 text-center">
-            <h2 class="custom-heading-responsive">Login</h2>
-            <p class="lead"></p>
-        </div>
-        <div class="col-md-8 order-md-1">
-            <form class="needs-validation" novalidate action="processa_login.php" method="POST">
-                <div class="mb-3">
-                    <label for="email"></label>
-                    <input type="text" class="form-control custom-input" id="email" name="email"
-                        placeholder="E-mail ou CNPJ" required>
-                    <div class="invalid-feedback" style="width: 100%;">
-                        Este campo é obrigatório.
+        <div class="login-container">
+            <div class="py-5 text-center">
+                <h2 class="custom-heading-responsive">Login</h2>
+                <p class="lead"></p>
+            </div>
+            <div class="col-md-8 order-md-1 mx-auto">
+                <form class="needs-validation" novalidate action="processa_login.php" method="POST">
+                    <div class="form-group d-flex align-items-center">
+                        <label for="email" class="sr-only">E-mail ou CNPJ</label>
+                        <input type="text" class="form-control custom-input" id="email" name="email"
+                            placeholder="E-mail ou CNPJ" required>
+                        <div class="invalid-feedback" style="width: 100%;">
+                            Este campo é obrigatório.
+                        </div>
                     </div>
-                </div>
-                <div class="mb-3">
-                    <label for="senha"></label>
-                    <input type="password" class="form-control custom-input" id="senha" name="senha"
-                        placeholder="Senha" required>
-                    <div class="invalid-feedback" style="width: 100%;">
-                        A senha é obrigatória.
+                    <div class="form-group d-flex align-items-center">
+                        <label for="senha" class="sr-only">Senha</label>
+                        <input type="password" class="form-control custom-input" id="senha" name="senha"
+                            placeholder="Senha" required>
+                        <div class="invalid-feedback" style="width: 100%;">
+                            A senha é obrigatória.
+                        </div>
                     </div>
-                </div>
-                <button class="btn btn-primary btn-custom-sm" type="submit">Entrar</button>
-            </form>
+                    <button class="btn btn-primary btn-custom-sm" type="submit">Entrar</button>
+                </form>
+            </div>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
