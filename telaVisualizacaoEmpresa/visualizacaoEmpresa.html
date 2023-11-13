@@ -80,8 +80,8 @@
 
         .btn-custom {
             margin-right: 10%;
-            padding-left: 20px;
-            padding-right: 20px;
+            padding-left: 10%;
+            padding-right: 10%;
             margin-top: -2%;
         }
 
@@ -97,7 +97,7 @@
         }
 
         .picture_perfil {
-            width: 200px;
+            width: 15%;
             aspect-ratio: 8/8;
             background: #ddd;
             display: flex;
@@ -108,15 +108,16 @@
             cursor: pointer;
             transition: color 300ms ease-in-out, background 300ms ease-in-out;
             border-radius: 5%;
-            margin-bottom: 25px;
-            margin-top: 100px;
+            margin-bottom: 5%;
+            margin-top: 7%;
             position: relative;
+            left: 7%;
         }
 
         .picture_banner {
             width: 80%;
             display: flex;
-            aspect-ratio: 18 / 4;
+            aspect-ratio: 18 /4;
             position: absolute;
             background: #ddd;
             align-items: center;
@@ -126,9 +127,11 @@
             cursor: pointer;
             transition: color 300ms ease-in-out, background 300ms ease-in-out;
             border-radius: 5%;
+            left: 7%;
         }
 
-        .picture_perfil, .picture_banner:hover {
+        .picture_perfil,
+        .picture_banner:hover {
             color: #777;
             background: #ccc;
         }
@@ -139,7 +142,7 @@
             top: 50%;
             right: 58%;
             transform: translate(-40%, -40%);
-            padding: 15px;
+            padding: 1%;
             width: 20%;
             margin-top: 22%;
         }
@@ -149,7 +152,7 @@
             top: 50%;
             left: 70%;
             transform: translate(-40%, -40%);
-            padding: 15px;
+            padding: 2%;
             width: 20%;
             color: rgb(82, 82, 82);
             margin-top: 22%;
@@ -161,7 +164,7 @@
 
         .inputBox {
             position: relative;
-            margin-bottom: 30PX;
+            margin-bottom: 5%;
 
         }
 
@@ -182,14 +185,14 @@
             pointer-events: none;
             transition: .5s;
         }
+
         .button {
             margin-top: 5%;
             position: absolute;
             top: 90%;
-            left: 50%;
+            right: 147% ;
             transform: translate(-50%, -50%);
         }
-
     </style>
 </head>
 
@@ -217,7 +220,7 @@
                     <span class="picture__image">Inserir banner</span>
                 </label>
                 <input type="file" accept="image/*" id="picture__input" />
-    
+
                 <label class="picture_perfil" for="picture__input" tab="0">
                     <span class="picture__image">Inserir imagem de perfil</span>
                 </label>
@@ -225,7 +228,7 @@
             </div>
         </div>
 
-        
+
         <div class="box">
             <form action="">
 
@@ -261,12 +264,14 @@
                     <label for="vagas" class="txt">Vagas:</label>
                     <textarea class="form-control" id="vagas" rows="3"></textarea>
                 </div>
-                <div class="button">
-                    <a href="../editarPerfilEmpresa/editarUsuario.html"><button type="button" class="btn btn-outline-info" >Editar</button></a>
-                </div>
+
             </form>
+            <div class="button">
+                <a href="../editarPerfilEmpresa/editarUsuario.html"><button type="button"
+                        class="btn btn-outline-info">Editar</button></a>
+            </div>
         </div>
-    
+
     </div>
 
 </body>
