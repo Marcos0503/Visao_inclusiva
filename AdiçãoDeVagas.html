@@ -35,131 +35,173 @@
   <div class="container center-form"> <!-- Adicione a classe "center-form" para centralizar -->
     <div class="quadradoBranco">
       <div class="mb-3">
-        <div class="layout">
-          <div class="titulo">
-        
-        <div class="titulo">
-          <div class="mb-3">
+        <br>
+        <button class="bnt">Alterar <svg xmlns="http://www.w3.org/2000/svg" width="42" height="37" viewBox="0 0 42 37"
+            fill="none">
+            <path
+              d="M29.4748 24.5046L31.7639 22.2377C32.1215 21.8835 32.7439 22.1315 32.7439 22.6415V32.9418C32.7439 34.819 31.2059 36.3421 29.3103 36.3421H4.13083C2.23522 36.3421 0.697266 34.819 0.697266 32.9418V8.00587C0.697266 6.12859 2.23522 4.60552 4.13083 4.60552H23.695C24.2029 4.60552 24.4604 5.21475 24.1027 5.57603L21.8137 7.84293C21.7064 7.94919 21.5633 8.00587 21.4059 8.00587H4.13083V32.9418H29.3103V24.9013C29.3103 24.7526 29.3675 24.6109 29.4748 24.5046ZM40.6768 10.209L21.8924 28.8117L15.4258 29.5202C13.5517 29.7256 11.9565 28.16 12.1639 26.2898L12.8793 19.8858L31.6637 1.28309C33.3018 -0.339156 35.9485 -0.339156 37.5795 1.28309L40.6697 4.34341C42.3078 5.96566 42.3078 8.59384 40.6768 10.209ZM33.6094 12.398L29.4534 8.28214L16.1626 21.4514L15.6404 26.0773L20.3115 25.5602L33.6094 12.398ZM38.2447 6.75199L35.1545 3.69167C34.8612 3.40123 34.3819 3.40123 34.0958 3.69167L31.8855 5.88065L36.0415 9.99649L38.2519 7.80751C38.538 7.50998 38.538 7.04243 38.2447 6.75199Z"
+              fill="white" />
+          </svg></button>
+        <button class="bnt">Excluir <svg xmlns="http://www.w3.org/2000/svg" width="39" height="38" viewBox="0 0 39 38"
+            fill="none">
+            <path d="M5.95703 6.44165V37.276H33.4296V6.44165H5.95703Z" fill="#1F78D1" stroke="white"
+              stroke-linejoin="round" />
+            <path d="M16.0293 15.5103V27.2999" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M23.3574 15.5103V27.2999" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M1.37891 6.44165H38.0089" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M12.3672 6.44135L15.3791 1H24.0678L27.0192 6.44135H12.3672Z" fill="#1F78D1" stroke="white"
+              stroke-linejoin="round" />
+          </svg></button>
+      </div>
+      <div class="mb-3">
+        <h1 class="titulo">Sobre a Vaga</h1>
+        <input class="titulo" placeholder="Nome da empresa">
+        <input class="info" placeholder="Local">
+        <input class="mb-3" class="info" list="periodo" placeholder="Periodo">
+        <datalist id="periodo">
+          <option value=" Tempo Integral">
+          <option value=" Meio Período">
+        </datalist>
+        <input class="mb-3" class="info" list="tipo" placeholder="Tipo">
+        <datalist id="tipo">
+          <option value=" Estagio">
+          <option value="Assistente">
+          <option value="analista">
+        </datalist>
+      </div>
+      <div class="mb-3">
+        <h1 class="titulo">Descrição</h1>
+        <textarea name="textarea"></textarea>
+      </div>
+      <div class="mb-3">
+        <h1 class="titulo">Atividades</h1>
+        <div contenteditable="true">
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+          </ul>
+        </div>
+        <div class="mb-3">
+          <h1 class="titulo">benefícios</h1>
+          <div contenteditable="true">
+            <ul>
+              <li>Item 1</li>
+              <li>Item 2</li>
+              <li>Item 3</li>
+            </ul>
+          </div>
+          <div class="empresa" class="mb-3">
+            <h1 class="titulo">Sobre a Empresa</h1>
+            <input class="picture_perfil" type="file" accept="image/*"><br>
+          </div>
+          <div class="empresa" class="mb-3">
             <input placeholder="Nome da empresa">
+            <textarea name="textarea" rows="5" cols="35"></textarea>
+          </div>
+          <div>
+            <button type="button" class="bnt-exibir">Exibir Mais
           </div>
         </div>
-      </div>
 
-
-
-
-
-
-
-
-
-    </div>
-    <footer class="my-5 pt-5 text-muted text-center text-small">
-      <p class="mb-1">&copy; 2017-2018 Nome da companhia</p>
-      <ul class="list-inline">
-        <li class="list-inline-item"><a href="#">Privacidade</a></li>
-        <li class="list-inline-item"><a href="#">Termos</a></li>
-        <li class="list-inline-item"><a href="#">Suporte</a></li>
-      </ul>
-    </footer>
-    <!-- Principal JavaScript do Bootstrap
+        <!-- Principal JavaScript do Bootstrap
   ================================================== -->
-    <!-- Foi colocado no final para a página carregar mais rápido -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <script src="../../assets/js/vendor/holder.min.js"></script>
-    <!--  mascara dos inputs-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
-      integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw=="
-      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-      // mascara do telefone utilizando jquery 
-      $('#telefone').mask('(00) 00000-0000');
+        <!-- Foi colocado no final para a página carregar mais rápido -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+          integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+          crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+        <script src="../../assets/js/vendor/popper.min.js"></script>
+        <script src="../../dist/js/bootstrap.min.js"></script>
+        <script src="../../assets/js/vendor/holder.min.js"></script>
+        <!--  mascara dos inputs-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
+          integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
+          // mascara do telefone utilizando jquery 
+          $('#telefone').mask('(00) 00000-0000');
 
-      // mascara do telefone utilizando jquery 
-      $('#cid').mask('');
-      // mascara do   CID
+          // mascara do telefone utilizando jquery 
+          $('#cid').mask('');
+          // mascara do   CID
 
 
-      $(document).ready(function () {
-        $('#cid').mask('A00.0', {
-          translation: {
-            'a': { pattern: /[A-HJ-NP-Z]/ }
-          }
-        });
-      });
-
-      // Verificar se as senhas coincidem
-      const senha = document.getElementById('senha');
-      const confirmarSenha = document.getElementById('confirmarSenha');
-      const senhaMismatch = document.getElementById('senhaMismatch');
-
-      senha.addEventListener('input', function () {
-        if (senha.value !== confirmarSenha.value) {
-          senhaMismatch.style.display = 'block';
-        } else {
-          senhaMismatch.style.display = 'none';
-        }
-      });
-
-      confirmarSenha.addEventListener('input', function () {
-        if (senha.value !== confirmarSenha.value) {
-          senhaMismatch.style.display = 'block';
-        } else {
-          senhaMismatch.style.display = 'none';
-        }
-      });
-      // Carrega as opções de países a partir do arquivo "paises.json"
-      fetch('js/paises.json')
-        .then(response => response.json())
-        .then(data => {
-          const selectPais = document.getElementById('pais');
-          data.forEach(pais => {
-            const option = document.createElement('option');
-            option.textContent = pais;
-            option.value = pais;
-            selectPais.appendChild(option);
-          });
-        });
-
-      // Carrega as opções de estados a partir do arquivo "estados.json"
-      fetch('js/estados.json')
-        .then(response => response.json())
-        .then(data => {
-          const selectEstado = document.getElementById('estado');
-          data.forEach(estado => {
-            const option = document.createElement('option');
-            option.textContent = estado;
-            option.value = estado;
-            selectEstado.appendChild(option);
-          });
-        });
-
-      // Exemplo de JavaScript para desativar o envio do formulário, se tiver algum campo inválido.
-      (function () {
-        'use strict';
-
-        window.addEventListener('load', function () {
-          // Selecione todos os campos que nós queremos aplicar estilos Bootstrap de validação customizados.
-          var forms = document.getElementsByClassName('needs-validation');
-
-          // Faz um loop neles e previne envio
-          var validation = Array.prototype.filter.call(forms, function (form) {
-            form.addEventListener('submit', function (event) {
-              if (form.checkValidity() === false || senha.value !== confirmarSenha.value) {
-                event.preventDefault();
-                event.stopPropagation();
+          $(document).ready(function () {
+            $('#cid').mask('A00.0', {
+              translation: {
+                'a': { pattern: /[A-HJ-NP-Z]/ }
               }
-              form.classList.add('was-validated');
-            }, false);
+            });
           });
-        }, false);
-      })();
-    </script>
+
+          // Verificar se as senhas coincidem
+          const senha = document.getElementById('senha');
+          const confirmarSenha = document.getElementById('confirmarSenha');
+          const senhaMismatch = document.getElementById('senhaMismatch');
+
+          senha.addEventListener('input', function () {
+            if (senha.value !== confirmarSenha.value) {
+              senhaMismatch.style.display = 'block';
+            } else {
+              senhaMismatch.style.display = 'none';
+            }
+          });
+
+          confirmarSenha.addEventListener('input', function () {
+            if (senha.value !== confirmarSenha.value) {
+              senhaMismatch.style.display = 'block';
+            } else {
+              senhaMismatch.style.display = 'none';
+            }
+          });
+          // Carrega as opções de países a partir do arquivo "paises.json"
+          fetch('js/paises.json')
+            .then(response => response.json())
+            .then(data => {
+              const selectPais = document.getElementById('pais');
+              data.forEach(pais => {
+                const option = document.createElement('option');
+                option.textContent = pais;
+                option.value = pais;
+                selectPais.appendChild(option);
+              });
+            });
+
+          // Carrega as opções de estados a partir do arquivo "estados.json"
+          fetch('js/estados.json')
+            .then(response => response.json())
+            .then(data => {
+              const selectEstado = document.getElementById('estado');
+              data.forEach(estado => {
+                const option = document.createElement('option');
+                option.textContent = estado;
+                option.value = estado;
+                selectEstado.appendChild(option);
+              });
+            });
+
+          // Exemplo de JavaScript para desativar o envio do formulário, se tiver algum campo inválido.
+          (function () {
+            'use strict';
+
+            window.addEventListener('load', function () {
+              // Selecione todos os campos que nós queremos aplicar estilos Bootstrap de validação customizados.
+              var forms = document.getElementsByClassName('needs-validation');
+
+              // Faz um loop neles e previne envio
+              var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                  if (form.checkValidity() === false || senha.value !== confirmarSenha.value) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                  }
+                  form.classList.add('was-validated');
+                }, false);
+              });
+            }, false);
+          })();
+        </script>
 </body>
 
 </html>
