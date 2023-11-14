@@ -234,7 +234,141 @@
             top: 90%;
             right: 147%;
             transform: translate(-50%, -50%);
+            width: 50px;
         }
+
+        /*Ajeitando o rodapé*/
+        #content-wrap {
+            padding-bottom: 2.5rem;
+            /* altura do rodapé */
+        }
+
+        footer {
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            /* Coloca os elementos em coluna */
+            justify-content: center;
+            /* Centraliza o conteúdo verticalmente */
+            align-items: center;
+            /* Centraliza o conteúdo horizontalmente */
+            background-color: #fff;
+            border-top: 1px solid #4d4d4d80;
+            margin-top: 50%;
+        }
+
+
+        #links {
+            border-bottom: 1px solid #4d4d4d80;
+            background-color: #fff;
+            align-items: center;
+            /* Centraliza o conteúdo verticalmente */
+        }
+
+        #links ul {
+            color: #2C5DAE;
+            font-family: 'Montserrat', sans-serif;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 20px;
+            /* Espaçamento entre os itens (ajuste conforme necessário) */
+            justify-content: center;
+            /* Centraliza o conteúdo horizontalmente */
+            align-items: center;
+            /* Centraliza o conteúdo verticalmente */
+        }
+
+        #page-container {
+            position: relative;
+            min-height: 100vh;
+        }
+
+        #redesSociais {
+            background-color: #fff;
+            margin: 0;
+            color: #4c4c4c;
+            font-size: smaller;
+            border-top: 0;
+            display: flex;
+            align-items: center;
+            /* Centraliza o conteúdo verticalmente */
+            justify-content: center;
+            /* Centraliza horizontalmente */
+        }
+
+        #links,
+        #redesSociais {
+            width: 100%;
+            /* Ocupar toda a largura do rodapé */
+            text-align: center;
+            /* Centralizar o texto dentro das divs */
+        }
+
+            /*Estiliza botões de rede sociail*/
+
+            .btn_social {
+                width: 100%;
+                float: left;
+                display: flex;
+                margin: auto;
+            }
+
+            .btn_social ul {
+                width: auto;
+                margin: auto;
+                float: left;
+                display: block;
+            }
+
+            .btn_social ul li {
+                position: relative;
+                background: #555555;
+                list-style: none;
+                float: left;
+                margin: 5px;
+                z-index: 1;
+                overflow: hidden;
+                border-radius: 3px;
+                font-size: 1.5em;
+                text-align: center;
+            }
+
+            .btn_social ul li a {
+                width: 50px;
+                height: 50px;
+                line-height: 53px;
+                display: block;
+                text-decoration: none;
+                color: #fff;
+                transition: .4s;
+            }
+
+            .btn_social ul li::before {
+                transition: 0.4s;
+                position: absolute;
+                content: '';
+                width: 100%;
+                height: 100%;
+                top: 90%;
+                left: 0;
+                background: #2fc4cf;
+                z-index: -1;
+                transform: scale(1);
+                transition: .4s;
+            }
+
+            .btn_social ul li:hover::before {
+                transition: 0.4s;
+                top: 0%;
+            }
+
+            .btn_social ul li a:hover {
+                color: #555555;
+            }
     </style>
 </head>
 
@@ -318,7 +452,41 @@
         </div>
 
     </div>
+    <footer>
+        <br>
+        <div id="links">
+            <ul>
+                <li><a id="rodape" href="#mobile">Mobile App</a></li>
+                <li><a id="rodape" href="#quemSomos">Quem Somos</a></li>
+                <li><a id="rodape" href="#companhia">Companhia</a></li>
 
+                <img src="..\VI_Vagas\páginas\logoFinal.png" alt="Logo Final">
+
+                <li><a id="rodape" href="#helpDesk">Help Desk</a></li>
+                <li><a id="rodape" href="#blog">Blog</a></li>
+                <li><a id="rodape" href="#recursos">Recursos</a></li>
+            </ul>
+            <br>
+        </div>
+
+        <div id="redesSociais">
+            <nav class="btn_social">
+
+                <ul>
+                    <li><a href="#" target="_blank" title="facebook"><i class="icon icon-facebook"></i></a></li>
+                    <li><a href="#" target="_blank" title="instagram"><i class="icon icon-instagram"></i></a></li>
+                    <li><a href="#" target="_blank" title="youtube"><i class="icon icon-youtube"></i></a></li>
+                    <li><a href="#" target="_blank" title="youtube"><i class="icon icon-whatsapp"></i></a></li>
+                    <li><a href="#" target="_blank" title="linkdin"><i class="icon icon-linkedin"></i></a></li>
+
+                </ul>
+            </nav>
+        </div>
+
+        <p>
+            Obrigado por acessar o site. Nós amamos nossos usuários!
+        </p>
+    </footer>
 </body>
 
 </html>
