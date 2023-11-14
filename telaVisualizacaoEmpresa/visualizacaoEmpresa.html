@@ -26,42 +26,94 @@
 
         /* Estilo personalizado para caixas de input */
 
-        .custom-input {
-            border-radius: 10px;
-            /* Borda arredondada */
+        header {
             background-color: #C2D7E8;
-            /* Cor de fundo personalizada */
-        }
-
-        /* Estilo para o cabeçalho */
-
-        .header {
-            background-color: #C2D7E8;
-            padding: 20px 0;
-            border-radius: 0 0 10px 10px;
-            text-align: center;
+            color: #2C5DAE;
             display: flex;
             justify-content: space-between;
-            /* Alinhe à direita */
+            /* Espaço entre os elementos para alinhar à esquerda e à direita */
             align-items: center;
-            /* Alinhe verticalmente ao centro */
-        }
-
-        .header-logo-responsive {
-            margin-left: 1%;
-            width: 10%;
-            /* Tamanho da logo */
-            height: auto;
-            float: left;
-            /* Alinhar a logo à esquerda */
-        }
-
-        .header-links-responsive {
+            /* Centralize horizontalmente */
+            padding: 10px;
+            /* Adicione espaçamento interno */
+            overflow: hidden;
+            text-align: center;
             text-decoration: none;
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        #menu {
+            color: #2C5DAE;
+            /* Adicione a cor do texto desejada */
+            padding: 30px 50px 30px 50px;
+            text-decoration: none;
+            list-style: none;
+            list-style-type: none;
+            font-size: 25px;
+        }
+
+        /* Estilo para a lista <ul> que contém a imagem, no canto esquerdo */
+        ul #ul-imagem {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+        }
+
+        li {
+            float: left;
+            text-decoration: none;
+            display: block;
+            list-style-type: none;
+        }
+
+        /* Estilo para a imagem no cabeçalho */
+        img {
+            max-width: 150px;
+            /* Define a largura máxima da imagem, ajuste conforme necessário */
+        }
+
+        /* Estilo para a lista <ul> que contém os botões, no canto direito */
+        ul#ul-botoes {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+
+        }
+
+        /* Estilo para os botões de "Entrar" e "Cadastrar-se" no cabeçalho */
+        ul#ul-botoes button {
+            background-color: #4c4c4c;
+            /* Adicione a cor de fundo desejada */
+            color: #fff;
+            /* Adicione a cor do texto desejada */
+            border: none;
+            padding: 10px 20px;
+            /* Adicione espaçamento interno */
+            margin: 10px;
+            /* Adicione espaçamento vertical aos botões */
+            text-decoration: none;
+        }
+
+        #logar,
+        #cadastrar {
+            background-color: #fff;
+            /* Adicione a cor de fundo desejada */
+            color: #1F78D1;
+            /* Adicione a cor do texto desejada */
+            border-radius: 8px;
+            border: 1px solid #1F78D1;
+            padding: 10px 20px;
+            /* Adicione espaçamento interno */
             margin: 0 20px;
-            font-size: 150%;
-            color: #ffffff;
-            /* Cor dos links */
+            /* Adicione espaçamento lateral aos botões */
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
         }
 
         .custom-heading-responsive {
@@ -73,17 +125,7 @@
             letter-spacing: -1.65px;
         }
 
-        .d-flex {
-            margin-top: 20px;
-            /* Afastar a frase do botão */
-        }
 
-        .btn-custom {
-            margin-right: 10%;
-            padding-left: 10%;
-            padding-right: 10%;
-            margin-top: -2%;
-        }
 
         .pictures {
             width: 85%;
@@ -190,26 +232,29 @@
             margin-top: 5%;
             position: absolute;
             top: 90%;
-            right: 147% ;
+            right: 147%;
             transform: translate(-50%, -50%);
         }
     </style>
 </head>
 
 <body>
-    <div class="header">
-        <img class="header-logo-responsive" src="img/logo1.png" alt="">
-        <div class="header-links-responsive">
-            <a class="header-links-responsive" href="#">Home</a>
-            <a class="header-links-responsive" href="#">Sobre nós</a>
-            <a class="header-links-responsive" href="#">Ajuda</a>
+    <header>
+        <div>
+            <img src="../telaVisualizacaoEmpresa/img/logo1.png" alt="Logo Final">
         </div>
-        <div class="d-flex align-items-center ml-4" style="width: 300px;">
-            <!-- Aumente a largura do contêiner -->
-            <h3 class="frase-responsive" style="font-size: 18px;">Já possui cadastro?</h3>
-            <button class="btn btn-primary btn-custom ml-2">Login</button>
+        <nav>
+            <ul id="navegacaoHeader">
+                <li><a id="menu" href="#home">Home</a></li>
+                <li><a id="menu" href="#sobre">Sobre Nós</a></li>
+                <li><a id="menu" href="#ajuda">Ajuda</a></li>
+            </ul>
+        </nav>
+        <div>
+            <button id="logar">Entrar</button>
+            <button id="cadastrar">Cadastrar-se</button>
         </div>
-    </div>
+    </header>
     <div class="container center-form">
         <!-- Adicione a classe "center-form" para centralizar -->
         <div class="py-5 text-center">
