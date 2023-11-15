@@ -13,6 +13,7 @@
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <!-- Estilos customizados para esse template -->
     <link href="form-validation.css" rel="stylesheet">
+    <script src="editarEmpresa.php"></script>
 
     <style>
         body {
@@ -449,7 +450,7 @@
             <form action="">
 
                 <div class="inputBox">
-                    <input type="text" name="empresa" id="empresa" class="inputUser" placeholder="Nome">
+                    <input type="text" name="nome" id="nome" class="inputUser" placeholder="Nome">
                     <label for="empresa" class="labelInput"></label>
                 </div>
                 <div class="inputBox">
@@ -496,46 +497,56 @@
 
 
         </script>
-            <div class="button">
-                <button type="button" class="btn btn-outline-info">Salvar alterações</button>
-            </div>
+        <div class="button">
+            <button type="submit" class="btn btn-outline-info" onclick="atualizarDados()">Salvar
+                alterações</button>
+        </div>
+        <script>
+            function atualizarDados() {
+                // Atualiza os dados no banco de dados
+                // ...
 
-    </div >
-                <footer>
-                    <br>
-                        <div id="links">
-                            <ul>
-                                <li><a id="rodape" href="#mobile">Mobile App</a></li>
-                                <li><a id="rodape" href="#quemSomos">Quem Somos</a></li>
-                                <li><a id="rodape" href="#companhia">Companhia</a></li>
+                // Abre uma caixa de diálogo
+                alert("Seus dados foram alterados com sucesso!");
+            }
+        </script>
 
-                                <img src="../editarPerfilEmpresa/img/logo1.png" alt="Logo Final">
+    </div>
+    <footer>
+        <br>
+        <div id="links">
+            <ul>
+                <li><a id="rodape" href="#mobile">Mobile App</a></li>
+                <li><a id="rodape" href="#quemSomos">Quem Somos</a></li>
+                <li><a id="rodape" href="#companhia">Companhia</a></li>
 
-                                    <li><a id="rodape" href="#helpDesk">Help Desk</a></li>
-                                    <li><a id="rodape" href="#blog">Blog</a></li>
-                                    <li><a id="rodape" href="#recursos">Recursos</a></li>
-                            </ul>
-                            <br>
-                        </div>
+                <img src="../editarPerfilEmpresa/img/logo1.png" alt="Logo Final">
 
-                        <div id="redesSociais">
-                            <nav class="btn_social">
+                <li><a id="rodape" href="#helpDesk">Help Desk</a></li>
+                <li><a id="rodape" href="#blog">Blog</a></li>
+                <li><a id="rodape" href="#recursos">Recursos</a></li>
+            </ul>
+            <br>
+        </div>
 
-                                <ul>
-                                    <li><a href="#" target="_blank" title="facebook"><i class="icon icon-facebook"></i></a></li>
-                                    <li><a href="#" target="_blank" title="instagram"><i class="icon icon-instagram"></i></a></li>
-                                    <li><a href="#" target="_blank" title="youtube"><i class="icon icon-youtube"></i></a></li>
-                                    <li><a href="#" target="_blank" title="youtube"><i class="icon icon-whatsapp"></i></a></li>
-                                    <li><a href="#" target="_blank" title="linkdin"><i class="icon icon-linkedin"></i></a></li>
+        <div id="redesSociais">
+            <nav class="btn_social">
 
-                                </ul>
-                            </nav>
-                        </div>
+                <ul>
+                    <li><a href="#" target="_blank" title="facebook"><i class="icon icon-facebook"></i></a></li>
+                    <li><a href="#" target="_blank" title="instagram"><i class="icon icon-instagram"></i></a></li>
+                    <li><a href="#" target="_blank" title="youtube"><i class="icon icon-youtube"></i></a></li>
+                    <li><a href="#" target="_blank" title="youtube"><i class="icon icon-whatsapp"></i></a></li>
+                    <li><a href="#" target="_blank" title="linkdin"><i class="icon icon-linkedin"></i></a></li>
 
-                        <p>
-                            Obrigado por acessar o site. Nós amamos nossos usuários!
-                        </p>
-                </footer>
-</body >
+                </ul>
+            </nav>
+        </div>
 
-</html >
+        <p>
+            Obrigado por acessar o site. Nós amamos nossos usuários!
+        </p>
+    </footer>
+</body>
+
+</html>
