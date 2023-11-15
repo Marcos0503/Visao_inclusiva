@@ -269,71 +269,68 @@
             /* Centralizar o texto dentro das divs */
 
         }
-            /*Estiliza botões de rede sociail*/
 
-            .btn_social {
-                width: 100%;
-                float: left;
-                display: flex;
-                margin: auto;
-            }
+        /*Estiliza botões de rede sociail*/
 
-            .btn_social ul {
-                width: auto;
-                margin: auto;
-                float: left;
-                display: block;
-            }
+        .btn_social {
+            width: 100%;
+            float: left;
+            display: flex;
+            margin: auto;
+        }
 
-            .btn_social ul li {
-                position: relative;
-                background: #555555;
-                list-style: none;
-                float: left;
-                margin: 5px;
-                z-index: 1;
-                overflow: hidden;
-                border-radius: 3px;
-                font-size: 1.5em;
-                text-align: center;
-            }
+        .btn_social ul {
+            width: auto;
+            margin: auto;
+            float: left;
+            display: block;
+        }
 
-            .btn_social ul li a {
-                width: 50px;
-                height: 50px;
-                line-height: 53px;
-                display: block;
-                text-decoration: none;
-                color: #fff;
-                transition: .4s;
-            }
+        .btn_social ul li {
+            position: relative;
+            background: #555555;
+            list-style: none;
+            float: left;
+            margin: 5px;
+            z-index: 1;
+            overflow: hidden;
+            border-radius: 3px;
+            font-size: 1.5em;
+            text-align: center;
+        }
 
-            .btn_social ul li::before {
-                transition: 0.4s;
-                position: absolute;
-                content: '';
-                width: 100%;
-                height: 100%;
-                top: 90%;
-                left: 0;
-                background: #2fc4cf;
-                z-index: -1;
-                transform: scale(1);
-                transition: .4s;
-            }
+        .btn_social ul li a {
+            width: 50px;
+            height: 50px;
+            line-height: 53px;
+            display: block;
+            text-decoration: none;
+            color: #fff;
+            transition: .4s;
+        }
 
-            .btn_social ul li:hover::before {
-                transition: 0.4s;
-                top: 0%;
-            }
+        .btn_social ul li::before {
+            transition: 0.4s;
+            position: absolute;
+            content: '';
+            width: 100%;
+            height: 100%;
+            top: 90%;
+            left: 0;
+            background: #2fc4cf;
+            z-index: -1;
+            transform: scale(1);
+            transition: .4s;
+        }
 
-            .btn_social ul li a:hover {
-                color: #555555;
-            }
+        .btn_social ul li:hover::before {
+            transition: 0.4s;
+            top: 0%;
+        }
 
-            
-
-        
+        .btn_social ul li a:hover {
+            color: #555555;
+        }
     </style>
 </head>
 
@@ -369,25 +366,25 @@
                 </label>
                 <input type="file" accept="image/*" id="picture__input" />
 
-                <div class="inputBox">
-                    <input type="text" name="codigo" id="nome" class="inputUser" required>
-                    <label for="nome" class="labelInput">Nome</label>
+                <div class="mb-3">
+                    <input type="text" name="codigo" id="nome" class="inputUser" placeholder="Nome" required>
+                    <label for="nome" class="labelInput"></label>
                 </div>
-                <div class="inputBox">
-                    <input type="text" name="codigo" id="telefone" class="inputUser" required>
-                    <label for="telefone" class="labelInput">Telefone</label>
+                <div class="mb-3">
+                    <input type="text" name="codigo" id="telefone" class="inputUser" placeholder="Telefone" required>
+                    <label for="telefone" class="labelInput"></label>
                 </div>
-                <div class="inputBox">
-                    <input type="text" name="codigo" id="cid" class="inputUser" required value="<?=$codigo?>">
-                    <label for="cid" class="labelInput">CID</label>
+                <div class="mb-3">
+                    <input type="text" name="codigo" id="cid" class="inputUser" placeholder="Cid" required>
+                    <label for="cid" class="labelInput"></label>
                 </div>
-                <div class="inputBox">
-                    <input type="text" name="codigo" id="endereco" class="inputUser" required>
-                    <label for="endereco" class="labelInput">Endereço</label>
+                <div class="mb-3">
+                    <input type="text" name="codigo" id="endereco" class="inputUser" placeholder="Endereço" required>
+                    <label for="endereco" class="labelInput"></label>
                 </div>
-                <div class="inputBox">
-                    <input type="email" name="codigo" id="email" class="inputUser" required>
-                    <label for="email" class="labelInput">Email</label>
+                <div class="mb-3">
+                    <input type="email" name="codigo" id="email" class="inputUser" placeholder="Email" required>
+                    <label for="email" class="labelInput"></label>
                 </div>
             </form>
         </div>
@@ -407,6 +404,26 @@
                 </div>
             </form>
         </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+        <script src="../../assets/js/vendor/popper.min.js"></script>
+        <script src="../../dist/js/bootstrap.min.js"></script>
+        <script src="../../assets/js/vendor/holder.min.js"></script>
+        <!--  mascara dos inputs-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
+            integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
+            // mascara do telefone utilizando jquery 
+            $('#telefone').mask('(00) 00000-0000');
+
+            // mascara do telefone utilizando jquery 
+            $('#cid').mask('A00');
+            // mascara do   CID
+
+        </script>
         <div class="button">
             <button type="button" class="btn btn-outline-info">Salvar alterações</button>
         </div>
