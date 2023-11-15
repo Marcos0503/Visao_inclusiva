@@ -1,34 +1,23 @@
-<?php
-    $id='';
-    $nome='';
-    $telefone='';
-    $CID='';
-    $endereco='';
-    $email='';
-    $sobre='';
-    $formacao='';
-    $experiencia='';
+<?php 
+function atualizarDados($nome, $telefone, $cid, $endereco, $email) {
+  // Conecte-se ao banco de dados
+  $conn = new PDO("mysql:host=localhost;dbname=visãoinclusiva", "root", "");
 
-    $codigo = filter_var($_POST["codigo"], filter_validate_int);
+  // Prepare a instrução SQL
+  $stmt = $conn->prepare("UPDATE clientes SET nome = ?, telefone = ?, cid = ?, endereco = ?, email = ? WHERE id = ?");
 
-    
+  // Vincule os parâmetros
+  $stmt->bindParam(1, $nome);
+  $stmt->bindParam(2, $telefone);
+  $stmt->bindParam(3, $cid);
+  $stmt->bindParam(5, $endereco);
+  $stmt->bindParam(6, $email);
+
+  // Execute a instrução SQL
+  $stmt->execute();
+
+  // Feche a conexão com o banco de dados
+  $conn = null;
+}
+
 ?>
-
-<!--CREATE TABLE `cadastro_pessoal` (
-  `id` int(11) NOT NULL,
-  `nome_completo` varchar(255) NOT NULL,
-  `CPF` char(11) NOT NULL,
-  `date_nasc` date DEFAULT NULL,
-  `telefone` varchar(15) DEFAULT NULL,
-  `recado` varchar(15) DEFAULT NULL,
-  `CID` varchar(10) DEFAULT NULL,
-  `rua` varchar(255) DEFAULT NULL,
-  `numero` varchar(10) DEFAULT NULL,
-  `cidade` varchar(100) DEFAULT NULL,
-  `estado` varchar(50) DEFAULT NULL,
-  `CEP` char(8) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `senha` varchar(255) DEFAULT NULL,
-  `curriculo` longblob DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-

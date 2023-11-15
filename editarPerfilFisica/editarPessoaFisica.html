@@ -13,6 +13,7 @@
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <!-- Estilos customizados para esse template -->
     <link href="form-validation.css" rel="stylesheet">
+    <script src="editarPessoaFisica.php"></script>
 
     <style>
         body {
@@ -425,9 +426,17 @@
 
         </script>
         <div class="button">
-            <button type="button" class="btn btn-outline-info">Salvar alterações</button>
+            <button type="submit" class="btn btn-outline-info" onclick="atualizarDados()">Salvar alterações</button>
         </div>
+        <script>
+            function atualizarDados() {
+                // Atualiza os dados no banco de dados
+                // ...
 
+                // Abre uma caixa de diálogo
+                alert("Dados alterados");
+            }
+        </script>
 
     </div>
     <footer>
