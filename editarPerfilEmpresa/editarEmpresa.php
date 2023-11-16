@@ -4,7 +4,7 @@ function atualizarDados($nome, $telefone, $endereco, $email) {
   $conn = new PDO("mysql:host=localhost;dbname=visãoinclusiva", "root", "");
 
   // Prepare a instrução SQL
-  $stmt = $conn->prepare("UPDATE clientes SET nome = ?, telefone = ?, endereco = ?, email = ?WHERE id = ?");
+  $stmt = $conn->prepare("UPDATE cadastro_pj SET nome = ?, telefone = ?, endereco = ?, email = ? WHERE id = ?");
 
   // Vincule os parâmetros
   $stmt->bindParam(1, $nome);
