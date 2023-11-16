@@ -82,6 +82,8 @@ CREATE TABLE `cadastro_vagas` (
   `salario` decimal(10,2) DEFAULT NULL,
   `tipo_contrato` varchar(50) DEFAULT NULL,
   `requisitos` text DEFAULT NULL,
+  `atividades` text DEFAULT NULL,
+  `beneficios` text DEFAULT NULL,
   `imagem` varchar(100) NOT NULL
 
 ); ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
