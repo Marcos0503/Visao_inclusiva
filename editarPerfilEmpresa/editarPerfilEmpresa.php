@@ -502,34 +502,29 @@ include "conexao.php";
 
         </script>
         <div class="button">
-            <button type="submit" class="btn btn-outline-info" onclick="atualizarDados()">Salvar
+            <button type="submit" class="btn btn-outline-info" onclick="atualizar_Dados()">Salvar
                 alterações</button>
         </div>
         <script>
-            function atualizarDados() {
-                var xhr = new XMLHttpRequest();
+                function atualizar_Dados($nome, $telefone, $endereco, $email) {
+                    // Conecte-se ao banco de dados
+                    $conn = new PDO("mysql:host=localhost;dbname=visãoinclusiva", "root", "");
 
-                // Especifique o método e o URL do arquivo PHP que contém a função
-                xhr.open("POST", "function.php", true);
+                    // Prepare a instrução SQL
+                    $stmt = $conn -> prepare("UPDATE cadastro_pj SET nome = ?, telefone = ?, endereco = ?, email = ? WHERE id = ?");
 
-                // Configurar cabeçalhos para enviar dados como um formulário
-                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    // Vincule os parâmetros
+                    $stmt -> bindParam(1, $nome);
+                    $stmt -> bindParam(2, $telefone);
+                    $stmt -> bindParam(3, $endereco);
+                    $stmt -> bindParam(4, $email);
 
-                // Parâmetros a serem enviados para a função PHP
-                var params = "nome=NovoNome&telefone=NovoTelefone&endereco=NovoEndereco&email=NovoEmail";
+                    // Execute a instrução SQL
+                    $stmt -> execute();
 
-                // Configurar a função de retorno de chamada para lidar com a resposta do servidor
-                xhr.onreadystatechange = function() {
-                    if (xhr.readyState === 4 && xhr.status === 200) {
-                        // A resposta do servidor está pronta
-                        alert("Seus dados foram alterados com sucesso!");
-                    }
-                };
-
-                // Envie a solicitação com os parâmetros
-                xhr.send(params);
-        }
-         
+                    // Feche a conexão com o banco de dados
+                    $conn = null;
+                }
         </script>
 
     </div>
