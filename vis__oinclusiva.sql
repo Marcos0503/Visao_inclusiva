@@ -82,8 +82,12 @@ CREATE TABLE `cadastro_vagas` (
   `localizacao` varchar(100) DEFAULT NULL,
   `salario` decimal(10,2) DEFAULT NULL,
   `tipo_contrato` varchar(50) DEFAULT NULL,
+  `requisitos` text DEFAULT NULL,
+  `atividades` text DEFAULT NULL,
+  `beneficios` text DEFAULT NULL,
   `requisitos` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+);
+
 
 --
 -- Índices para tabelas despejadas
