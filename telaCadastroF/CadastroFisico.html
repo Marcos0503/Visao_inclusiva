@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="../../../../favicon.ico">
+  <title>Visão inclusiva</title>
+  <!-- Principal CSS do Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <!-- Estilos customizados para esse template -->
+  <link href="form-validation.css" rel="stylesheet">
+  <!-- link do  bootstrap css-->
+  <link href="css\bootstrapfisico.css" rel="stylesheet">
+  <link href="css\telavagas.css" rel="stylesheet">
+
+  
+</head>
+
+<body>
+  <div class="header">
+    <img class="header-logo-responsive" src="img/logo1.png" alt=""> 
+    <div class="header-links-responsive">
+        <a class="header-links-responsive" href="#">Home</a>
+        <a class="header-links-responsive" href="#">Sobre nós</a>
+        <a class="header-links-responsive" href="#">Ajuda</a>
+    </div>
+    <div class="d-flex align-items-center ml-4" style="width: 300px;"> <!-- Aumente a largura do contêiner -->
+        <h3 class="frase-responsive" style="font-size: 18px;">Já possui cadastro?</h3>
+        <button class="btn btn-primary btn-custom ml-2">Login</button>
+    </div>
+  </div>
+  <div class="container center-form"> <!-- Adicione a classe "center-form" para centralizar -->
+    <div class="py-5 text-center">
+      <h2 class="custom-heading-responsive">Cadastro Pessoa Física</h2>
+      <p class="lead"></p>
+    </div>
+    <div class="col-md-8 order-md-1">
+      <form class="needs-validation" novalidate>
+        <div class="mb-3">
+          <label for="nomeCompleto"></label>
+          <input type="text" class="form-control custom-input" id="nomeCompleto" placeholder="Nome Completo" required>
+          <div class="invalid-feedback" style="width: 100%;">
+            O Nome é obrigatório
+          </div>
+        </div>
+      <div class="mb-3">
+        <label for="cnpf"></label>
+        <input type="text" class="form-control custom-input" id="cpf" placeholder="CPF" required>
+        <div class="invalid-feedback" style="width: 100%;">
+          Seu CPF é obrigatório.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="telefone"></label>
+        <input type="text" class="form-control custom-input".cel-sp-mask id="telefone" placeholder="Telefone" required>
+        <div class="invalid-feedback" style="width: 100%;">
+          Seu Telefone é obrigatório.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="cid"></label>
+        <input type="text" class="form-control custom-input".cel-sp-mask id="cid" placeholder="CID" required>
+        <div class="invalid-feedback" style="width: 100%;">
+          Seu CID é obrigatório.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="email"><span class="text-muted"></span></label>
+        <input type="email" class="form-control custom-input" id="email" placeholder="fulano@exemplo.com" required>
+        <div class="invalid-feedback">
+          Por favor, insira um endereço de e-mail válido.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="endereco"></label>
+        <input type="text" class="form-control custom-input" id="endereco" placeholder="Rua, nº 0" required>
+        <div class="invalid-feedback">
+          Por favor, insira seu endereço.
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5 mb-3">
+          <label for="pais">País</label>
+          <select class="custom-select d-block w-100" id="pais" required>
+            <option value="">Escolha...</option>
+          </select>
+          <div class="invalid-feedback">
+            Por favor, escolha um país válido.
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="estado">Estado</label>
+          <select class="custom-select d-block w-100" id="estado" required>
+            <option value="">Escolha...</option>
+          </select>
+          <div class="invalid-feedback">
+            Por favor, insira um estado válido.
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="cep">CEP</label>
+          <input type="text" class="form-control custom-input" id="cep" placeholder="" required>
+          <div class="invalid-feedback">
+            É obrigatório inserir um CEP.
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="senha"></label>
+        <input type="password" class="form-control custom-input" id="senha" placeholder="Senha" required>
+        <div class="invalid-feedback" style="width: 100%;">
+          A senha é obrigatória.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="confirmarSenha"></label>
+        <input type="password" class="form-control custom-input" id="confirmarSenha" placeholder="Confirmar Senha"
+          required>
+        <div class="invalid-feedback" style="width: 100%;">
+          A confirmação de senha é obrigatória.
+        </div>
+        <br>
+       <div class="mb-3">
+          <input type="file"  class="btn btn-primary" name="curriculo"  id="curriculo"> <br><br>
+          <input type="submit" class="btn btn-primary" value="Enviar Arquivo">
+          </div>
+          
+       
+        </div>
+      <hr class="mb-4">
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="mesmo-endereco">
+        <label class="custom-control-label" for="mesmo-endereco">Lembrar desta informação, na próxima vez.</label>
+      </div>
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="salvar-info">
+        <label class="custom-control-label" for="salvar-info">Li e concordo com os termos de Privacidade.</label>
+      </div>
+      <hr class="mb-4">
+      <div id="senhaMismatch" style="color: red; display: none;">As senhas não coincidem.</div>
+      <button class="btn btn-primary btn-lg btn-block" type="submit">Cadastre-se</button>
+    </form>
+  </div>
+</div>
+
+<!-- Principal JavaScript do Bootstrap
+  ================================================== -->
+<!-- Foi colocado no final para a página carregar mais rápido -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+<script src="../../assets/js/vendor/popper.min.js"></script>
+<script src="../../dist/js/bootstrap.min.js"></script>
+<script src="../../assets/js/vendor/holder.min.js"></script>
+<!--  mascara dos inputs-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+// mascara do telefone utilizando jquery 
+$('#telefone').mask('(00) 00000-0000');
+
+// mascara do telefone utilizando jquery 
+$('#cid').mask('');
+// mascara do   CID
+
+
+$(document).ready(function() {
+  $('#cid').mask('A00.0', {
+    translation: {
+      'a': { pattern: /[A-HJ-NP-Z]/ }
+    }
+  });
+});
+
+// Verificar se as senhas coincidem
+const senha = document.getElementById('senha');
+  const confirmarSenha = document.getElementById('confirmarSenha');
+  const senhaMismatch = document.getElementById('senhaMismatch');
+
+  senha.addEventListener('input', function () {
+    if (senha.value !== confirmarSenha.value) {
+      senhaMismatch.style.display = 'block';
+    } else {
+      senhaMismatch.style.display = 'none';
+    }
+  });
+
+  confirmarSenha.addEventListener('input', function () {
+    if (senha.value !== confirmarSenha.value) {
+      senhaMismatch.style.display = 'block';
+    } else {
+      senhaMismatch.style.display = 'none';
+    }
+  });
+  // Carrega as opções de países a partir do arquivo "paises.json"
+  fetch('js/paises.json')
+    .then(response => response.json())
+    .then(data => {
+      const selectPais = document.getElementById('pais');
+      data.forEach(pais => {
+        const option = document.createElement('option');
+        option.textContent = pais;
+        option.value = pais;
+        selectPais.appendChild(option);
+      });
+    });
+
+  // Carrega as opções de estados a partir do arquivo "estados.json"
+  fetch('js/estados.json')
+    .then(response => response.json())
+    .then(data => {
+      const selectEstado = document.getElementById('estado');
+      data.forEach(estado => {
+        const option = document.createElement('option');
+        option.textContent = estado;
+        option.value = estado;
+        selectEstado.appendChild(option);
+      });
+    });
+
+  // Exemplo de JavaScript para desativar o envio do formulário, se tiver algum campo inválido.
+  (function () {
+    'use strict';
+
+    window.addEventListener('load', function () {
+      // Selecione todos os campos que nós queremos aplicar estilos Bootstrap de validação customizados.
+      var forms = document.getElementsByClassName('needs-validation');
+
+      // Faz um loop neles e previne envio
+      var validation = Array.prototype.filter.call(forms, function (form) {
+        form.addEventListener('submit', function (event) {
+          if (form.checkValidity() === false || senha.value !== confirmarSenha.value) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
+</script>
+<br>
+<footer>
+  <br>
+  <div id="links">
+          <ul>
+              <li><a id="rodape" href="#mobile">Mobile App</a></li>
+              <li><a id="rodape" href="#quemSomos">Quem Somos</a></li>
+              <li><a id="rodape" href="#companhia">Companhia</a></li>
+
+      <img src="\..\img\logoFinal.png">
+
+              <li><a id="rodape" href="#helpDesk">Help Desk</a></li>
+              <li><a id="rodape" href="#blog">Blog</a></li>
+              <li><a id="rodape" href="#recursos">Recursos</a></li>
+          </ul>
+          <br>
+      </div>
+  <div id="redesSociais">
+     
+      <nav class="btn_social">
+              
+         <ul>
+             <li><a href="#" target="_blank" title="facebook"><i class="icon icon-facebook"></i></a></li>
+             <li><a href="#" target="_blank" title="instagram"><i class="icon icon-instagram"></i></a></li>
+             <li><a href="#" target="_blank" title="youtube"><i class="icon icon-youtube"></i></a></li>
+             <li><a href="#" target="_blank" title="youtube"><i class="icon icon-whatsapp"></i></a></li>
+             <li><a href="#" target="_blank" title="linkdin"><i class="icon icon-linkedin"></i></a></li>
+
+         </ul>
+      </nav>
+      
+  </div>
+</footer>
+</div>      
+
+</body>
+
+</html>
