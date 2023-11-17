@@ -429,12 +429,12 @@ $id_empresa = isset($_SESSION['id_empresa']) ? $_SESSION['id_empresa'] : null;
 
                     if ($result && mysqli_num_rows($result) == 1) {
                         $row = mysqli_fetch_assoc($result);
-                        echo "<p class='company-info'>Nome da Empresa: " . $row['nome_empresa'] . "</p>";
-                        echo "<p class='company-info'>Ramo da Empresa: " . $row['ramo_empresa'] . "</p>";
-                        echo "<p class='company-info'>E-mail: " . $row['email'] . "</p>";
-                        echo "<p class='company-info'>Telefone: " . $row['telefone'] . "</p>";
-                        echo "<p class='company-info'>Endereço: " . $row['rua'] . ", " . $row['bairro'] . ", " . $row['cidade'] . ", " . $row['estado'] . "</p>";
-                        echo "<p class='company-info'>CEP: " . $row['CEP'] . "</p>";
+                        echo "<p class='inputUser'>Nome da Empresa: " . $row['nome_empresa'] . "</p>";
+                        echo "<p class='inputUser'>Ramo da Empresa: " . $row['ramo_empresa'] . "</p>";
+                        echo "<p class='inputUser'>E-mail: " . $row['email'] . "</p>";
+                        echo "<p class='inputUser'>Telefone: " . $row['telefone'] . "</p>";
+                        echo "<p class='inputUser'>Endereço: " . $row['rua'] . ", " . $row['bairro'] . ", " . $row['cidade'] . ", " . $row['estado'] . "</p>";
+                        echo "<p class='inputUser'>CEP: " . $row['CEP'] . "</p>";
                     } else {
                         echo "Empresa não encontrada.";
                     }
