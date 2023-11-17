@@ -109,43 +109,43 @@
     <div class="col-md-8 order-md-1">
       <form class="needs-validation" novalidate name = "Cadastro" action = "Cadastrar.php" method = "POST">
         <div class="mb-3">
-          <label for="razaoSocial"></label>
-          <input type="text" class="form-control custom-input" id="razaoSocial" placeholder="Razão Social" required>
+          <label for="nome_empresa"></label>
+          <input type="text" class="form-control custom-input" id="nome_empresa" name="nome_empresa" placeholder="Razão Social" required>
           <div class="invalid-feedback" style="width: 100%;">
             A Razão Social é obrigatória.
           </div>
         </div>
       <div class="mb-3">
-        <label for="cnpj"></label>
-        <input type="text" class="form-control custom-input" id="cnpj" placeholder="CNPJ" required>
+        <label for="CNPJ"></label>
+        <input type="text" class="form-control custom-input" id="CNPJ" name="CNPJ" placeholder="CNPJ" required>
         <div class="invalid-feedback" style="width: 100%;">
           Seu CNPJ é obrigatório.
         </div>
       </div>
       <div class="mb-3">
-        <label for="ramo"></label>
-        <input type="text" class="form-control custom-input" id="ramo" placeholder="Ramo de Atividade" required>
+        <label for="ramo_empresa"></label>
+        <input type="text" class="form-control custom-input" id="ramo_empresa" name="ramo_empresa" placeholder="Ramo de Atividade" required>
         <div class="invalid-feedback" style="width: 100%;">
           O ramo é obrigatória.
         </div>
       </div>
       <div class="mb-3">
-        <label for="email"><span class="text-muted"></span></label>
-        <input type="email" class="form-control custom-input" id="email" placeholder="rh@empresa.com" required>
+        <label for="email_empresa"><span class="text-muted"></span></label>
+        <input type="email" class="form-control custom-input" id="email" name="email" placeholder="rh@empresa.com" required>
         <div class="invalid-feedback">
           Por favor, insira um endereço de e-mail válido.
         </div>
       </div>
       <div class="mb-3">
         <label for="telefone"></label>
-        <input type="int" class="form-control custom-input" id="telefone" placeholder="Telefone" required>
+        <input type="tel" class="form-control custom-input" id="telefone" name="telefone" placeholder="Telefone" required>
         <div class="invalid-feedback" style="width: 100%;">
           O telefone para contrato é obrigatória.
         </div>
       </div>
       <div class="mb-3">
-        <label for="endereco"></label>
-        <input type="text" class="form-control custom-input" id="endereco" placeholder="Rua, nº 0" required>
+        <label for="rua"></label>
+        <input type="text" class="form-control custom-input" id="rua" name="rua" placeholder="Rua, nº 0" required>
         <div class="invalid-feedback">
           Por favor, insira seu endereço.
         </div>
@@ -153,14 +153,14 @@
       <div class="form-row">
         <div class="col-md-6 mb-3">
           <label for="cidade"></label>
-          <input type="text" class="form-control custom-input" id="cidade" placeholder="Cidade" required>
+          <input type="text" class="form-control custom-input" id="cidade" name="cidade" placeholder="Cidade" required>
           <div class="invalid-feedback">
             Por favor, insira uma cidade válida.
           </div>
         </div>
         <div class="col-md-6 mb-3">
           <label for="bairro"></label>
-          <input type="text" class="form-control custom-input" id="bairro" placeholder="Bairro" required>
+          <input type="text" class="form-control custom-input" id="bairro" name="bairro" placeholder="Bairro" required>
           <div class="invalid-feedback">
             Por favor, insira um bairro válido.
           </div>
@@ -169,7 +169,7 @@
       <div class="row">
         <div class="col-md-5 mb-3">
           <label for="pais">País</label>
-          <select class="custom-select d-block w-100" id="pais" required>
+          <select class="custom-select d-block w-100" id="pais" name="pais" required>
             <option value="">Escolha...</option>
           </select>
           <div class="invalid-feedback">
@@ -178,7 +178,7 @@
         </div>
         <div class="col-md-4 mb-3">
           <label for="estado">Estado</label>
-          <select class="custom-select d-block w-100" id="estado" required>
+          <select class="custom-select d-block w-100" id="estado" name="estado" required>
             <option value="">Escolha...</option>
           </select>
           <div class="invalid-feedback">
@@ -186,8 +186,8 @@
           </div>
         </div>
         <div class="col-md-3 mb-3">
-          <label for="cep">CEP</label>
-          <input type="text" class="form-control custom-input" id="cep" placeholder="" required>
+          <label for="CEP">CEP</label>
+          <input type="text" class="form-control custom-input" id="CEP" name="CEP" placeholder="" required>
           <div class="invalid-feedback">
             É obrigatório inserir um CEP.
           </div>
@@ -195,7 +195,7 @@
       </div>
       <div class="mb-3">
         <label for="senha"></label>
-        <input type="password" class="form-control custom-input" id="senha" placeholder="Senha" required>
+        <input type="password" class="form-control custom-input" id="senha" name="senha" placeholder="Senha" required>
         <div class="invalid-feedback" style="width: 100%;">
           A senha é obrigatória.
         </div>
@@ -307,6 +307,42 @@ const senha = document.getElementById('senha');
       });
     }, false);
   })();
+  document.getElementById('CNPJ').addEventListener('input', function (e) {
+    var value = e.target.value.replace(/\D/g, '');
+    if (value.length === 14) {
+      e.target.value = value.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, '$1.$2.$3/$4-$5');
+    } else {
+      e.target.value = value;
+    }
+  });
+  document.getElementById('telefone').addEventListener('input', function (e) {
+    var value = e.target.value.replace(/\D/g, '');
+    if (value.length === 11) {
+      e.target.value = value.replace(/^(\d{2})(\d{1})(\d{4})(\d{4})$/, '($1) $2 $3-$4');
+    } else if (value.length === 10) {
+      e.target.value = value.replace(/^(\d{2})(\d{4})(\d{4})$/, '($1) $2-$3');
+    } else {
+      e.target.value = value;
+    }
+  });
+  document.getElementById('CEP').addEventListener('input', function (e) {
+    var value = e.target.value.replace(/\D/g, '');
+    if (value.length === 8) {
+      e.target.value = value.replace(/^(\d{5})(\d{3})$/, '$1-$2');
+    } else {
+      e.target.value = value;
+    }
+  });
+  document.addEventListener('DOMContentLoaded', function () {
+      <?php
+      // Se o cadastro foi bem-sucedido, exibir o pop-up
+      if (isset($_GET['success']) && $_GET['success'] == 'true') {
+      ?>
+        alert('Cadastro realizado com sucesso');
+      <?php
+      }
+      ?>
+    });
 </script>
 </body>
 

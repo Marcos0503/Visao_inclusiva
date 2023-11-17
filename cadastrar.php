@@ -1,23 +1,32 @@
 <?php
-    $razaoSocial = $_POST['nome_empresa'];
-    $cnpj = $_POST['CNPJ'];
-    $email = $_POST['email_empresa'];
-    $telefone = $_POST['telefone'];
-    $ramo = $_POST['ramo_empresa'];
-    $endereco = $_POST['rua'];
-    $pais = $_POST['pais'];
-    $bairro = $_POST['bairro'];
-    $cidade = $_POST['cidade'];
-    $estado = $_POST['estado'];
-    $cep = $_POST['CEP'];
-    $senha = $_POST['senha'];
-    // Adicione o mesmo para os outros campos do formulário
+$nome_empresa = $_POST['nome_empresa'];
+$CNPJ = $_POST['CNPJ'];
+$email = $_POST['email'];
+$telefone = $_POST['telefone'];
+$ramo_empresa = $_POST['ramo_empresa'];
+$rua = $_POST['rua'];
+$pais = $_POST['pais'];
+$bairro = $_POST['bairro'];
+$cidade = $_POST['cidade'];
+$estado = $_POST['estado'];
+$cep = $_POST['CEP'];
+$senha = $_POST['senha'];
 
-    $strcon = mysqli_connect("localhost", "root", "", "visãoinclusiva") or die("Erro ao conectar com o banco");
+// Conectar ao banco de dados MySQL
+$strcon = mysqli_connect("localhost", "root", "", "visãoinclusiva") or die("Erro ao conectar com o banco");
 
-    $sql = "INSERT INTO cadastro_pj (razaoSocial, cnpj, ramo, email, telefone, endereco, cidade, bairro, pais, estado, cep, senha) VALUES ('$razaoSocial', '$cnpj', '$ramo', '$email', '$telefone', '$endereco', '$cidade', '$bairro', '$pais', '$estado', '$cep', '$senha')";
+// Preparar a consulta SQL para inserir os dados
+$sql = "INSERT INTO cadastro_pj (nome_empresa, CNPJ, email, telefone, ramo_empresa, rua, pais, bairro, cidade, estado, CEP, senha) 
+        VALUES ('$nome_empresa', '$CNPJ', '$email', '$telefone', '$ramo_empresa', '$rua', '$pais', '$bairro', '$cidade', '$estado', '$cep', '$senha')";
 
-    mysqli_query($strcon, $sql) or die('Erro ao tentar cadastrar registro');
+if (mysqli_query($strcon, $sql)) {
+   echo "Cadastro Pessoa Jurídica realizado com sucesso";
+   header("Location: ../telalogin/login.php");
+   exit();
+} else {
+   die('Erro ao tentar cadastrar registro');
+}
 
-    echo "Cadastro Pessoa Jurídica realizado com sucesso";
+print_r($_POST);
 ?>
+
