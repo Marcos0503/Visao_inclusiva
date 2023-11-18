@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "conexao.php";
-$id_empresa = isset($_SESSION['id_empresa']) ? $_SESSION['id_empresa'] : null;
+$id_empresa = isset($_SESSION['id']) ? $_SESSION['id'] : null;
 ?>
 
 <!DOCTYPE html>

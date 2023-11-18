@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 19/10/2023 às 02:34
+-- Tempo de geração: 18/11/2023 às 00:59
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -52,20 +52,30 @@ CREATE TABLE `cadastro_pessoal` (
 --
 
 CREATE TABLE `cadastro_pj` (
-  `id` int(11) NOT NULL,
+  `id_empresa` int(11) NOT NULL,
   `nome_empresa` varchar(255) NOT NULL,
   `CNPJ` char(14) NOT NULL,
-  `data_fundacao` date DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
   `telefone` varchar(15) DEFAULT NULL,
   `ramo_empresa` varchar(100) DEFAULT NULL,
   `rua` varchar(255) DEFAULT NULL,
-  `numero` varchar(10) DEFAULT NULL,
+  `pais` varchar(50) DEFAULT NULL,
+  `bairro` varchar(255) DEFAULT NULL,
   `cidade` varchar(100) DEFAULT NULL,
   `estado` varchar(50) DEFAULT NULL,
   `CEP` char(8) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
   `senha` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `cadastro_pj`
+--
+
+INSERT INTO `cadastro_pj` (`id_empresa`, `nome_empresa`, `CNPJ`, `email`, `telefone`, `ramo_empresa`, `rua`, `pais`, `bairro`, `cidade`, `estado`, `CEP`, `senha`) VALUES
+(20, 'inforpro', '84.668.864/000', 'marcos@google.com.br', '(15) 9 9778-083', 'Venda', 'joaquim gabriel soares, 70', 'Brasil', 'Eden', 'São Paulo', 'São Paulo', '97850-00', 'Sandra10'),
+(21, 'inforpro', '84.668.864/000', 'marcos@google.com.br', '(15) 9 9778-083', 'Venda', 'joaquim gabriel soares, 70', 'Brasil', 'Eden', 'São Paulo', 'São Paulo', '97850-00', 'Sandra10'),
+(22, 'Robson entregas', '13.131.313/000', 'Robsonentregas@hotmail.com', '(15) 9 9731-762', 'Entregas', 'João PCD,13', 'Brasil', 'Vanel', 'Sorocaba', 'São Paulo', '18023-00', 'Bolacha123'),
+(23, 'Fênix Materiais para construção', '69.502.498/000', 'Vanderlei@fenix.com.br', '(15) 9 9334-806', 'Materiais para construção', 'Rua central, 205', 'Brasil', 'Centro comercial', 'Taubaté', 'São Paulo', '26482-00', 'Abobora2314');
 
 -- --------------------------------------------------------
 
@@ -82,12 +92,8 @@ CREATE TABLE `cadastro_vagas` (
   `localizacao` varchar(100) DEFAULT NULL,
   `salario` decimal(10,2) DEFAULT NULL,
   `tipo_contrato` varchar(50) DEFAULT NULL,
-  `requisitos` text DEFAULT NULL,
-  `atividades` text DEFAULT NULL,
-  `beneficios` text DEFAULT NULL,
   `requisitos` text DEFAULT NULL
-);
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Índices para tabelas despejadas
@@ -103,7 +109,7 @@ ALTER TABLE `cadastro_pessoal`
 -- Índices de tabela `cadastro_pj`
 --
 ALTER TABLE `cadastro_pj`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_empresa`);
 
 --
 -- Índices de tabela `cadastro_vagas`
@@ -125,7 +131,7 @@ ALTER TABLE `cadastro_pessoal`
 -- AUTO_INCREMENT de tabela `cadastro_pj`
 --
 ALTER TABLE `cadastro_pj`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_empresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de tabela `cadastro_vagas`
