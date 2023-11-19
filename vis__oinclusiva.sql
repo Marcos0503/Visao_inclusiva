@@ -86,14 +86,16 @@ INSERT INTO `cadastro_pj` (`id_empresa`, `nome_empresa`, `CNPJ`, `email`, `telef
 CREATE TABLE `cadastro_vagas` (
   `id` int(11) NOT NULL,
   `titulo` varchar(255) NOT NULL,
-  `descricao` text DEFAULT NULL,
-  `data_publicacao` date DEFAULT NULL,
   `empresa` varchar(255) DEFAULT NULL,
   `localizacao` varchar(100) DEFAULT NULL,
+  `periodo` varchar(50) DEFAULT NULL,
   `salario` decimal(10,2) DEFAULT NULL,
   `tipo_contrato` varchar(50) DEFAULT NULL,
-  `requisitos` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `descricao` text DEFAULT NULL,
+  `atividades` text DEFAULT NULL,
+  `beneficios` text DEFAULT NULL
+
+); ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Índices para tabelas despejadas
