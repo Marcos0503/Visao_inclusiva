@@ -234,6 +234,21 @@
         width: 120px;
         height: 50px;
     }
+
+    .profile-icon {
+    width: 40px; /* Ajuste conforme necessário */
+    height: 40px; /* Ajuste conforme necessário */
+    overflow: hidden;
+    border-radius: 50%;
+    border: 1px solid #000;
+}
+
+.profile-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem cubra completamente o círculo */
+}
+
     </style>
 
         <title>Vagas | Visão Inclusiva</title>
@@ -268,6 +283,15 @@
             <span class="navbar-toggler-icon"></span>
           </button>
         </div>
+            <div class="navbar-nav ml-auto">
+                <!--o <a> é onde vai entrar o link para a tela de perfil da pessoa-->
+                <a class="nav-link" href="caminho_para_tela_de_login">
+                    <div class="profile-icon">
+                        <!-- Adicione uma imagem de perfil ou ícone de usuário padrão -->
+                        <img src="../imagens/userBase.png" alt="Perfil">
+                    </div>
+                </a>
+            </div>
       </div>
         </header>
 
