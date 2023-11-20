@@ -150,7 +150,7 @@
       <div class="row">
         <div class="col-md-6 apresentacao align-items-center">
           <h2>Facilite as chances de mudar sua vida profissional aqui! Diversas empresas inclusivas esperam a sua inscrição!</h2>
-          <button type="button" class="btn btn-outline-primary">Cadastre-se</button>
+          <button type="button" onclick="window.location.href='../telaCadastroF/pf.php'" class="btn btn-outline-primary">Cadastre-se</button>
         </div>
         <div class="col-md-6 al apresentacao2 align-items-center">
           <h2>Se você tem uma empresa que tem grandes planos inclusivos, anuncie suas vagas agora mesmo!</h2>
@@ -160,7 +160,6 @@
     </div>
   <div class="segunda-tela" style= "background-image: url('../img/backgrond.jpeg');">
     <h2>Não apenas tanto a oportunidades, mas a capacitação</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget tristique lectus. Duis auctor justo nec tellus fringilla, non laoreet nulla rhoncus. Quisque vel libero non ex malesuada scelerisque.</p>
     <div class="album py-5 bg-light">
       <div class="container">
           <div class="row">

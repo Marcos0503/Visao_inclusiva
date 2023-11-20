@@ -22,7 +22,9 @@ $resultadoEmail = mysqli_query($strcon, $verificarEmail);
 $totalEmail = mysqli_fetch_assoc($resultadoEmail)['total'];
 
 if ($totalEmail > 0) {
-    echo "Erro: O email já está cadastrado.";
+    // Email já cadastrado, exiba uma mensagem amigável
+    echo '<script>alert("O e-mail já está cadastrado. Por favor, use um e-mail diferente ou faça o login.");';
+    echo 'window.location.href = "../telalogin/login.php";</script>';
     exit();
 }
 
@@ -56,8 +58,8 @@ if ($stmt->execute()) {
 
         // Execute a atualização no banco de dados
         if (mysqli_query($strcon, $sqlUpdate)) {
-            echo "Cadastro Pessoa Jurídica realizado com sucesso";
-            header("Location: ../telalogin/login.php");
+            echo '<script>alert("Cadastro Pessoa Jurídica realizado com sucesso.");';
+            echo 'window.location.href = "../telalogin/login.php";</script>';
             exit();
         } else {
             echo "Erro na atualização do SQL: " . mysqli_error($strcon);

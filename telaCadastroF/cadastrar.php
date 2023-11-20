@@ -41,16 +41,17 @@ $resultadoEmail = mysqli_query($strcon, $verificarEmail);
 $totalEmail = mysqli_fetch_assoc($resultadoEmail)['total'];
 
 if ($totalEmail > 0) {
-    echo "Erro: O email já está cadastrado.";
+    echo '<script>alert("O e-mail já está cadastrado. Por favor, use um e-mail diferente ou faça login.");';
+    echo 'window.location.href = "../telalogin/login.php";</script>';
     exit();
 }
 
-// Preparar a consulta SQL para inserir os dados
-$sql = "INSERT INTO cadastro_pessoal (nome_completo, RG, date_nasc, CPF, telefone, CID, email, rua, cidade, bairro, pais, estado, CEP, senha, curriculo, sobre, caminho_foto_perfil) 
-        VALUES ('$nome_completo', '$RG', '$date_nasc', '$CPF', '$telefone', '$CID', '$email', '$rua', '$cidade', '$bairro', '$pais', '$estado', '$CEP', '$senha', '$curriculoName', '$sobre', '$fotoPerfilPath')";
+// Preparar a consulta SQL para inserir os dados usando Prepared Statements
+$stmt = $strcon->prepare("INSERT INTO cadastro_pessoal (nome_completo, RG, date_nasc, CPF, telefone, CID, email, rua, cidade, bairro, pais, estado, CEP, senha, curriculo, sobre, caminho_foto_perfil) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("sssssssssssssssss", $nome_completo, $RG, $date_nasc, $CPF, $telefone, $CID, $email, $rua, $cidade, $bairro, $pais, $estado, $CEP, $senha, $curriculoName, $sobre, $fotoPerfilPath);
 
 // Executar a consulta SQL
-if (mysqli_query($strcon, $sql)) {
+if ($stmt->execute()) {
     // Obter o ID recém-inserido
     $id_usuario = mysqli_insert_id($strcon);
 
@@ -66,12 +67,11 @@ if (mysqli_query($strcon, $sql)) {
     move_uploaded_file($_FILES['curriculo']['tmp_name'], $curriculoPath);
     move_uploaded_file($_FILES['fotoPerfil']['tmp_name'], $fotoPerfilPath);
 
-    echo "Cadastro Pessoa Física realizado com sucesso";
-    // Redirecionar para a página de login após o cadastro
-    header("Location: ../telaLogin/login.php");
+    echo '<script>alert("Cadastro Pessoa Física realizado com sucesso.");';
+    echo 'window.location.href = "../telalogin/login.php";</script>';
     exit();
 } else {
-    die('Erro ao tentar cadastrar registro');
+    echo "Erro ao tentar cadastrar registro: " . $stmt->error;
 }
 
 // Fechar a conexão com o banco de dados

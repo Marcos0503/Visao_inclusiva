@@ -18,8 +18,6 @@
           background-size: cover;
           /* Ajusta o tamanho da imagem ao tamanho da janela */
           background-repeat: no-repeat;
-          /* Evita a repetição da imagem */
-          font-family: Arial, Helvetica, sans-serif;
       }
       .bg {
           background-color: #2C5DAE;
@@ -29,7 +27,7 @@
           color: white;
       }
       .navbar {
-        align-items: center;
+          align-items: center;
           background-color: #2C5DAE;
           /* Cor de fundo do cabeçalho */
           min-height: 50px; /* Ajuste o valor conforme necessário */

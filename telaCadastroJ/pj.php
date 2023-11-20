@@ -105,6 +105,19 @@
       padding-right: 20px;
       margin-top: -2%;
     }
+    input[type="file"] {
+      display: none;
+    }
+    .btnPerson {
+      border-radius: 10px; /* Ajuste o valor conforme necessário */
+      overflow: hidden;
+      display: inline;
+      font-family: Arial, Helvetica, sans-serif;
+      color:#ffffff;
+      padding: 10px;
+      text-align: center;
+      background-color: #2C5DAE;
+    }
   </style>
 </head>
 
