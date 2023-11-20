@@ -38,27 +38,27 @@ if (isset($_POST['submit'])) {
 }
 
 if (isset($_GET['id'])) {
-  $id = $_GET['id'];
+    $id = $_GET['id'];
 
-  // Consulta para recuperar os dados da vaga específica
-  $query = "SELECT titulo, empresa, localizacao, salario, periodo, tipo_contrato, descricao, atividades, beneficios FROM cadastro_vagas WHERE id = $id";
-  $result = mysqli_query($con, $query);
+    // Consulta para recuperar os dados da vaga específica
+    $query = "SELECT titulo, empresa, localizacao, salario, periodo, tipo_contrato, descricao, atividades, beneficios FROM cadastro_vagas WHERE id = $id";
+    $result = mysqli_query($con, $query);
 
-  if ($result) {
-      $row = mysqli_fetch_assoc($result);
-      // Atribuindo os valores recuperados para as variáveis
-      $titulo = $row['titulo'];
-      $empresa = $row['empresa'];
-      $localizacao = $row['localizacao'];
-      $salario = $row['salario'];
-      $periodo = $row['periodo'];
-      $tipo_contrato = $row['tipo_contrato'];
-      $descricao = $row['descricao'];
-      $atividades = $row['atividades'];
-      $beneficios = $row['beneficios'];
-  } else {
-      echo "Erro ao buscar os dados da vaga.";
-  }
+    if ($result) {
+        $row = mysqli_fetch_assoc($result);
+        // Atribuindo os valores recuperados para as variáveis
+        $titulo = $row['titulo'];
+        $empresa = $row['empresa'];
+        $localizacao = $row['localizacao'];
+        $salario = $row['salario'];
+        $periodo = $row['periodo'];
+        $tipo_contrato = $row['tipo_contrato'];
+        $descricao = $row['descricao'];
+        $atividades = $row['atividades'];
+        $beneficios = $row['beneficios'];
+    } else {
+        echo "Erro ao buscar os dados da vaga.";
+    }
 }
 
 
