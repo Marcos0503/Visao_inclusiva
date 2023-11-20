@@ -222,19 +222,23 @@ textarea {
       <div class="mb-3">
         <br>
         <form action="alterarVagas.php" method="POST">
-        <input type="hidden" name="vaga_id" value="ID_DA_VAGA_A_SER_ATUALIZADA">
-
-        <button type="submit" class="bnt">Alterar <svg xmlns="http://www.w3.org/2000/svg" width="42" height="37" viewBox="0 0 42 37"
-            fill="none">
+    <input type="hidden" name="id" value="<?php echo $id; ?>">
+    
+    <button type="submit" class="bnt" name="update_vaga" onclick='return confirm("Tem certeza que deseja alterar esta vaga?")'>
+        Alterar
+        <svg xmlns="http://www.w3.org/2000/svg" width="42" height="37" viewBox="0 0 42 37" fill="none">
             <path
               d="M29.4748 24.5046L31.7639 22.2377C32.1215 21.8835 32.7439 22.1315 32.7439 22.6415V32.9418C32.7439 34.819 31.2059 36.3421 29.3103 36.3421H4.13083C2.23522 36.3421 0.697266 34.819 0.697266 32.9418V8.00587C0.697266 6.12859 2.23522 4.60552 4.13083 4.60552H23.695C24.2029 4.60552 24.4604 5.21475 24.1027 5.57603L21.8137 7.84293C21.7064 7.94919 21.5633 8.00587 21.4059 8.00587H4.13083V32.9418H29.3103V24.9013C29.3103 24.7526 29.3675 24.6109 29.4748 24.5046ZM40.6768 10.209L21.8924 28.8117L15.4258 29.5202C13.5517 29.7256 11.9565 28.16 12.1639 26.2898L12.8793 19.8858L31.6637 1.28309C33.3018 -0.339156 35.9485 -0.339156 37.5795 1.28309L40.6697 4.34341C42.3078 5.96566 42.3078 8.59384 40.6768 10.209ZM33.6094 12.398L29.4534 8.28214L16.1626 21.4514L15.6404 26.0773L20.3115 25.5602L33.6094 12.398ZM38.2447 6.75199L35.1545 3.69167C34.8612 3.40123 34.3819 3.40123 34.0958 3.69167L31.8855 5.88065L36.0415 9.99649L38.2519 7.80751C38.538 7.50998 38.538 7.04243 38.2447 6.75199Z"
               fill="white" />
-          </svg></button>
-          </form>
+        </svg>
+    </button>
+</form>
+
 
 <form action="excluirVagas.php" method="POST">
 <input type="hidden" name="action" value="delete">
-        <button    type="submit"   class="bnt"><a class="bnt-link" href='adicaoDeVagas.php?delete_id=<?php echo $id; ?>' onclick='return confirm("Tem certeza que deseja excluir esta vaga?")'>Excluir</a>
+        <button    type="submit"   class="bnt"><a class="bnt-link" href='adicaoDeVagas.php?delete_id=
+        <?php echo $id; ?>' onclick='return confirm("Tem certeza que deseja excluir esta vaga?")'>Excluir</a>
 <svg xmlns="http://www.w3.org/2000/svg" width="39" height="38" viewBox="0 0 39 38"
             fill="none">
             <path d="M5.95703 6.44165V37.276H33.4296V6.44165H5.95703Z" fill="#1F78D1" stroke="white"
@@ -247,42 +251,40 @@ textarea {
           </svg></button>
 </form>
       </div>
-<form action="adicaoDeVagas.php" method="POST">
-      <div class="mb-3">
+      <form action="adicaoDeVagas.php" method="POST">
+    <div class="mb-3">
         <h1 class="titulo">Sobre a Vaga</h1>
-        <input type="text" name="titulo" value="<?php ($titulo); ?>" placeholder="Titulo da vaga">
-        <input type="text" name="empresa" value="<?php ($empresa); ?>" placeholder="Nome da empresa">
-        <input type="text" name="localizacao" value="<?php ($localizacao); ?>" placeholder="Local">
-        <input type="text" name="salario" value="<?php ($salario); ?>" placeholder="Salário">
-        <input type="text" name="periodo" value="<?php ($periodo); ?>" placeholder="Periodo">
+        <input type="text" name="titulo" value="<?php echo $titulo; ?>" placeholder="Titulo da vaga">
+        <input type="text" name="empresa" value="<?php echo $empresa; ?>" placeholder="Nome da empresa">
+        <input type="text" name="localizacao" value="<?php echo $localizacao; ?>" placeholder="Local">
+        <input type="text" name="salario" value="<?php echo $salario; ?>" placeholder="Salário">
+        <input type="text" name="periodo" value="<?php echo $periodo; ?>" placeholder="Periodo">
         <datalist id="periodo">
-          <input></input>
-          <option value=" Tempo Integral">
-          <option value=" Meio Período">
+            <input></input>
+            <option value=" Tempo Integral">
+            <option value=" Meio Período">
         </datalist>
-        <input type="text" name="tipo_contrato" value="<?php ($tipo_contrato); ?>" placeholder="Tipo de Contrato">
+        <input type="text" name="tipo_contrato" value="<?php echo $tipo_contrato; ?>" placeholder="Tipo de Contrato">
         <datalist id="tipo">
-        <input></input>
-          <option value=" Estagio">
-          <option value="Assistente">
-          <option value="analista">
+            <input></input>
+            <option value=" Estagio">
+            <option value="Assistente">
+            <option value="analista">
         </datalist>
-      </div>
-      <div class="mb-3">
-        <h1  class="titulo">Descrição</h1>
-        <textarea name="descricao"><?php ($descricao); ?></textarea>
-      </div>
-      <div  class="mb-3">
+    </div>
+    <div class="mb-3">
+        <h1 class="titulo">Descrição</h1>
+        <textarea name="descricao"><?php echo $descricao; ?></textarea>
+    </div>
+    <div class="mb-3">
         <h1 class="titulo">Atividades</h1>
-        <textarea name="atividades"><?php ($atividades); ?></textarea>
-
-        </div>
-        <div  class="mb-3">
-          <h1 class="titulo">benefícios</h1>
-          <textarea name="beneficios"><?php ($beneficios); ?></textarea>
-              <input type="submit" name="submit"  class="bnt-exibir" value="adicionar">
-            </div>
-          </div>
+        <textarea name="atividades"><?php echo $atividades; ?></textarea>
+    </div>
+    <div class="mb-3">
+        <h1 class="titulo">benefícios</h1>
+        <textarea name="beneficios"><?php echo $beneficios; ?></textarea>
+        <input type="submit" name="submit" class="bnt-exibir" value="adicionar">
+    </div>
 </form>
 
 </body>
