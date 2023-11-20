@@ -31,7 +31,7 @@ if ($result->num_rows > 0) {
     // Verificar a senha usando password_verify
     if (password_verify($senha_digitada, $senha_hash)) {
         $_SESSION['id_empresa'] = $row['id_empresa'];
-        header("Location: ../telaPerfilJ/visualizacaoEmpresa.php");
+        header("Location: ../telaVagasAdicao/adicaoDeVagas.php");
         exit();
     }
 }

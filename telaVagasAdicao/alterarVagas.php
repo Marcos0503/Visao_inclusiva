@@ -43,6 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Executa a query de atualização
         if (mysqli_query($conexao, $update_query)) {
             echo "<script>alert('Dados atualizados com sucesso.');</script>";
+            header("Location: adicaoDeVagas.php?id=$id");
+            exit(); // Certifique-se de parar a execução após o redirecionamento
             /* Redireciona para a página desejada após a atualização
             header("Location: listaVagas.php");
             exit();*/
