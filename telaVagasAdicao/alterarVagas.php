@@ -1,13 +1,13 @@
 <?php
 // Conexão com o banco de dados
-$host = "localhost";
-$user = "root";
-$password = ""; // Senha do seu banco de dados, se houver
-$database = "visaoinclusiva"; // Nome do seu banco de dados
+$server = "localhost";
+$usuario = "root";
+$senha = "";
+$banco = "visãoinclusiva";
+$conexao = mysqli_connect($server, $usuario, $senha);
+$db = mysqli_select_db($conexao, $banco);
 
-$con = mysqli_connect($host, $user, $password, $database);
-
-if (!$con) {
+if (!$conexao) {
     die("Erro ao conectar ao banco de dados: " . mysqli_connect_error());
 }
 
@@ -41,21 +41,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     WHERE id = $id";
 
         // Executa a query de atualização
-        if (mysqli_query($con, $update_query)) {
+        if (mysqli_query($conexao, $update_query)) {
             echo "<script>alert('Dados atualizados com sucesso.');</script>";
             /* Redireciona para a página desejada após a atualização
             header("Location: listaVagas.php");
             exit();*/
         } else {
             echo "<script>alert('Erro ao atualizar os dados.');</script>";
-            echo "Erro de atualização: " . mysqli_error($con);
+            echo "Erro de atualização: " . mysqli_error($conexao);
         }
     } else {
         echo "<script>alert('ID ou título da vaga ausente.');</script>";
     }
 }
 
-mysqli_close($con);
+mysqli_close($conexao);
 ?>
 
     
