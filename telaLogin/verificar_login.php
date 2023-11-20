@@ -29,7 +29,7 @@ if ($result->num_rows > 0) {
     $_SESSION['id_empresa'] = $row['id_empresa'];
     
     // Redirecionar para a tela de perfil de pessoa jurídica
-    header("Location: ../telaperfilpj/visualizacaoEmpresa.php");
+    header("Location: ../telaPerfilJ/visualizacaoEmpresa.php");
     exit();
 } else {
     // Se o usuário não for encontrado na tabela cadastro_pj, verifique na tabela cadastro_pessoal
@@ -41,10 +41,10 @@ if ($result->num_rows > 0) {
     if ($result->num_rows > 0) {
         // Usuário autenticado - faça o que for necessário
         $row = $result->fetch_assoc();
-        $_SESSION['id_usuario'] = $row['id'];
+        $_SESSION['id_usuario'] = $row['id_usuario'];
         
         // Redirecionar para a tela de perfil de pessoa física
-        header("Location: perfil_pf.php");
+        header("Location: ../telaPerfilF/visualizacaoFisica.php");
         exit();
     } else {
         // Credenciais inválidas
