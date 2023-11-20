@@ -38,10 +38,10 @@ if (isset($_POST['submit'])) {
 }
 
 if (isset($_GET['id'])) {
-  $vaga_id = $_GET['id'];
+  $id = $_GET['id'];
 
   // Consulta para recuperar os dados da vaga específica
-  $query = "SELECT titulo, empresa, localizacao, salario, periodo, tipo_contrato, descricao, atividades, beneficios FROM cadastro_vagas WHERE id = $vaga_id";
+  $query = "SELECT titulo, empresa, localizacao, salario, periodo, tipo_contrato, descricao, atividades, beneficios FROM cadastro_vagas WHERE id = $id";
   $result = mysqli_query($con, $query);
 
   if ($result) {

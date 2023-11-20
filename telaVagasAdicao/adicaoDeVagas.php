@@ -250,17 +250,17 @@ textarea {
 <form action="adicaoDeVagas.php" method="POST">
       <div class="mb-3">
         <h1 class="titulo">Sobre a Vaga</h1>
-        <input type="text" name="titulo" value="<?php echo htmlspecialchars($titulo); ?>" placeholder="Titulo da vaga">
-        <input type="text" name="empresa" value="<?php echo htmlspecialchars($empresa); ?>" placeholder="Nome da empresa">
-        <input type="text" name="localizacao" value="<?php echo htmlspecialchars($localizacao); ?>" placeholder="Local">
-        <input type="text" name="salario" value="<?php echo htmlspecialchars($salario); ?>" placeholder="Salário">
-        <input type="text" name="periodo" value="<?php echo htmlspecialchars($periodo); ?>" placeholder="Periodo">
+        <input type="text" name="titulo" value="<?php ($titulo); ?>" placeholder="Titulo da vaga">
+        <input type="text" name="empresa" value="<?php ($empresa); ?>" placeholder="Nome da empresa">
+        <input type="text" name="localizacao" value="<?php ($localizacao); ?>" placeholder="Local">
+        <input type="text" name="salario" value="<?php ($salario); ?>" placeholder="Salário">
+        <input type="text" name="periodo" value="<?php ($periodo); ?>" placeholder="Periodo">
         <datalist id="periodo">
           <input></input>
           <option value=" Tempo Integral">
           <option value=" Meio Período">
         </datalist>
-        <input type="text" name="tipo_contrato" value="<?php echo htmlspecialchars($tipo_contrato); ?>" placeholder="Tipo de Contrato">
+        <input type="text" name="tipo_contrato" value="<?php ($tipo_contrato); ?>" placeholder="Tipo de Contrato">
         <datalist id="tipo">
         <input></input>
           <option value=" Estagio">
@@ -270,17 +270,17 @@ textarea {
       </div>
       <div class="mb-3">
         <h1  class="titulo">Descrição</h1>
-        <textarea name="descricao"><?php echo htmlspecialchars($descricao); ?></textarea>
+        <textarea name="descricao"><?php ($descricao); ?></textarea>
       </div>
       <div  class="mb-3">
         <h1 class="titulo">Atividades</h1>
-        <textarea name="atividades"><?php echo htmlspecialchars($atividades); ?></textarea>
+        <textarea name="atividades"><?php ($atividades); ?></textarea>
 
         </div>
         <div  class="mb-3">
           <h1 class="titulo">benefícios</h1>
-          <textarea name="beneficios"><?php echo htmlspecialchars($beneficios); ?></textarea>
-              <input type="submit" name="submit" href="#" class="bnt-exibir" value="adicionar">
+          <textarea name="beneficios"><?php ($beneficios); ?></textarea>
+              <input type="submit" name="submit"  class="bnt-exibir" value="adicionar">
             </div>
           </div>
 </form>
