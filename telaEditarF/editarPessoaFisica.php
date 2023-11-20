@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -7,14 +7,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
-    <title>Visão inclusiva</title>
-    <!-- Principal CSS do Bootstrap -->
+
+    <title>Exemplo de álbum Bootstrap</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <!-- Estilos customizados para esse template -->
     <link href="form-validation.css" rel="stylesheet">
-    <script src="editarPessoaFisica.php"></script>
-
     <style>
         body {
             background-image: url("img/background.png");
@@ -25,105 +22,41 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
-        /* Estilo personalizado para caixas de input */
-
-        header {
-            background-color: #C2D7E8;
-            color: #2C5DAE;
-            display: flex;
-            justify-content: space-between;
-            /* Espaço entre os elementos para alinhar à esquerda e à direita */
-            align-items: center;
-            /* Centralize horizontalmente */
-            padding: 10px;
-            /* Adicione espaçamento interno */
-            overflow: hidden;
-            text-align: center;
-            text-decoration: none;
-            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
-            font-family: 'Montserrat', sans-serif;
+        .bg {
+            background-color: #2C5DAE;
+            /* Cor de fundo do collapse */
         }
 
-        #menu {
-            color: #2C5DAE;
-            /* Adicione a cor do texto desejada */
-            padding: 30px 50px 30px 50px;
-            text-decoration: none;
-            list-style: none;
-            list-style-type: none;
-            font-size: 25px;
+        .text {
+            color: white;
         }
 
-        /* Estilo para a lista <ul> que contém a imagem, no canto esquerdo */
-        ul #ul-imagem {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            text-decoration: none;
-        }
-
-        li {
-            float: left;
-            text-decoration: none;
-            display: block;
-            list-style-type: none;
-        }
-
-        /* Estilo para a imagem no cabeçalho */
-        img {
-            max-width: 150px;
-            /* Define a largura máxima da imagem, ajuste conforme necessário */
-        }
-
-        /* Estilo para a lista <ul> que contém os botões, no canto direito */
-        ul#ul-botoes {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            text-decoration: none;
+        .navbar {
+            background-color: #2C5DAE;
+            /* Cor de fundo do cabeçalho */
+            min-height: 80px;
 
         }
 
-        /* Estilo para os botões de "Entrar" e "Cadastrar-se" no cabeçalho */
-        ul#ul-botoes button {
-            background-color: #4c4c4c;
-            /* Adicione a cor de fundo desejada */
-            color: #fff;
-            /* Adicione a cor do texto desejada */
-            border: none;
-            padding: 10px 20px;
-            /* Adicione espaçamento interno */
-            margin: 10px;
-            /* Adicione espaçamento vertical aos botões */
-            text-decoration: none;
+        .logo {
+            margin-right: 5px;
         }
 
-        #logar,
-        #cadastrar {
-            background-color: #fff;
-            /* Adicione a cor de fundo desejada */
-            color: #1F78D1;
-            /* Adicione a cor do texto desejada */
-            border-radius: 8px;
-            border: 1px solid #1F78D1;
-            padding: 10px 20px;
-            /* Adicione espaçamento interno */
-            margin: 0 20px;
-            /* Adicione espaçamento lateral aos botões */
-            cursor: pointer;
-        }
+        .perfil-container {
 
-        a {
-            text-decoration: none;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 0 auto;
+            width: 80%;
+            margin-top: 1%;
+            left: 40%;
         }
 
         .custom-heading-responsive {
             color: #2C5DAE;
-            font-size: 350%;
-            font-style: normal;
+            font-size: 450%;
             font-weight: 700;
-            line-height: 36px;
-            letter-spacing: -1.65px;
+            margin-bottom: -6%;
         }
 
         #picture__input {
@@ -131,7 +64,7 @@
         }
 
         .picture {
-            width: 100%;
+            width: 60%;
             aspect-ratio: 8/8;
             background: #ddd;
             display: flex;
@@ -142,7 +75,8 @@
             cursor: pointer;
             transition: color 300ms ease-in-out, background 300ms ease-in-out;
             border-radius: 5%;
-            margin-bottom: 30PX;
+            margin-bottom: 10%;
+
         }
 
         .picture:hover {
@@ -151,27 +85,12 @@
         }
 
         .box {
-            color: rgb(82, 82, 82);
-            position: absolute;
-            top: 50%;
-            right: 55%;
-            transform: translate(-40%, -40%);
-            padding: 4%;
-            width: 20%;
+            margin-right: 0%;
+            width: 30%;
         }
 
         .boxText {
-            position: absolute;
-            top: 50%;
-            left: 70%;
-            transform: translate(-40%, -40%);
-            padding: 7, 5%;
-            width: 20%;
-            color: rgb(82, 82, 82);
-        }
-
-        .form-control {
-            border-radius: 5%;
+            width: 30%;
         }
 
         .inputBox {
@@ -196,160 +115,74 @@
             left: 0;
             pointer-events: none;
             transition: .5s;
+
         }
 
-        .button {
-            margin-top: 5%;
-            position: absolute;
-            top: 90%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        footer {
-            position: relative;
-            bottom: 0;
-            width: 100%;
+        .center-form {
             display: flex;
             flex-direction: column;
-            /* Coloca os elementos em coluna */
+            align-items: center;
             justify-content: center;
-            /* Centraliza o conteúdo verticalmente */
-            align-items: center;
-            /* Centraliza o conteúdo horizontalmente */
-            background-color: #fff;
-            border-top: 1px solid #4d4d4d80;
-            margin-top: 35%;
-        }
-
-        #links {
-            border-bottom: 1px solid #4d4d4d80;
-            background-color: #fff;
-            align-items: center;
-            /* Centraliza o conteúdo verticalmente */
-        }
-
-        #links ul {
-            color: #2C5DAE;
-            font-family: 'Montserrat', sans-serif;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            gap: 20px;
-            /* Espaçamento entre os itens (ajuste conforme necessário) */
-            justify-content: center;
-            /* Centraliza o conteúdo horizontalmente */
-            align-items: center;
-            /* Centraliza o conteúdo verticalmente */
-        }
-
-        #page-container {
-            position: relative;
             min-height: 100vh;
         }
 
-        #redesSociais {
-            background-color: #fff;
-            margin: 0;
-            color: #4c4c4c;
-            font-size: smaller;
-            border-top: 0;
-            display: flex;
+        .custom-input {
+            border-radius: 10px;
+            background-color: #C2D7E8;
+            width: 100%;
+            margin-top: 5%;
+        }
+
+
+
+        button {
             align-items: center;
-            /* Centraliza o conteúdo verticalmente */
-            justify-content: center;
-            /* Centraliza horizontalmente */
         }
 
-        #links,
-        #redesSociais {
-            width: 100%;
-            /* Ocupar toda a largura do rodapé */
-            text-align: center;
-            /* Centralizar o texto dentro das divs */
-
-        }
-
-        /*Estiliza botões de rede sociail*/
-
-        .btn_social {
-            width: 100%;
-            float: left;
-            display: flex;
-            margin: auto;
-        }
-
-        .btn_social ul {
-            width: auto;
-            margin: auto;
-            float: left;
-            display: block;
-        }
-
-        .btn_social ul li {
-            position: relative;
-            background: #555555;
-            list-style: none;
-            float: left;
-            margin: 5px;
-            z-index: 1;
-            overflow: hidden;
-            border-radius: 3px;
-            font-size: 1.5em;
-            text-align: center;
-        }
-
-        .btn_social ul li a {
-            width: 50px;
-            height: 50px;
-            line-height: 53px;
-            display: block;
-            text-decoration: none;
-            color: #fff;
-            transition: .4s;
-        }
-
-        .btn_social ul li::before {
-            transition: 0.4s;
-            position: absolute;
-            content: '';
-            width: 100%;
-            height: 100%;
-            top: 90%;
-            left: 0;
-            background: #2fc4cf;
-            z-index: -1;
-            transform: scale(1);
-            transition: .4s;
-        }
-
-        .btn_social ul li:hover::before {
-            transition: 0.4s;
-            top: 0%;
-        }
-
-        .btn_social ul li a:hover {
-            color: #555555;
+        .btn-primary.btn-custom-sm {
+            width: 30%;
+            margin-top: 10px;
+            margin-left: 35%;
+            margin-bottom: 8%;
         }
     </style>
 </head>
 
 <body>
+
     <header>
-        <div>
-            <img src="../editarPerfilFisica/img/logo1.png" alt="Logo Final">
+        <div class="collapse bg" id="navbarHeader">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-md-7 py-4">
+                        <h4 class="text-white">Sobre</h4>
+                        <p class="text">Adicione alguma informação sobre o álbum abaixo (autor ou qualquer outro
+                            background). Faça essas informações terem algumas frases, para a galera ter algumas
+                            informações que besliscar. Além disso, use link nelas para as redes sociais ou informações
+                            de contato.</p>
+                    </div>
+                    <div class="col-sm-4 offset-md-1 py-4">
+                        <h4 class="text-white">Contato</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-white">Me siga no Twitter</a></li>
+                            <li><a href="#" class="text-white">Curta no Facebook</a></li>
+                            <li><a href="#" class="text-white">Me envie um e-mail</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-        <nav>
-            <ul id="navegacaoHeader">
-                <li><a id="menu" href="#home">Home</a></li>
-                <li><a id="menu" href="#sobre">Sobre Nós</a></li>
-                <li><a id="menu" href="#ajuda">Ajuda</a></li>
-            </ul>
-        </nav>
-        <div>
-            <button id="logar">Entrar</button>
-            <button id="cadastrar">Cadastrar-se</button>
+        <div class="navbar navbar-dark shadow-sm">
+            <div class="container d-flex justify-content-between">
+                <a href="#" class="navbar-brand d-flex align-items-center">
+                    <img class="logo" src="img/logo.png" alt="Sua Logo" height="40" width="40">
+                    <strong>Visão Inclusiva</strong>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
+                    aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
         </div>
     </header>
     <div class="container center-form">
@@ -395,36 +228,8 @@
                     <label for="sobre" class="txt">Sobre:</label>
                     <textarea class="form-control" name="codigo" id="sobre" rows="3"></textarea>
                 </div>
-                <div class="form-group">
-                    <label for="formacao" class="txt">Formação Acadêmica:</label>
-                    <textarea class="form-control" name="codigo" id="formacao" rows="3"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="experiencia" class="txt">Experiência Profissional:</label>
-                    <textarea class="form-control" name="codigo" id="experiencia" rows="3"></textarea>
-                </div>
             </form>
         </div>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-        <script src="../../assets/js/vendor/popper.min.js"></script>
-        <script src="../../dist/js/bootstrap.min.js"></script>
-        <script src="../../assets/js/vendor/holder.min.js"></script>
-        <!--  mascara dos inputs-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
-            integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script>
-            // mascara do telefone utilizando jquery 
-            $('#telefone').mask('(00) 00000-0000');
-
-            // mascara do telefone utilizando jquery 
-            $('#cid').mask('A00');
-            // mascara do   CID
-
-        </script>
         <div class="button">
             <button type="submit" class="btn btn-outline-info" onclick="atualizarDados()">Salvar alterações</button>
         </div>
@@ -443,7 +248,7 @@
                 var params = "nome=NovoNome&telefone=NovoTelefone&endereco=NovoEndereco&email=NovoEmail";
 
                 // Configurar a função de retorno de chamada para lidar com a resposta do servidor
-                xhr.onreadystatechange = function() {
+                xhr.onreadystatechange = function () {
                     if (xhr.readyState === 4 && xhr.status === 200) {
                         // A resposta do servidor está pronta
                         alert("Seus dados foram alterados com sucesso!");
@@ -454,47 +259,63 @@
                 xhr.send(params);
 
                 alert("Dados alterados");
-        }
-         
+            }
+
         </script>
 
 
     </div>
-    <footer>
-        <br>
-        <div id="links">
-            <ul>
-                <li><a id="rodape" href="#mobile">Mobile App</a></li>
-                <li><a id="rodape" href="#quemSomos">Quem Somos</a></li>
-                <li><a id="rodape" href="#companhia">Companhia</a></li>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+    <script>
+            // Exemplo de JavaScript para desativar o envio do formulário, se tiver algum campo inválido.
+            (function () {
+                'use strict';
 
-                <img src="../editarPerfilFisica/img/logo1.png" alt="Logo Final">
+                window.addEventListener('load', function () {
+                    var forms = document.getElementsByClassName('needs-validation');
 
-                <li><a id="rodape" href="#helpDesk">Help Desk</a></li>
-                <li><a id="rodape" href="#blog">Blog</a></li>
-                <li><a id="rodape" href="#recursos">Recursos</a></li>
-            </ul>
-            <br>
+                    var validation = Array.prototype.filter.call(forms, function (form) {
+                        form.addEventListener('submit', function (event) {
+                            if (form.checkValidity() === false) {
+                                event.preventDefault();
+                                event.stopPropagation();
+                            }
+                            form.classList.add('was-validated');
+                        }, false);
+                    });
+                }, false);
+            })();
+    </script>
+    <footer class="text-muted">
+        <div class="container">
+            <p class="float-right">
+                <a href="#">Voltar ao topo</a>
+            </p>
+            <p>Este exemplo de álbum é &copy; Bootstrap, mas, por favor, baixe e customize por conta própria.</p>
+            <p>Novo no Bootstrap? <a href="../../">Visite a página principal</a> ou leia nosso guia <a
+                    href="../../getting-started/">getting started</a>.</p>
         </div>
-
-        <div id="redesSociais">
-            <nav class="btn_social">
-
-                <ul>
-                    <li><a href="#" target="_blank" title="facebook"><i class="icon icon-facebook"></i></a></li>
-                    <li><a href="#" target="_blank" title="instagram"><i class="icon icon-instagram"></i></a></li>
-                    <li><a href="#" target="_blank" title="youtube"><i class="icon icon-youtube"></i></a></li>
-                    <li><a href="#" target="_blank" title="youtube"><i class="icon icon-whatsapp"></i></a></li>
-                    <li><a href="#" target="_blank" title="linkdin"><i class="icon icon-linkedin"></i></a></li>
-
-                </ul>
-            </nav>
-        </div>
-
-        <p>
-            Obrigado por acessar o site. Nós amamos nossos usuários!
-        </p>
     </footer>
+
+    <!-- Principal JavaScript do Bootstrap
+    ================================================== -->
+    <!-- Foi colocado no final para a página carregar mais rápido -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-Uo7DzGnMz9ATKxIep9tiCxS/Z9fNfEXZJT3MXP7iNH49yIexK3MciF8HZJ3Z5mwC"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.6/holder.min.js"></script>
 </body>
 
 </html>
