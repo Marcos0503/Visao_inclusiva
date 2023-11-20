@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="icon" href="../img/logo1.png">
 
-    <title>Exemplo de álbum Bootstrap</title>
+    <title>Editar Perfil</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="form-validation.css" rel="stylesheet">
@@ -175,7 +175,7 @@
         <div class="navbar navbar-dark shadow-sm">
             <div class="container d-flex justify-content-between">
                 <a href="#" class="navbar-brand d-flex align-items-center">
-                    <img class="logo" src="img/logo.png" alt="Sua Logo" height="40" width="40">
+                    <img class="logo" src="../img/logo1.png" alt="Sua Logo" height="40" width="40">
                     <strong>Visão Inclusiva</strong>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"

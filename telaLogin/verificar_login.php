@@ -15,42 +15,54 @@ if ($conn->connect_error) {
 
 // Obter dados do formulário
 $email = $_POST['email'];
-$senha = $_POST['senha'];
+$senha_digitada = $_POST['senha'];
 
 // Consultar na tabela cadastro_pj
-$stmt = $conn->prepare("SELECT * FROM cadastro_pj WHERE email = ? AND senha = ?");
-$stmt->bind_param("ss", $email, $senha);
+$stmt = $conn->prepare("SELECT * FROM cadastro_pj WHERE email = ?");
+$stmt->bind_param("s", $email);
 $stmt->execute();
 $result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
-    // Usuário autenticado - faça o que for necessário
+    // Usuário encontrado na tabela cadastro_pj
     $row = $result->fetch_assoc();
-    $_SESSION['id_empresa'] = $row['id_empresa'];
-    
-    // Redirecionar para a tela de perfil de pessoa jurídica
-    header("Location: ../telaperfilpj/visualizacaoEmpresa.php");
-    exit();
-} else {
-    // Se o usuário não for encontrado na tabela cadastro_pj, verifique na tabela cadastro_pessoal
-    $stmt = $conn->prepare("SELECT * FROM cadastro_pessoal WHERE email = ? AND senha = ?");
-    $stmt->bind_param("ss", $email, $senha);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    $senha_hash = $row['senha'];
 
-    if ($result->num_rows > 0) {
-        // Usuário autenticado - faça o que for necessário
-        $row = $result->fetch_assoc();
-        $_SESSION['id_usuario'] = $row['id'];
-        
-        // Redirecionar para a tela de perfil de pessoa física
-        header("Location: perfil_pf.php");
+    // Verificar a senha usando password_verify
+    if (password_verify($senha_digitada, $senha_hash)) {
+        $_SESSION['id_empresa'] = $row['id_empresa'];
+        header("Location: ../telaPerfilJ/visualizacaoEmpresa.php");
         exit();
-    } else {
-        // Credenciais inválidas
-        echo "Login falhou. Verifique suas credenciais.";
     }
 }
+
+// Se o usuário não foi encontrado na tabela cadastro_pj, verificar na tabela cadastro_pessoal
+$stmt = $conn->prepare("SELECT * FROM cadastro_pessoal WHERE email = ?");
+$stmt->bind_param("s", $email);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows > 0) {
+    // Usuário encontrado na tabela cadastro_pessoal
+    $row = $result->fetch_assoc();
+    $senha_hash = $row['senha'];
+
+    // Verificar a senha usando password_verify
+    if (password_verify($senha_digitada, $senha_hash)) {
+        $_SESSION['id_usuario'] = $row['id_usuario'];
+        header("Location: ../telaPerfilF/visualizacaoFisica.php");
+        exit();
+    }
+}
+
+// Credenciais inválidas
+$_SESSION['login_error'] = "Email ou senha incorretos. Por favor, verifique suas credenciais.";
+
+// Exibir a mensagem de erro na página atual
+echo '<script>alert("Email ou senha incorretos. Por favor, verifique suas credenciais.");';
+// Redirecionar de volta para a tela de login após a exibição da mensagem de erro
+echo 'window.location.href="../telaLogin/login.php";</script>';
+exit();
 
 $stmt->close();
 $conn->close();

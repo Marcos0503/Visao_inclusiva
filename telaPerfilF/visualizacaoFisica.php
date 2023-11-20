@@ -1,20 +1,24 @@
-<!doctype html>
+<?php
+session_start();
+include "conexao.php";
+$id_usuario = isset($_SESSION['id_usuario']) ? $_SESSION['id_usuario'] : null;
+?>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="icon" href="../img/logo1.png">
 
-    <title>Exemplo de álbum Bootstrap</title>
+    <title>Perfil</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="form-validation.css" rel="stylesheet">
     <style>
         body {
-            background-image: url("img/background.png");
+            background-image: url("../img/backgrond.jpeg");
             background-size: cover;
             /* Ajusta o tamanho da imagem ao tamanho da janela */
             background-repeat: no-repeat;
@@ -83,7 +87,7 @@
         }
 
         .picture {
-            width: 40%;
+            width: 25%;
             aspect-ratio: 8/8;
             background: #ddd;
             display: flex;
@@ -112,11 +116,32 @@
             margin-left: 35%;
             margin-bottom: 8%;
         }
+        .label{
+            padding: 5px;
+            margin-bottom: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #2C5DAE;
+            font-size: x-large;
+            font-weight: 700;
+        }
+        .value{
+            border-bottom: 2px solid #2C5DAE;
+            padding: 5px;
+            margin-bottom: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: black;
+            font-size: x-large;
+        }
+        .editable {
+        background-color:azurey;
+        border: 2px solid #2C5DAE;;
+        padding: 8px;
+        min-height: 100px;
+        border-radius: 10px;
+        }
     </style>
 </head>
-
 <body>
-
     <header>
         <div class="collapse bg" id="navbarHeader">
             <div class="container">
@@ -142,12 +167,11 @@
         <div class="navbar navbar-dark shadow-sm">
             <div class="container d-flex justify-content-between">
                 <a href="#" class="navbar-brand d-flex align-items-center">
-                    <img class="logo" src="img/logo.png" alt="Sua Logo" height="40" width="40">
+                    <img class="logo" src="../img/logo1.png" alt="Sua Logo" height="40" width="40">
                     <strong>Visão Inclusiva</strong>
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
-                    aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                    <a href="#" class="text-white">Sobre nós</a>
                 </button>
             </div>
         </div>
@@ -160,43 +184,57 @@
             </div>
             <div class="box">
                 <form>
-                    <h6>Foto de Perfil</h6>
                     <label class="picture" for="picture__input" tab="0">
                         <span class="picture__image">Inserir imagem</span>
                     </label>
                     <input type="file" accept="image/*" id="picture__input" />
 
                     <?php
-                    if ($id) {
-                        $sql = "SELECT * FROM cadastro_pessoal WHERE id = $id;";
+                    if ($id_usuario) {
+                        $sql = "SELECT * FROM cadastro_pessoal WHERE id_usuario = $id_usuario;";
 
                         if ($conexao) {
                             $result = mysqli_query($conexao, $sql);
 
                             if ($result && mysqli_num_rows($result) == 1) {
                                 $row = mysqli_fetch_assoc($result);
-                                echo "<p class='company-info'>Nome da pessoa: " . $row['nome_pessoa'] . "</p>";
-                                echo "<p class='company-info'>E-mail: " . $row['email'] . "</p>";
-                                echo "<p class='company-info'>Cid: " . $row['cid'] . "</p>";
-                                echo "<p class='company-info'>Telefone: " . $row['telefone'] . "</p>";
-                                echo "<p class='company-info'>Endereço: " . $row['rua'] . ", " . $row['bairro'] . ", " . $row['cidade'] . ", " . $row['estado'] . "</p>";
-
+                                ?>
+                                <p class='company-info'>
+                                    <span class="label">Nome da Pessoa:</span>
+                                    <span class="value"><?php echo $row['nome_completo']; ?></span>
+                                </p>
+                                <p class='company-info'>
+                                    <span class="label">E-mail:</span>
+                                    <span class="value"><?php echo $row['email']; ?></span>
+                                </p>
+                                <p class='company-info'>
+                                    <span class="label">CID:</span>
+                                    <span class="value"><?php echo $row['CID']; ?></span>
+                                </p>
+                                <p class='company-info'>
+                                    <span class="label">Telefone:</span>
+                                    <span class="value"><?php echo $row['telefone']; ?></span>
+                                </p>
+                                <p class='company-info'>
+                                    <span class="label">Endereço:</span>
+                                    <span class="value"><?php echo $row['rua'] . ", " . $row['bairro'] . ", " . $row['cidade'] . ", " . $row['estado']; ?></span>
+                                </p>
+                                <?php
                             } else {
                                 echo "Pessoa não encontrada.";
                             }
                         } else {
                             echo "Erro na conexão com o banco de dados.";
                         }
-
                         mysqli_close($conexao);
                     } else {
                         echo "ID da pessoa não definido na sessão.";
                     }
                     ?>
-                <div class="form-group">
-                    <label for="sobre" class="txt">Sobre:</label>
-                    <textarea class="form-control" id="sobre" rows="3"></textarea>
-                </div>
+                    <div class="form-group">
+                        <label for="sobre" class="label">Sobre:</label>
+                        <div contenteditable="true" class="editable" id="sobre"><?php echo $row['sobre']; ?></div>
+                    </div>
                 </form>
             </div>
 
@@ -230,17 +268,6 @@
                 }, false);
             })();
     </script>
-    <footer class="text-muted">
-        <div class="container">
-            <p class="float-right">
-                <a href="#">Voltar ao topo</a>
-            </p>
-            <p>Este exemplo de álbum é &copy; Bootstrap, mas, por favor, baixe e customize por conta própria.</p>
-            <p>Novo no Bootstrap? <a href="../../">Visite a página principal</a> ou leia nosso guia <a
-                    href="../../getting-started/">getting started</a>.</p>
-        </div>
-    </footer>
-
     <!-- Principal JavaScript do Bootstrap
     ================================================== -->
     <!-- Foi colocado no final para a página carregar mais rápido -->
@@ -255,5 +282,4 @@
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.6/holder.min.js"></script>
 </body>
-
 </html>
