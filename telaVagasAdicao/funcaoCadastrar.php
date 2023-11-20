@@ -1,15 +1,13 @@
 <?php
 
-$host = "localhost";
-$user = "root";
-$password = ""; // Senha do seu banco de dados, se houver
-$database = "visaoinclusiva"; // Nome do seu banco de dados
-
-// Cria a conexão
-$con = mysqli_connect($host, $user, $password, $database);
-
+$server = "localhost";
+$usuario = "root";
+$senha = "";
+$banco = "visãoinclusiva";
+$conexao = mysqli_connect($server, $usuario, $senha);
+$db = mysqli_select_db($conexao, $banco);
 // Verifica a conexão
-if (!$con) {
+if (!$conexao) {
     die("Erro ao conectar ao banco de dados: " . mysqli_connect_error());
 }
 
@@ -43,14 +41,14 @@ if (isset($_POST['submit']))
     titulo,empresa, localizacao, salario, periodo , tipo_contrato, descricao,atividades,beneficios)
     VALUES ('$titulo','$empresa','$localizacao','$salario','$periodo','$tipo_contrato','$descricao','$atividades','$beneficios')";
 
-if (mysqli_query($con, $result)) {
+if (mysqli_query($conexao, $result)) {
   echo "<script>alert('Registrado com sucesso');</script>";
 
 } else {
   echo "<script>alert('Erro ao cadastrar. Por favor, tente novamente mais tarde.');</script>";
-  echo "Erro de cadastro: " . $result . "<br>" . mysqli_error($con);
+  echo "Erro de cadastro: " . $result . "<br>" . mysqli_error($conexao);
 }
-mysqli_close($con);
+mysqli_close($conexao);
 
 }
 
@@ -69,18 +67,18 @@ if (isset($_POST['delete'])) {
         $delete_query = "DELETE FROM cadastro_vagas WHERE id = '$id_para_remover'";
 
         // Executa a query DELETE
-        if (mysqli_query($con, $delete_query)) {
+        if (mysqli_query($conexao, $delete_query)) {
             echo "<script>alert('Registro apagado com sucesso');</script>";
         } else {
             echo "<script>alert('Erro ao apagar registro. Por favor, tente novamente mais tarde.');</script>";
-            echo "Erro ao apagar registro: " . mysqli_error($con);
+            echo "Erro ao apagar registro: " . mysqli_error($conexao);
         }
     } else {
         echo "<script>alert('ID para remoção não fornecido');</script>";
     }
 }
 
-mysqli_close($con);
+mysqli_close($conexao);
 
 ?>
 

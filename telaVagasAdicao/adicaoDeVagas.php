@@ -1,9 +1,15 @@
 <?php
 
+session_start();
+include "conexao.php";
+$id_empresa = isset($_SESSION['id_empresa']) ? $_SESSION['id_empresa'] : null;
+
+
 include_once('D:\xampp\htdocs\www\Visao_inclusiva\telaVagasAdicao\cadastrarVagas.php');
 include_once('D:\xampp\htdocs\www\Visao_inclusiva\telaVagasAdicao\alterarVagas.php');
 include_once('D:\xampp\htdocs\www\Visao_inclusiva\telaVagasAdicao\excluirVagas.php');
 
+var_dump($id_empresa);
 
 ?>
 
