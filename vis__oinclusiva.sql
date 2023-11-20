@@ -84,7 +84,7 @@ INSERT INTO `cadastro_pj` (`id_empresa`, `nome_empresa`, `CNPJ`, `email`, `telef
 --
 
 CREATE TABLE `cadastro_vagas` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL KEY AUTO_INCREMENT,
   `titulo` varchar(255) NOT NULL,
   `empresa` varchar(255) DEFAULT NULL,
   `localizacao` varchar(100) DEFAULT NULL,
