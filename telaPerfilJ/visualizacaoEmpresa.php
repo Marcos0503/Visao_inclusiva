@@ -1,4 +1,9 @@
-<!doctype html>
+<?php
+session_start();
+include "conexao.php";
+$id_empresa = isset($_SESSION['id_empresa']) ? $_SESSION['id_empresa'] : null;
+?>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,15 +11,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="icon" href="../img/logo1.png">
 
-    <title>Exemplo de álbum Bootstrap</title>
+    <title>Perfil Empresa</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="form-validation.css" rel="stylesheet">
     <style>
         body {
-            background-image: url("img/background.png");
+            background-image: url("../img/backgrond.jpeg");
             background-size: cover;
             /* Ajusta o tamanho da imagem ao tamanho da janela */
             background-repeat: no-repeat;
@@ -78,56 +83,18 @@
             margin-bottom: -6%;
         }
 
-        .pictures {
-            width: 85%;
-            max-width: 100%;
-            position: relative;
-            margin-top: 2%;
-            margin-bottom: 5%;
-        }
-
-        #picture__input {
-            display: none;
-        }
-
-        .picture_perfil {
-            width: 20%;
-            aspect-ratio: 8/8;
-            background: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #aaa;
-            border: 2px dashed #aaa;
-            cursor: pointer;
-            transition: color 300ms ease-in-out, background 300ms ease-in-out;
-            border-radius: 5%;
-            position: relative;
-            z-index: 2;
-            top: 30px;
-            /* Add this line */
-        }
-
-        .picture_banner {
-            width: 100%;
-            display: flex;
-            aspect-ratio: 18 /4;
-            position: absolute;
-            background: #ddd;
-            align-items: center;
-            justify-content: center;
-            color: #aaa;
-            border: 2px dashed #cecdcd;
-            cursor: pointer;
-            transition: color 300ms ease-in-out, background 300ms ease-in-out;
-            border-radius: 5%;
-            left: 7%;
+        .foto-perfil {
             z-index: 1;
+            margin-bottom: 25px;
+            transform: translateY(-20%);
+            position: relative;
+            border-color: blue;
+            border-radius: 5px;
         }
 
-        .picture:hover {
-            color: #777;
-            background: #ccc;
+        .banner {
+            position: relative;
+            border: 4px;
         }
 
         button {
@@ -139,6 +106,33 @@
             margin-top: 10px;
             margin-left: 35%;
             margin-bottom: 8%;
+        }
+
+        .label {
+            padding: 5px;
+            margin-bottom: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #2C5DAE;
+            font-size: x-large;
+            font-weight: 700;
+        }
+
+        .value {
+            border-bottom: 2px solid #2C5DAE;
+            padding: 5px;
+            margin-bottom: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: black;
+            font-size: x-large;
+        }
+
+        .editable {
+            background-color: azure;
+            border: 2px solid #2C5DAE;
+            ;
+            padding: 8px;
+            min-height: 100px;
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -170,12 +164,12 @@
         <div class="navbar navbar-dark shadow-sm">
             <div class="container d-flex justify-content-between">
                 <a href="#" class="navbar-brand d-flex align-items-center">
-                    <img class="logo" src="img/logo.png" alt="Sua Logo" height="40" width="40">
+                    <img class="logo" src="../img/logo1.png" alt="Sua Logo" height="40" width="40">
                     <strong>Visão Inclusiva</strong>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
                     aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <a href="#" class="text-white">Sobre nós</a>
                 </button>
             </div>
         </div>
@@ -183,40 +177,63 @@
     <div class="container center-form">
         <div class="perfil-container">
             <div class="py-5 text-center">
-                <h2 class="custom-heading-responsive">Perfil</h2>
+                <h2 class="custom-heading-responsive">Perfil Empresa</h2>
                 <p class="lead"></p>
             </div>
             <div class="box">
                 <form>
-                    <h6>Foto de Perfil</h6>
-                    <div class="pictures">
-                        <label class="picture_banner" for="picture__input" tab="0">
-                            <span class="picture__image">Inserir banner</span>
-                        </label>
-                        <input type="file" accept="image/*" id="picture__input" />
-
-                        <label class="picture_perfil" for="picture__input" tab="0">
-                            <span class="picture__image">Inserir imagem de perfil</span>
-                        </label>
-                        <input type="file" accept="image/*" id="picture__input" />
-                    </div>
+                    <h6></h6>
                     <?php
-                    if ($id) {
-                        $sql = "SELECT * FROM cadastro_pessoal WHERE id = $id;";
+                    if ($id_empresa) {
+                        $sql = "SELECT * FROM cadastro_pj WHERE id_empresa = $id_empresa;";
 
                         if ($conexao) {
                             $result = mysqli_query($conexao, $sql);
 
                             if ($result && mysqli_num_rows($result) == 1) {
                                 $row = mysqli_fetch_assoc($result);
-                                echo "<p class='company-info'>Nome da pessoa: " . $row['nome_pessoa'] . "</p>";
-                                echo "<p class='company-info'>E-mail: " . $row['email'] . "</p>";
-                                echo "<p class='company-info'>Cid: " . $row['cid'] . "</p>";
-                                echo "<p class='company-info'>Telefone: " . $row['telefone'] . "</p>";
-                                echo "<p class='company-info'>Endereço: " . $row['rua'] . ", " . $row['bairro'] . ", " . $row['cidade'] . ", " . $row['estado'] . "</p>";
+                                echo "<p class='company-info'>";
+                                echo "<div class='banner'>";
+                                echo '<img src="' . $row['caminho_banner'] . '" alt="Foto de Perfil" width="700" height="300">';
 
+                                echo "</p>";
+
+                                echo "<p class='company-info'>";
+                                echo "<div class='foto-perfil'>";
+                                echo '<img src="' . $row['caminho_foto_perfil'] . '" alt="Foto de Perfil" width="250" height="250">';
+                                echo "</p>";
+
+                                echo "<p class='company-info'>";
+                                echo "<span class='label'>Nome da Empresa:</span>";
+                                echo "<span class='value'>" . $row['nome_empresa'] . "</span>";
+                                echo "</p>";
+
+                                echo "<p class='company-info'>";
+                                echo "<span class='label'>Ramo da Empresa:</span>";
+                                echo "<span class='value'>" . $row['ramo_empresa'] . "</span>";
+                                echo "</p>";
+
+                                echo "<p class='company-info'>";
+                                echo "<span class='label'>E-mail:</span>";
+                                echo "<span class='value'>" . $row['email'] . "</span>";
+                                echo "</p>";
+
+                                echo "<p class='company-info'>";
+                                echo "<span class='label'>Telefone:</span>";
+                                echo "<span class='value'>" . $row['telefone'] . "</span>";
+                                echo "</p>";
+
+                                echo "<p class='company-info'>";
+                                echo "<span class='label'>Endereço:</span>";
+                                echo "<span class='value'>" . $row['rua'] . ", " . $row['bairro'] . ", " . $row['cidade'] . ", " . $row['estado'] . "</span>";
+                                echo "</p>";
+
+                                echo "<p class='company-info'>";
+                                echo "<span class='label'>CEP:</span>";
+                                echo "<span class='value'>" . $row['CEP'] . "</span>";
+                                echo "</p>";
                             } else {
-                                echo "Pessoa não encontrada.";
+                                echo "Empresa não encontrada.";
                             }
                         } else {
                             echo "Erro na conexão com o banco de dados.";
@@ -224,17 +241,19 @@
 
                         mysqli_close($conexao);
                     } else {
-                        echo "ID da pessoa não definido na sessão.";
+                        echo "ID da empresa não definido na sessão.";
                     }
                     ?>
                     <div class="form-group">
-                        <label for="sobre" class="txt">Sobre:</label>
-                        <textarea class="form-control" id="sobre" rows="3"></textarea>
+                        <label for="sobre" class="label">Sobre:</label>
+                        <div contenteditable="true" class="editable" id="sobre">
+                            <?php echo $row['sobre']; ?>
+                        </div>
                     </div>
                 </form>
             </div>
-
-            <button class="btn btn-primary btn-custom-sm">Editar</button>
+            <a href="../telaEditarj/editarPerfilEmpresa.php"><button
+                    class="btn btn-primary btn-custom-sm">Editar</button></a>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -264,17 +283,6 @@
                 }, false);
             })();
     </script>
-    <footer class="text-muted">
-        <div class="container">
-            <p class="float-right">
-                <a href="#">Voltar ao topo</a>
-            </p>
-            <p>Este exemplo de álbum é &copy; Bootstrap, mas, por favor, baixe e customize por conta própria.</p>
-            <p>Novo no Bootstrap? <a href="../../">Visite a página principal</a> ou leia nosso guia <a
-                    href="../../getting-started/">getting started</a>.</p>
-        </div>
-    </footer>
-
     <!-- Principal JavaScript do Bootstrap
     ================================================== -->
     <!-- Foi colocado no final para a página carregar mais rápido -->
