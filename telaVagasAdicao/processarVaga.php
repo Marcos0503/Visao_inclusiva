@@ -1,13 +1,13 @@
 <?php
 // Conexão com o banco de dados
-$host = "localhost";
-$user = "root";
-$password = ""; // Senha do seu banco de dados, se houver
-$database = "visaoinclusiva"; // Nome do seu banco de dados
+$server = "localhost";
+$usuario = "root";
+$senha = "";
+$banco = "visãoinclusiva";
+$conexao = mysqli_connect($server, $usuario, $senha);
+$db = mysqli_select_db($conexao, $banco);
 
-$con = mysqli_connect($host, $user, $password, $database);
-
-if (!$con) {
+if (!$conexao) {
     die("Erro ao conectar ao banco de dados: " . mysqli_connect_error());
 }
 

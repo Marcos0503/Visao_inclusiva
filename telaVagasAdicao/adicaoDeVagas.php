@@ -1,8 +1,26 @@
 <?php
 
+session_start();
+include "conexao.php";
+
+$id_empresa = isset($_SESSION['id_empresa']) ? $_SESSION['id_empresa'] : null;
+
+if ($id_empresa !== null) {
+    // Constrói a consulta de atualização
+    $update_query = "UPDATE cadastro_vagas SET id_empresa = '$id_empresa'";
+
+    // Executa a consulta de atualização
+    if (mysqli_query($conexao, $update_query)) {
+    } else {
+    }
+};
+
+
+
 include_once('D:\xampp\htdocs\www\Visao_inclusiva\telaVagasAdicao\cadastrarVagas.php');
 include_once('D:\xampp\htdocs\www\Visao_inclusiva\telaVagasAdicao\alterarVagas.php');
 include_once('D:\xampp\htdocs\www\Visao_inclusiva\telaVagasAdicao\excluirVagas.php');
+
 
 
 ?>
@@ -28,7 +46,7 @@ include_once('D:\xampp\htdocs\www\Visao_inclusiva\telaVagasAdicao\excluirVagas.p
   <!-- link do css-->
   <link href="css/adiçao.css" rel="stylesheet">
   <style>
-    /* Estilo do plano de fundo */
+    /* Estilo do plano de fundo */$
     body {
       background-image: url('img/Fundoazulclaro.png');
       /* Substitua pelo nome da imagem correta */

@@ -1,12 +1,12 @@
 <?php
-$host = "localhost";
-$user = "root";
-$password = ""; // Senha do seu banco de dados, se houver
-$database = "visaoinclusiva"; // Nome do seu banco de dados
+    $server = "localhost";
+    $usuario = "root";
+    $senha = "";
+    $banco = "visãoinclusiva";
+    $conexao = mysqli_connect($server, $usuario, $senha);
+    $db = mysqli_select_db($conexao, $banco);
 
-$con = mysqli_connect($host, $user, $password, $database);
-
-if (!$con) {
+if (!$conexao) {
     die("Erro ao conectar ao banco de dados: " . mysqli_connect_error());
 }
 
@@ -25,15 +25,15 @@ if (isset($_POST['submit'])) {
         titulo, empresa, localizacao, salario, periodo, tipo_contrato, descricao, atividades, beneficios)
         VALUES ('$titulo', '$empresa', '$localizacao', '$salario', '$periodo', '$tipo_contrato', '$descricao', '$atividades', '$beneficios')";
 
-    if (mysqli_query($con, $result)) {
-        $ultimo_id = mysqli_insert_id($con);
+    if (mysqli_query($conexao, $result)) {
+        $ultimo_id = mysqli_insert_id($conexao);
         echo "<script>alert('Registrado com sucesso. ID: $ultimo_id');</script>";
         // Redirecionar para a nova página usando o último ID inserido
         header("Location: adicaoDeVagas.php?id=$ultimo_id");
         exit(); // Certifique-se de parar a execução após o redirecionamento
     } else {
         echo "<script>alert('Erro ao cadastrar. Por favor, tente novamente mais tarde.');</script>";
-        echo "Erro de cadastro: " . $result . "<br>" . mysqli_error($con);
+        echo "Erro de cadastro: " . $result . "<br>" . mysqli_error($conexao);
     }
 }
 
@@ -42,7 +42,7 @@ if (isset($_GET['id'])) {
 
     // Consulta para recuperar os dados da vaga específica
     $query = "SELECT titulo, empresa, localizacao, salario, periodo, tipo_contrato, descricao, atividades, beneficios FROM cadastro_vagas WHERE id = $id";
-    $result = mysqli_query($con, $query);
+    $result = mysqli_query($conexao, $query);
 
     if ($result) {
         $row = mysqli_fetch_assoc($result);
