@@ -1,21 +1,21 @@
 <?php
 
-$host = "localhost";
-$user = "root";
-$password = ""; // Senha do seu banco de dados, se houver
-$database = "visaoinclusiva"; // Nome do seu banco de dados
+$server = "localhost";
+$usuario = "root";
+$senha = "";
+$banco = "visãoinclusiva";
 
-// Cria a conexão
-$con = mysqli_connect($host, $user, $password, $database);
+$conexao = mysqli_connect($server, $usuario, $senha);
+$db = mysqli_select_db($conexao, $banco);
 
 // Verifica a conexão
-if (!$con) {
+if (!$conexao) {
     die("Erro ao conectar ao banco de dados: " . mysqli_connect_error());
 }
 
 // Consulta as vagas
 $query = "SELECT id, titulo, descricao, data_publicacao, empresa, localizacao, salario, tipo_contrato, requisitos FROM cadastro_vagas";
-$result = mysqli_query($con, $query) or die("Erro ao consultar as vagas: " . mysqli_error($con));
+$result = mysqli_query($conexao, $query) or die("Erro ao consultar as vagas: " . mysqli_error($conexao));
 
 // Inicializa um array para armazenar as vagas
 $vagas = array();
@@ -26,5 +26,5 @@ while ($row = mysqli_fetch_assoc($result)) {
 }
 
 // Fecha a conexão
-mysqli_close($con);
+mysqli_close($conexao);
 ?>
