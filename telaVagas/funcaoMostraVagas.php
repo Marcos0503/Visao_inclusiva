@@ -3,7 +3,7 @@
 $host = "localhost";
 $user = "root";
 $password = ""; // Senha do seu banco de dados, se houver
-$database = "visao_inclusiva"; // Nome do seu banco de dados
+$database = "visaoinclusiva"; // Nome do seu banco de dados
 
 // Cria a conexão
 $con = mysqli_connect($host, $user, $password, $database);

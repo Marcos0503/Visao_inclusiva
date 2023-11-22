@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="icon" href="../img/logo1.png">
 
-    <title>Exemplo de álbum Bootstrap</title>
+    <title>Login</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <link href="form-validation.css" rel="stylesheet">
 <style>
     body {
-        background-image: url('img/fundo.jpeg');
+        background-image: url('../img/backgrond.jpeg');
         background-size: cover;
         background-repeat: no-repeat;
     }
@@ -96,7 +96,7 @@
       <div class="navbar navbar-dark shadow-sm">
         <div class="container d-flex justify-content-between">
           <a href="#" class="navbar-brand d-flex align-items-center">
-          <img class="logo" src="img/logo.png" alt="Sua Logo" height="40" width="40">
+          <img class="logo" src="../img/logo1.png" alt="Sua Logo" height="40" width="40">
           <strong>Visão Inclusiva</strong>
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
@@ -128,12 +128,26 @@
                         <div class="invalid-feedback" style="width: 100%;">
                             A senha é obrigatória.
                         </div>
+                          <div id="error-message" class="alert alert-danger d-none" role="alert">
+                            Email ou senha incorretos. Por favor, verifique suas credenciais.
+                          </div>
                     </div>
                     <button class="btn btn-primary btn-custom-sm" type="submit">Entrar</button>
                 </form>
             </div>
         </div>
     </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // Verifica se a mensagem de erro está presente na sessão
+        var errorMessage = "<?php echo isset($_SESSION['login_error']) ? $_SESSION['login_error'] : ''; ?>";
+
+        if (errorMessage) {
+          // Exibe a mensagem de erro
+          document.getElementById('error-message').classList.remove('d-none');
+        }
+      });
+    </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -161,16 +175,6 @@
             }, false);
         })();
     </script>
-    <footer class="text-muted">
-      <div class="container">
-        <p class="float-right">
-          <a href="#">Voltar ao topo</a>
-        </p>
-        <p>Este exemplo de álbum é &copy; Bootstrap, mas, por favor, baixe e customize por conta própria.</p>
-        <p>Novo no Bootstrap? <a href="../../">Visite a página principal</a> ou leia nosso guia <a href="../../getting-started/">getting started</a>.</p>
-      </div>
-    </footer>
-
     <!-- Principal JavaScript do Bootstrap
     ================================================== -->
     <!-- Foi colocado no final para a página carregar mais rápido -->
