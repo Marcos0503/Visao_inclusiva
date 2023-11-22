@@ -19,7 +19,7 @@ if (!$conexao) {
 }
 
 // Consulta as vagas
-$query = "SELECT id, titulo, empresa, localizacao, salario, periodo, tipo_contrato, descricao, atividades, beneficios FROM cadastro_vagas";
+$query = "SELECT id_empresa, titulo,localizacao, salario, periodo, tipo_contrato, descricao, atividades, beneficios FROM cadastro_vagas";
 $result = mysqli_query($conexao, $query) or die("Erro ao consultar as vagas: " . mysqli_error($conexao));
 
 // Inicializa um array para armazenar as vagas

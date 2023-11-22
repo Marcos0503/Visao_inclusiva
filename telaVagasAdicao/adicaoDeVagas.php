@@ -10,7 +10,8 @@ if ($id_empresa !== null) {
     $update_query = "UPDATE cadastro_vagas SET id_empresa = '$id_empresa'";
 
     // Executa a consulta de atualização
-    if (mysqli_query($conexao, $update_query)) {
+    if (mysqli_query($conexao, $update_query)) { 
+      
     } else {
     }
 };
