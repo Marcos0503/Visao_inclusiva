@@ -1,4 +1,6 @@
-    <!DOCTYPE html>
+
+
+<!DOCTYPE html>
     <html lang="pt-BR">
     <head>
         <meta charset="UTF-8">
@@ -8,87 +10,44 @@
         <meta name="description" content="Seja bem vindo ao Visão Inclusiva, um site onde você pode encontrar vagas de emprego para pessoas com
         deficiência e neurodivergentes">
 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link href="form-validation.css" rel="stylesheet">
         <!-- <link rel="stylesheet" type="text/css" href="\..\VI_Vagas\estilo\telaVagas.css" media="screen" /> -->
         <style>
             /*Apenas arrumando o cabeçalho*/
-    header{
+    /* header{
         background-color: #C2D7E8;
         color: #2C5DAE;
         display: flex;
-        justify-content: space-between; /* Espaço entre os elementos para alinhar à esquerda e à direita */
-        align-items: center; /* Centralize horizontalmente */
-        padding: 10px; /* Adicione espaçamento interno */
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
         overflow: hidden;
         text-align: center;
         text-decoration: none;
         box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
         font-family: 'Montserrat', sans-serif;
     }
-
-    #menu {
-        color: #2C5DAE; /* Adicione a cor do texto desejada */
-        padding: 30px 50px 30px 50px;
-        text-decoration: none;
-        list-style: none;
-        list-style-type: none;
-        font-size: 25px;
+    */
+    
+    .bg{
+      background-color: #2C5DAE; /* Cor de fundo do collapse */
     }
-
-    /* Estilo para a lista <ul> que contém a imagem, no canto esquerdo */
-    ul #ul-imagem {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        text-decoration: none;
+    .text{
+      color: white;
     }
-
-    li{
-        float: left;
-        text-decoration: none;
-        display: block;
-        list-style-type: none;
-    }
-
-    /* Estilo para a imagem no cabeçalho */
-    img {
-        max-width: 150px; /* Define a largura máxima da imagem, ajuste conforme necessário */
-    }
-
-    /* Estilo para a lista <ul> que contém os botões, no canto direito */
-    ul#ul-botoes {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        text-decoration: none;
+    .navbar {
+      background-color:  #2C5DAE; /* Cor de fundo do cabeçalho */
+      min-height: 80px;
 
     }
-
-    /* Estilo para os botões de "Entrar" e "Cadastrar-se" no cabeçalho */
-
-    ul#ul-botoes button {
-        background-color: #4c4c4c; /* Adicione a cor de fundo desejada */
-        color: #fff; /* Adicione a cor do texto desejada */
-        border: none;
-        padding: 10px 20px; /* Adicione espaçamento interno */
-        margin: 10px; /* Adicione espaçamento vertical aos botões */
-        text-decoration: none;
-    }
-
-    #logar, #cadastrar {
-        background-color: #fff; /* Adicione a cor de fundo desejada */
-        color: #1F78D1; /* Adicione a cor do texto desejada */
-        border-radius: 8px;
-        border: 1px solid #1F78D1;
-        padding: 10px 20px; /* Adicione espaçamento interno */
-        margin: 0 20px; /* Adicione espaçamento lateral aos botões */
-        cursor: pointer;
-    }
-
-    a{
-        text-decoration: none;
+    .logo{
+        margin-right: 5px;
+        width: 120px;
+        height: 50px;
     }
 
     /*Aplicando em todo documento*/
@@ -99,10 +58,10 @@
 
     body{
         margin: 0;
-        background-image: url('img/Fundo_azul_claro.png'), url('img/background.png');
+        background-image: url('../img/background.png'), url('../img/Fundo_azul_claro.png');
         background-repeat: no-repeat;
         background-position: left, right;   
-        background-size: 67% 100%, 33% 100%; /* Ajuste as porcentagens conforme necessário */
+        background-size: 69% 100%, 31% 100%; /* Ajuste as porcentagens conforme necessário */
     }
 
     body, html {
@@ -112,8 +71,38 @@
 
     /*Ajeitando o rodapé*/
     #content-wrap {
-        padding-bottom: 2.5rem;    /* altura do rodapé */
+        max-height: 100vh; /* Defina a altura máxima como a altura da viewport (100% da altura visível) */
+        overflow-y: auto; /* Adiciona uma barra de rolagem vertical quando o conteúdo excede a altura máxima */
+        padding-bottom: 2.5rem; /* Adicione espaço para o rodapé */
     }
+
+/* Estilização da barra de rolagem para navegadores WebKit (Chrome, Safari) */
+#content-wrap::-webkit-scrollbar {
+    width: 12px; /* Largura da barra de rolagem */
+}
+
+#content-wrap::-webkit-scrollbar-thumb {
+    background-color: #2C5DAE; /* Cor do botão de rolagem */
+    border-radius: 6px; /* Borda do botão de rolagem */
+}
+
+#content-wrap::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Cor da trilha da barra de rolagem */
+}
+
+/* Estilização da barra de rolagem para o Firefox */
+#content-wrap::-moz-scrollbar {
+    width: 12px;
+}
+
+#content-wrap::-moz-scrollbar-thumb {
+    background-color: #2C5DAE;
+    border-radius: 6px;
+}
+
+#content-wrap::-moz-scrollbar-track {
+    background-color: #f1f1f1;
+}
 
     footer {
         position: absolute;
@@ -125,6 +114,7 @@
         align-items: center; /* Centraliza o conteúdo horizontalmente */
         background-color: #fff;
         border-top: 1px solid #4d4d4d80;
+        margin-top: 10%;
     }
 
     #links {
@@ -164,6 +154,7 @@
     #links, #redesSociais {
         width: 100%; /* Ocupar toda a largura do rodapé */
         text-align: center; /* Centralizar o texto dentro das divs */
+        
     }
 
     /*Estiliza as DIVs que aparece as vagas*/
@@ -174,12 +165,13 @@
         color: #000;
         font-family: Georgia, 'Times New Roman', Times, serif;
         justify-content: left;
-        margin: 35px;
-        padding: 10px;
+        margin: 2.5%;
+        padding: 2%;
         overflow: hidden;
         height: 20%;
-        width: 63%;
+        width: 65%;
         cursor: pointer;
+        height: 20%; /* Defina a altura desejada para cada vaga */  
     }
 
     /* Estilos CSS para ocultar os detalhes das vagas inicialmente */
@@ -189,16 +181,16 @@
 
     /* Estilização da barra de pesquisa */
     #search-bar {
-        width: 100%;
+        width: 95%;
         display: flex;
         justify-content: flex-end; /* Alinha os itens à direita */
         margin-right: 20px; /* Adiciona margem à direita para afastar da borda da página */
-
+        margin-top: 2.5%;
     }
 
     #search-input {
         width: 100%;
-        height: 6%;
+        height: 5%;
         margin-right: 1%;
         border-radius: 15px;
     }
@@ -208,8 +200,8 @@
     }
 
     #search-bar button img {
-        width: 50%; /* Ajuste o tamanho da imagem conforme necessário */
-        height: 50%;
+        width: 20px;
+        height: 20px;
     }
 
     #pesquisaSugestao{
@@ -219,7 +211,6 @@
         top: 0;
         right: 0;
         border-radius: 15px;
-        margin-bottom: 2%;
     }
 
     #pesquisaSugestao h3 {
@@ -245,37 +236,77 @@
         width: 90%;
     }
 
-    #divVagas{
-        min-height: 80%;
+    #logoRodape{
+        width: 120px;
+        height: 50px;
     }
+
+    .profile-icon {
+    width: 40px; /* Ajuste conforme necessário */
+    height: 40px; /* Ajuste conforme necessário */
+    overflow: hidden;
+    border-radius: 50%;
+    border: 1px solid #000;
+}
+
+.profile-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem cubra completamente o círculo */
+}
+
     </style>
 
         <title>Vagas | Visão Inclusiva</title>
     </head>
     <body responsive>
         <header>
-            <div>
-                <img src="img\logo1.png" alt="Logo Final">
+        <div class="collapse bg" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">Sobre</h4>
+              <p class="text">Adicione alguma informação sobre o álbum abaixo (autor ou qualquer outro background). Faça essas informações terem algumas frases, para a galera ter algumas informações que besliscar. Além disso, use link nelas para as redes sociais ou informações de contato.</p>
             </div>
-            <nav>
-                <ul id="navegacaoHeader">
-                    <li><a id="menu" href="#home">Home</a></li>
-                    <li><a id="menu" href="#sobre">Sobre Nós</a></li>
-                    <li><a id="menu" href="#ajuda">Ajuda</a></li>
-                </ul>
-            </nav>
-            <div>
-                <button id="logar">Entrar</button>
-                <button id="cadastrar">Cadastrar-se</button>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Contato</h4>
+              <ul class="list-unstyled">
+                <li><a href="#" class="text-white">Me siga no Twitter</a></li>
+                <li><a href="#" class="text-white">Curta no Facebook</a></li>
+                <li><a href="#" class="text-white">Me envie um e-mail</a></li>
+              </ul>
             </div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-dark shadow-sm">
+        <div class="container d-flex justify-content-between">
+          <a href="#" class="navbar-brand d-flex align-items-center">
+          <img class="logo" src="../img/logoFinal.png" alt="Logo Visão Inclusiva" height="35" width="85">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+            <div class="navbar-nav ml-auto">
+                <!--o <a> é onde vai entrar o link para a tela de perfil da pessoa-->
+                <a class="nav-link" href="C:\xampp\htdocs\www\Vi_inclusiva\Visao_inclusiva\telaEditarF\editarPessoaFisica.php">
+                    <div class="profile-icon">
+                        <!-- Adicione uma imagem de perfil ou ícone de usuário padrão -->
+                        <img src="../img/userBase.png" alt="Perfil">
+                    </div>
+                </a>
+            </div>
+      </div>
         </header>
+
         <div id="page-container">
 
         <div id="content-wrap">
             <div id="divVagas">
             <!-- o resto do conteúdo da página -->
             <!-- <h3>Vagas Disponíveis</h3> -->
-            <?php include("funcaoMostraVagasPj.php"); ?>
+            <?php include("D:/xampp/htdocs/www/Visao_inclusiva/telaVagasAdicao/funcaoMostraVagasPj.php"); ?>
         </div>
         </div>
 
@@ -285,7 +316,7 @@
         <div id="search-bar">
             <input type="text" id="search-input" placeholder="Pesquisar vagas...">
             <button onclick="searchVagas()" id="botaoVagas">
-            <img src="imagem/iconePesquisa.png"alt="Ir">
+            <img src="../img/iconePesquisa.png"alt="Ir">
         </button>
         </div>
 
@@ -297,7 +328,6 @@
         </div>
     </div>
 
-
     <!-- rodapé da página -->
         <footer>
             <br>
@@ -307,14 +337,14 @@
                         <li><a id="rodape" href="#quemSomos">Quem Somos</a></li>
                         <li><a id="rodape" href="#companhia">Companhia</a></li>
 
-                        <img src="imagem\logoFinal.png" alt="Logo Final">
+                        <img src="../img/logoFinal.png" alt="Logo Final" id="logoRodape">
 
                         <li><a id="rodape" href="#helpDesk">Help Desk</a></li>
                         <li><a id="rodape" href="#blog">Blog</a></li>
                         <li><a id="rodape" href="#recursos">Recursos</a></li>
                     </ul>
                     <br>
-                </div>
+                </div>            
                 <p>
                     Obrigado por acessar o site. Nós amamos nossos usuários!
                 </p>
@@ -322,7 +352,7 @@
         </div>
 
         <script>
-
+    // Função para mostrar ou ocultar os detalhes quando uma DIV é clicada
 // Função para mostrar ou ocultar os detalhes quando uma DIV é clicada
 function toggleDetalhes(vagaId) {
     var detalhes = document.getElementById(vagaId);
@@ -474,32 +504,69 @@ function toggleDetalhes(vagaId) {
 // ...
 
 function cadastrarVaga(vagaId) {
-    // Chamar o script PHP para cadastrar o usuário na vaga
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'C:/xampp/htdocs/www/VI_Vagas/VI_Vagas/back/enviaCadastro.php?idVaga=' + vagaId, true);
-    xhr.responseType = 'blob';
+    // Simulando a obtenção do ID do usuário logado (substitua por sua lógica real)
+    var usuarioLogadoId = obterUsuarioLogadoId(); // Implemente a função para obter o ID do usuário logado
 
-    xhr.onload = function () {
-        // Verificar se a requisição foi bem-sucedida
-        if (xhr.status === 200) {
-            // Crie um link para baixar o currículo
-            var url = window.URL.createObjectURL(new Blob([xhr.response]));
-            var a = document.createElement('a');
-            a.href = url;
-            a.download = 'curriculo.pdf'; // Substitua pelo nome desejado do arquivo
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            window.URL.revokeObjectURL(url);
-        } else {
-            console.error('Erro ao cadastrar o usuário na vaga.');
-        }
-    };
-
-    xhr.send();
+    // Simulando a obtenção do currículo do usuário a partir do BD (substitua por sua lógica real)
+    obterCurriculoDoBD(usuarioLogadoId)
+        .then(curriculoDoUsuario => {
+            // Simulando o envio do currículo para a empresa (substitua por sua lógica real)
+            fetch('URL_da_empresa', {
+                method: 'POST',
+                body: JSON.stringify({ curriculo: curriculoDoUsuario, vagaId: vagaId }), // Enviando o currículo e o ID da vaga
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Exibindo um alerta ao usuário após o envio bem-sucedido do currículo
+                    alert("Currículo enviado com sucesso para a empresa!");
+                } else {
+                    alert("Erro ao enviar o currículo para a empresa.");
+                }
+            })
+            .catch(error => {
+                console.error('Erro ao enviar o currículo:', error);
+                alert("Erro ao enviar o currículo para a empresa. Verifique sua conexão ou tente novamente mais tarde.");
+            });
+        })
+        .catch(error => {
+            console.error('Erro ao obter o currículo do usuário:', error);
+            alert("Erro ao obter o currículo do usuário. Tente novamente mais tarde.");
+        });
 }
 
+// Função para obter o ID do usuário logado (substitua por sua lógica real)
+function obterUsuarioLogadoId() {
+    // Implemente a lógica para obter o ID do usuário logado (por exemplo, a partir do token de autenticação)
+    // Retorne o ID do usuário ou null se não estiver autenticado
+    // Exemplo:
+    // return usuarioAutenticado ? usuarioAutenticado.id : null;
+    // Substitua 'usuarioAutenticado' pela sua lógica real de verificação de autenticação
+    return null; // Exemplo: retornando null para simular um usuário não autenticado
+}
+
+// Função para obter o currículo do usuário a partir do BD (substitua por sua lógica real)
+function obterCurriculoDoBD(usuarioId) {
+    return new Promise((resolve, reject) => {
+        // Substitua pelo seu código real para obter o currículo do BD com base no ID do usuário
+        // Exemplo simulado:
+        if (usuarioId !== null) {
+            resolve("Caminho/do/curriculo_do_usuario.pdf");
+        } else {
+            reject("Usuário não autenticado");
+        }
+    });
+}
+
+// Falta: enviar o currículo da pessoa
+
 </script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-Uo7DzGnMz9ATKxIep9tiCxS/Z9fNfEXZJT3MXP7iNH49yIexK3MciF8HZJ3Z5mwC" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     </body>
     </html>
