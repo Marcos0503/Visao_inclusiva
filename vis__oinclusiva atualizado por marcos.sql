@@ -62,7 +62,8 @@ INSERT INTO `cadastro_pessoal` (`id_usuario`, `nome_completo`, `CPF`, `RG`, `dat
 --
 
 CREATE TABLE `cadastro_pj` (
-  `id_empresa` int(11) NOT NULL KEY AUTO_INCREMENT,
+
+  `id_empresa` int(11) NOT NULL KEY AUTO_INCREMENT ,
   `nome_empresa` varchar(255) NOT NULL,
   `CNPJ` char(14) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
