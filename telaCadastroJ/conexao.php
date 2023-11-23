@@ -13,6 +13,4 @@
         {
             echo "Conexão errada";
         }
-
-
 ?>
