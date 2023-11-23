@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 20/11/2023 às 17:36
+-- Tempo de geração: 23/11/2023 às 17:03
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -46,14 +46,16 @@ CREATE TABLE `cadastro_pessoal` (
   `curriculo` longblob DEFAULT NULL,
   `sobre` text DEFAULT NULL,
   `caminho_foto_perfil` varchar(255) DEFAULT NULL
-); 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `cadastro_pessoal`
 --
 
 INSERT INTO `cadastro_pessoal` (`id_usuario`, `nome_completo`, `CPF`, `RG`, `date_nasc`, `telefone`, `CID`, `rua`, `cidade`, `bairro`, `estado`, `pais`, `CEP`, `email`, `senha`, `curriculo`, `sobre`, `caminho_foto_perfil`) VALUES
-(5, 'João Guilherme', '698.741.233', '58.767.876-5', '2001-01-20', '(15) 9 9778-083', 'F20 + G19.', 'Travessa sua mãe, 70', 'São Paulo', 'jardim casa nova', 'São Paulo', 'Brasil', '18950-00', 'JoaoPCD@gmail.com', '$2y$10$8T1jIG0.RFNy6I4EF6kMgOiL1jhPp0iwP1XOPIONEtafJtwjNucGK', 0x4d6f64656c6f5f64655f437572726963756c756d5f315f507265656e636869646f2e706466, 'Texto de apresentação', '../imagem_perfil/images.jfif');
+(5, 'João Guilherme', '698.741.233', '58.767.876-5', '2001-01-20', '(15) 9 9778-083', 'F20 + G19.', 'Travessa sua mãe, 70', 'São Paulo', 'jardim casa nova', 'São Paulo', 'Brasil', '18950-00', 'JoaoPCD@gmail.com', '$2y$10$8T1jIG0.RFNy6I4EF6kMgOiL1jhPp0iwP1XOPIONEtafJtwjNucGK', 0x4d6f64656c6f5f64655f437572726963756c756d5f315f507265656e636869646f2e706466, 'Texto de apresentação', '../imagem_perfil/images.jfif'),
+(7, 'Rubens Nervoso', '698.741.233', '58.767.876-5', '2023-05-10', '(15) 9 9778-083', 'F20 + G19.', 'Travessa sua mãe, 70', 'São Paulo', 'jardim casa nova', 'São Paulo', 'Brasil', '18950-00', 'Robsonentregas@hotmail.com', '$2y$10$emjUBIfrq1eNSUaPzfY6b.MqkhfgaJ.wa7kGguuVUICden48kcOvu', 0x696d616765732e6a666966, 'texto', '../imagem_perfil/Design sem nome (2).png'),
+(8, 'Alessandra', '303.721.138', '58.767.876-5', '1981-10-29', '(15) 9706-3057', 'F20 + G19.', 'joaquim gabriel soares, 70', 'Ibiuna', 'Vila lima', 'São Paulo', 'Brasil', '18150-00', 'alessandra@gmail.com', '$2y$10$QtAwTMawyZB2buuiyka0ouMHxJVMz6rV34i5VynNVBcX7i600r/F.', 0x4d6f64656c6f5f64655f437572726963756c756d5f315f507265656e636869646f2e706466, 'Eu sou alessandra', '../imagem_perfil/images.jfif');
 
 -- --------------------------------------------------------
 
@@ -62,8 +64,7 @@ INSERT INTO `cadastro_pessoal` (`id_usuario`, `nome_completo`, `CPF`, `RG`, `dat
 --
 
 CREATE TABLE `cadastro_pj` (
-
-  `id_empresa` int(11) NOT NULL KEY AUTO_INCREMENT ,
+  `id_empresa` int(11) NOT NULL,
   `nome_empresa` varchar(255) NOT NULL,
   `CNPJ` char(14) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
@@ -79,14 +80,15 @@ CREATE TABLE `cadastro_pj` (
   `sobre` text DEFAULT NULL,
   `caminho_foto_perfil` varchar(255) DEFAULT NULL,
   `caminho_banner` varchar(255) DEFAULT NULL
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `cadastro_pj`
 --
 
 INSERT INTO `cadastro_pj` (`id_empresa`, `nome_empresa`, `CNPJ`, `email`, `telefone`, `ramo_empresa`, `rua`, `pais`, `bairro`, `cidade`, `estado`, `CEP`, `senha`, `sobre`, `caminho_foto_perfil`, `caminho_banner`) VALUES
-(70, 'Tecmundo', '89.654.321/800', 'Marcos@inforpro.com.br', '(15) 9 9778-083', 'Jornalismo', 'Travessa sua mãe, 70', 'Brasil', 'jardim casa nova', 'São Paulo', 'São Paulo', '18950-00', '$2y$10$xTpuIiMQZFg0PXNq1AybPevjPxhgNHlM6ehk4xbCkr.QlGE1WjB/2', '[Seu Nome] é alguém que ilumina qualquer ambiente com sua presença calorosa e sorriso contagiante. Apaixonado(a) por [mencionar um interesse ou hobby], [Seu Nome] transforma sua dedicação em verdadeiras obras de arte.\r\n\r\nSeu espírito aventureiro o(a) leva a explorar o mundo ao redor, sempre em busca de novas experiências e aprendizados. Com uma mente inquisitiva, [Seu Nome] encontra beleza nas pequenas coisas e inspiração nas complexidades da vida.', '../imagemPerfilEmpresa/perfil_70_images.jfif', '../banner/banner_70_Design sem nome (1).png');
+(70, 'Tecmundo', '89.654.321/800', 'Marcos@inforpro.com.br', '(15) 9 9778-083', 'Jornalismo', 'Travessa sua mãe, 70', 'Brasil', 'jardim casa nova', 'São Paulo', 'São Paulo', '18950-00', '$2y$10$xTpuIiMQZFg0PXNq1AybPevjPxhgNHlM6ehk4xbCkr.QlGE1WjB/2', '[Seu Nome] é alguém que ilumina qualquer ambiente com sua presença calorosa e sorriso contagiante. Apaixonado(a) por [mencionar um interesse ou hobby], [Seu Nome] transforma sua dedicação em verdadeiras obras de arte.\r\n\r\nSeu espírito aventureiro o(a) leva a explorar o mundo ao redor, sempre em busca de novas experiências e aprendizados. Com uma mente inquisitiva, [Seu Nome] encontra beleza nas pequenas coisas e inspiração nas complexidades da vida.', '../imagemPerfilEmpresa/perfil_70_images.jfif', '../banner/banner_70_Design sem nome (1).png'),
+(71, 'Tecmundo', '89.654.321/800', 'as8196110@gmail.com', '(15) 9 9778-083', 'Jornalismo', 'Travessa sua mãe, 70', 'Brasil', 'jardim casa nova', 'São Paulo', 'São Paulo', '18950-00', '$2y$10$1wFPeChVFsZO0esyi.e3vewYk6SkwE24kdLfOVbzpK2fReINzglze', 'texto', '../imagemPerfilEmpresa/perfil_71_images.jfif', '../banner/banner_71_Design sem nome (1).png');
 
 -- --------------------------------------------------------
 
@@ -95,7 +97,7 @@ INSERT INTO `cadastro_pj` (`id_empresa`, `nome_empresa`, `CNPJ`, `email`, `telef
 --
 
 CREATE TABLE `cadastro_vagas` (
-  `id` int(11) NOT NULL KEY AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `id_empresa` int(11) NOT NULL,
   `titulo` varchar(255) NOT NULL,
   `empresa` varchar(255) DEFAULT NULL,
@@ -106,22 +108,17 @@ CREATE TABLE `cadastro_vagas` (
   `descricao` text DEFAULT NULL,
   `atividades` text DEFAULT NULL,
   `beneficios` text DEFAULT NULL
-
-);
--- --------------------------------------------------------
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Estrutura para tabela `fotos`
+-- Despejando dados para a tabela `cadastro_vagas`
 --
 
-CREATE TABLE `fotos` (
-  `id_foto` int(11) NOT NULL,
-  `tipo` varchar(20) NOT NULL,
-  `id_usuario` int(11) DEFAULT NULL,
-  `imagem` blob DEFAULT NULL,
-  `descricao` text DEFAULT NULL,
-  `data_upload` timestamp NOT NULL DEFAULT current_timestamp()
-); 
+INSERT INTO `cadastro_vagas` (`id`, `id_empresa`, `titulo`, `empresa`, `localizacao`, `periodo`, `salario`, `tipo_contrato`, `descricao`, `atividades`, `beneficios`) VALUES
+(1, 70, 'GAROTO DE PROGRMA', 'Google', 'Ibiuna', 'Noite', 500.00, 'Eterno', 'venha fazer programa com a gente ', 'Programar', 'Vale Vips'),
+(2, 70, 'GAROTO DE PROGRMA', 'Google', 'Ibiuna', 'Noite', 500.00, 'Eterno', 'venha fazer programa com a gente ', 'Programar', 'Vale Vips'),
+(3, 71, 'Empresa 2', 'Google', 'Ibiuna', 'Noite', 500.00, 'Eterno', 'venha fazer programa com a gente ', 'Programar', 'Vale Vips'),
+(4, 70, '', '', '', '', 0.00, '', '', '', '');
 
 --
 -- Índices para tabelas despejadas
@@ -146,12 +143,6 @@ ALTER TABLE `cadastro_vagas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `fotos`
---
-ALTER TABLE `fotos`
-  ADD PRIMARY KEY (`id_foto`);
-
---
 -- AUTO_INCREMENT para tabelas despejadas
 --
 
@@ -159,25 +150,19 @@ ALTER TABLE `fotos`
 -- AUTO_INCREMENT de tabela `cadastro_pessoal`
 --
 ALTER TABLE `cadastro_pessoal`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `cadastro_pj`
 --
 ALTER TABLE `cadastro_pj`
-  MODIFY `id_empresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id_empresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT de tabela `cadastro_vagas`
 --
 ALTER TABLE `cadastro_vagas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `fotos`
---
-ALTER TABLE `fotos`
-  MODIFY `id_foto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -6,21 +6,25 @@ include "conexao.php";
 $id_empresa = isset($_SESSION['id_empresa']) ? $_SESSION['id_empresa'] : null;
 
 if ($id_empresa !== null) {
-    // Constrói a consulta de atualização
-    $update_query = "UPDATE cadastro_vagas SET id_empresa = '$id_empresa'";
+    // Recupera o ID da vaga a ser atualizada (suponha que esteja sendo passado por GET)
+    $id = isset($_GET['id']) ? $_GET['id'] : null;
 
-    // Executa a consulta de atualização
-    if (mysqli_query($conexao, $update_query)) { 
-      
-    } else {
+    if ($id !== null) {
+        // Constrói a consulta de atualização para atribuir o id_empresa à vaga específica
+        $update_query = "UPDATE cadastro_vagas SET id_empresa = '$id_empresa' WHERE id = $id";
+
+        // Executa a consulta de atualização
+        if (mysqli_query($conexao, $update_query)) {
+           
+        }
+      }
     }
-};
 
 
 
-include_once('D:\xampp\htdocs\www\Visao_inclusiva\telaVagasAdicao\cadastrarVagas.php');
-include_once('D:\xampp\htdocs\www\Visao_inclusiva\telaVagasAdicao\alterarVagas.php');
-include_once('D:\xampp\htdocs\www\Visao_inclusiva\telaVagasAdicao\excluirVagas.php');
+include_once('cadastrarVagas.php');
+include_once('alterarVagas.php');
+include_once('excluirVagas.php');
 
 
 
@@ -46,10 +50,11 @@ include_once('D:\xampp\htdocs\www\Visao_inclusiva\telaVagasAdicao\excluirVagas.p
   <link href="css\bootstrapfisico.css" rel="stylesheet">
   <!-- link do css-->
   <link href="css/adiçao.css" rel="stylesheet">
+  
   <style>
-    /* Estilo do plano de fundo */$
+    /* Estilo do plano de fundo */
     body {
-      background-image: url('img/Fundoazulclaro.png');
+      background-image: url('../img/Fundo_azul_claro.png');
       /* Substitua pelo nome da imagem correta */
       background-size: cover;
       /* Ajusta o tamanho da imagem ao tamanho da janela */
@@ -58,106 +63,60 @@ include_once('D:\xampp\htdocs\www\Visao_inclusiva\telaVagasAdicao\excluirVagas.p
     }
 
     /* Estilo para o cabeçalho abaixo */
-    .header {
-      background-color: #C2D7E8;
-      padding: 20px 0;
-      border-radius: 0 0 10px 10px;
-      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-      text-align: center;
-      display: flex;
-      justify-content: space-between;
-      /* Alinhe à direita */
-      align-items: center;
-      /* Alinhe verticalmente ao centro */
+    .bg{
+      background-color: #2C5DAE; /* Cor de fundo do collapse */
+    }
+    .text{
+      color: white;
+    }
+    .navbar {
+      background-color:  #2C5DAE; /* Cor de fundo do cabeçalho */
+      min-height: 80px;
     }
 
-    .header-logo-responsive {
-      margin-left: 1%;
-      width: 10%;
-      /* Tamanho da logo */
-      height: auto;
-      float: left;
-      /* Alinhar a logo à esquerda */
+    .logo{
+        margin-right: 5px;
+        width: 120px;
+        height: 50px;
     }
 
-    .header-links-responsive {
-      text-decoration: none;
-      margin: 0 20px;
-      font-size: 150%;
-      color: #ffffff;
-      /* Cor dos links */
-    }
+    .profile-icon {
+    width: 40px; /* Ajuste conforme necessário */
+    height: 40px; /* Ajuste conforme necessário */
+    overflow: hidden;
+    border-radius: 50%;
+    border: 1px solid #000;
+}
 
-    .custom-heading-responsive {
-      color: #2C5DAE;
-      font-size: 350%;
-      font-style: normal;
-      font-weight: 700;
-      line-height: 36px;
-      letter-spacing: -1.65px;
-    }
-
-
-
-    .d-flex {
-      margin-top: 20px;
-      /* Afastar a frase do botão */
-    }
-
-    .btn-custom {
-      margin-right: 10%;
-      padding-left: 20px;
-      padding-right: 20px;
-      margin-top: -2%;
-    }
-
+.profile-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem cubra completamente o círculo */
+}
     /* Estilo para o cabeçalho acima */
-
-
     /* Centralizar o formulário */
     .center-form {
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
-      min-height: 100vh;
+      align-items: center;
+      /* height: 100vh;
+      margin: 0; */
     }
 
-    /* Estilo personalizado para caixas de input */
-    .custom-input {
+    .formBotao{
+      padding: 0;
+      display: flex;
       border-radius: 10px;
-      /* Borda arredondada */
-      background-color: white;
-      /* Cor de fundo personalizada */
     }
 
-
-    .quadradoBranco {
-      width: 100%;
-      height: 100%;
-      border-radius: 15px;
-      background: #FFF;
-      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-      margin-top: 10%;
-    }
-
-    .bnt {
+    .bnt-link{
+      justify-content: space-between;
       width: 40%;
       background-color: #1F78D1;
       color: #fff;
-      border-radius: 15px;
-      margin-left: 5%;
-    }
-
-    .bnt-link {
-      width: 40%;
-      background-color: #1F78D1;
-      color: #fff;
-      border-radius: 15px;
-      margin-left: 5%;
+      border-radius: 10px;
       text-decoration: none;
       /* Remove o sublinhado padrão */
-      display: inline-block;
       /* Define como um elemento em linha com bloco */
       padding: 10px 20px;
       /* Adapte o preenchimento conforme necessário */
@@ -165,12 +124,35 @@ include_once('D:\xampp\htdocs\www\Visao_inclusiva\telaVagasAdicao\excluirVagas.p
       /* Centraliza o texto */
       font-weight: bold;
       /* Define o peso da fonte como negrito */
+      border: none;
+      margin: 0.5%;
+      height: 20%;
+      cursor: pointer;
+    }
+
+    .botaoExcluir{
+      justify-content: space-between;
+      width: 100%;
+      background-color: #1F78D1;
+      color: #fff;
+      border-radius: 10px;
+      text-decoration: none;
+      /* Remove o sublinhado padrão */
+      /* Define como um elemento em linha com bloco */
+      padding: 10px 20px;
+      /* Adapte o preenchimento conforme necessário */
+      text-align: center;
+      /* Centraliza o texto */
+      font-weight: bold;
+      /* Define o peso da fonte como negrito */
+      border: none;
+      cursor: pointer;
     }
 
     .titulo {
       color: black;
       font-size: 24px;
-      font-family: arial;
+      font-family: 'Montserrat', sans-serif;
       font-weight: 400;
       line-height: 24px;
       word-wrap: break-word;
@@ -185,16 +167,19 @@ include_once('D:\xampp\htdocs\www\Visao_inclusiva\telaVagasAdicao\excluirVagas.p
       word-wrap: break-word
     }
 
-    textarea {
-      width: 100%;
-      height: 100%;
-    }
-
-
     .empresa {
-
       display: inline-block;
       margin-left: 5%;
+    }
+
+    .entrada, textarea{
+      border-radius: 10px;
+      border: none;
+      width: 100%;
+      margin-top: 2%;
+      height: 6vh;
+      background-color: #C2D7E8;
+      padding-left: 2%; 
     }
 
     .bnt-exibir {
@@ -204,70 +189,95 @@ include_once('D:\xampp\htdocs\www\Visao_inclusiva\telaVagasAdicao\excluirVagas.p
       color: #fff;
       display: inline-block;
       margin-left: 30%;
-
     }
 
-    .picture_perfil {
-      width: 100%;
-      aspect-ratio: 8/8;
-      background: #ddd;
+    .card {
+      border-radius: 10px;
+      background-color: rgba(245, 245, 220, 0.5);
+      color: #000;
+      font-family: 'Montserrat', sans-serif;
+      margin: 2.5% auto; /* Centraliza horizontalmente com 'auto' e define a margem superior e inferior */
+      padding: 2%;
+      overflow: hidden;
+      height: 20%;
+      width: 65%;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+
+    .botoes-container {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #aaa;
-      border: 2px dashed #aaa;
-      cursor: pointer;
-      transition: color 300ms ease-in-out, background 300ms ease-in-out;
-      border-radius: 5%;
-      margin-bottom: 25px;
-      margin-top: 30px;
-      position: relative;
+      justify-content: space-between; /* Isso distribuirá os elementos igualmente na largura da caixa flexível */
+      margin-top: 10px; /* Ajuste conforme necessário */
     }
-  </style>
 
+  </style>
 
 </head>
 
 <body>
-  <div class="header">
-    <img class="header-logo-responsive" src="img/logo1.png" alt="">
-    <div class="header-links-responsive">
-      <a class="header-links-responsive" href="#">Home</a>
-      <a class="header-links-responsive" href="#">Sobre nós</a>
-      <a class="header-links-responsive" href="#">Ajuda</a>
-    </div>
-    <div class="d-flex align-items-center ml-4" style="width: 300px;"> <!-- Aumente a largura do contêiner -->
-      <h3 class="frase-responsive" style="font-size: 18px;">Já possui cadastro?</h3>
-      <button class="btn btn-primary btn-custom ml-2">Login</button>
-    </div>
-  </div>
-  <div class="container center-form"> <!-- Adicione a classe "center-form" para centralizar -->
-    <div class="quadradoBranco">
-      <div class="mb-3">
-        <br>
+<header>
+        <div class="collapse bg" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">Sobre</h4>
+              <p class="text">Adicione alguma informação sobre o álbum abaixo (autor ou qualquer outro background). Faça essas informações terem algumas frases, para a galera ter algumas informações que besliscar. Além disso, use link nelas para as redes sociais ou informações de contato.</p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Contato</h4>
+              <ul class="list-unstyled">
+                <li><a href="#" class="text-white">Me siga no Twitter</a></li>
+                <li><a href="#" class="text-white">Curta no Facebook</a></li>
+                <li><a href="#" class="text-white">Me envie um e-mail</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-dark shadow-sm">
+        <div class="container d-flex justify-content-between">
+          <a href="#" class="navbar-brand d-flex align-items-center">
+          <img class="logo" src="../img/logoFinal.png" alt="Logo Visão Inclusiva" height="35" width="85">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+            <div class="navbar-nav ml-auto">
+                <!--o <a> é onde vai entrar o link para a tela de perfil da pessoa-->
+                <a class="nav-link" href="C:\xampp\htdocs\www\Vi_inclusiva\Visao_inclusiva\telaEditarF\editarPessoaJuridica.php">
+                    <div class="profile-icon">
+                        <!-- Adicione uma imagem de perfil ou ícone de usuário padrão -->
+                        <img src="../img/userBase.png" alt="Perfil">
+                    </div>
+                </a>
+            </div>
+      </div>
+        </header>
     
+        <div class="card">
         <form action="processarVaga.php" method="POST">
     <input type="hidden" name="action" value="addOrUpdate">
     <input type="hidden" name="id" value="<?php echo isset($id) ? $id : ''; ?>">
 
         <div class="mb-3">
           <h1 class="titulo">Sobre a Vaga</h1>
-          <input type="text" name="titulo" value="<?php echo isset($titulo) ? $titulo : ''; ?>"
+          <input class="entrada" type="text" name="titulo" value="<?php echo isset($titulo) ? $titulo : ''; ?>"
             placeholder="Titulo da vaga">
-          <input type="text" name="empresa" value="<?php echo isset($empresa) ? $empresa : ''; ?>"
+          <input class="entrada" type="text" name="empresa" value="<?php echo isset($empresa) ? $empresa : ''; ?>"
             placeholder="Nome da empresa">
-          <input type="text" name="localizacao" value="<?php echo isset($localizacao) ? $localizacao : ''; ?>"
+          <input class="entrada" type="text" name="localizacao" value="<?php echo isset($localizacao) ? $localizacao : ''; ?>"
             placeholder="Local">
-          <input type="text" name="salario" value="<?php echo isset($salario) ? $salario : ''; ?>"
+          <input class="entrada" type="text" name="salario" value="<?php echo isset($salario) ? $salario : ''; ?>"
             placeholder="Salário">
-          <input type="text" name="periodo" value="<?php echo isset($periodo) ? $periodo : ''; ?>"
+          <input class="entrada" type="text" name="periodo" value="<?php echo isset($periodo) ? $periodo : ''; ?>"
             placeholder="Periodo">
           <datalist id="periodo">
             <input></input>
             <option value=" Tempo Integral">
             <option value=" Meio Período">
           </datalist>
-          <input type="text" name="tipo_contrato" value="<?php echo isset($tipo_contrato) ? $tipo_contrato : ''; ?>"
+          <input class="entrada" type="text" name="tipo_contrato" value="<?php echo isset($tipo_contrato) ? $tipo_contrato : ''; ?>"
             placeholder="Tipo de Contrato">
           <datalist id="tipo">
             <input></input>
@@ -285,29 +295,28 @@ include_once('D:\xampp\htdocs\www\Visao_inclusiva\telaVagasAdicao\excluirVagas.p
           <textarea name="atividades"><?php echo isset($atividades) ? $atividades : ''; ?></textarea>
         </div>
         <div class="mb-3">
-          <h1 class="titulo">benefícios</h1>
+          <h1 class="titulo">Benefícios</h1>
           <textarea name="beneficios"><?php echo isset($beneficios) ? $beneficios : ''; ?></textarea>
+          <div class="botoes-container">
           <input type="submit" name="submit" class="bnt-link" value="Enviar">
   </form>
-
-<form action="excluirVagas.php" method="POST">
-          <input type="hidden" value="delete">
-          <button type="submit" class="bnt">
-            <a class="bnt-link" href="adicaoDeVagas.php?delete_id=<?php echo $id; ?>"
-              onclick="return confirm('Tem certeza que deseja excluir esta vaga?')">Excluir
-              <svg xmlns="http://www.w3.org/2000/svg" width="39" height="38" viewBox="0 0 39 38" fill="none">
-                <path d="M5.95703 6.44165V37.276H33.4296V6.44165H5.95703Z" fill="#1F78D1" stroke="white"
+        <!-- Método excluir vagas -->
+        <form action="excluirVagas.php" method="POST" id="formBotao">
+      <input type="hidden" name="delete_id" value="<?php echo $id; ?>">
+        <button type="submit" name="botaoExcluir" value="Excluir" name="submit">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 39 38" fill="none">
+            <path d="M5.95703 6.44165V37.276H33.4296V6.44165H5.95703Z" fill="#1F78D1" stroke="white"
                   stroke-linejoin="round" />
                 <path d="M16.0293 15.5103V27.2999" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
                 <path d="M23.3574 15.5103V27.2999" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
                 <path d="M1.37891 6.44165H38.0089" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M12.3672 6.44135L15.3791 1H24.0678L27.0192 6.44135H12.3672Z" fill="#1F78D1" stroke="white"
+                <path d="M12.3672 6.44135L15.3791 1H24.0678L27.0192 6.44135H12.3672Z" fill="#fff" stroke="white"
                   stroke-linejoin="round" />
-              </svg>
-            </a>
-          </button>
-        </form>
+          </svg>
+        </button>
       </div>
+    </form>
+  </div>
 </body>
 
 </html>
