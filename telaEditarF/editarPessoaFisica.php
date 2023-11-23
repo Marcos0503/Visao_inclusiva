@@ -1,3 +1,11 @@
+<?php
+session_start();
+include "conexao.php";
+$id_usuario = isset($_SESSION['id_usuario']) ? $_SESSION['id_usuario'] : null;
+
+?>
+
+
 <!doctype html>
 <html lang="en">
 
@@ -59,30 +67,6 @@
             margin-bottom: -6%;
         }
 
-        #picture__input {
-            display: none;
-        }
-
-        .picture {
-            width: 60%;
-            aspect-ratio: 8/8;
-            background: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #aaa;
-            border: 2px dashed #aaa;
-            cursor: pointer;
-            transition: color 300ms ease-in-out, background 300ms ease-in-out;
-            border-radius: 5%;
-            margin-bottom: 10%;
-
-        }
-
-        .picture:hover {
-            color: #777;
-            background: #ccc;
-        }
 
         .box {
             margin-right: 0%;
@@ -132,8 +116,6 @@
             width: 100%;
             margin-top: 5%;
         }
-
-
 
         button {
             align-items: center;
@@ -193,81 +175,55 @@
         </div>
 
         <div class="box">
-            <form action="">
-                <h6>Foto Perfil</h6>
-                <label class="picture" for="picture__input" tab="0">
-                    <span class="picture__image">Inserir imagem</span>
-                </label>
-                <input type="file" accept="image/*" id="picture__input" />
-
+            <form action="atualizarDadosF.php" method="POST">
+                <input type="hidden" name="action" value="addOrUpdate">
+                <input type="hidden" name="id_usuario" value="<?php echo isset($id_usuario) ? $id_usuario : ''; ?>">
                 <div class="mb-3">
-                    <input type="text" name="codigo" id="nome" class="inputUser" placeholder="Nome" required>
-                    <label for="nome" class="labelInput"></label>
+                    <input type="text" name="nome_completo" class="inputUser" placeholder="Nome" required>
+                    <label for="nome_completo" class="labelInput"></label>
                 </div>
                 <div class="mb-3">
-                    <input type="text" name="codigo" id="telefone" class="inputUser" placeholder="Telefone" required>
+                    <input type="text" name="telefone" class="inputUser" placeholder="Telefone" required>
                     <label for="telefone" class="labelInput"></label>
                 </div>
                 <div class="mb-3">
-                    <input type="text" name="codigo" id="cid" class="inputUser" placeholder="Cid" required>
-                    <label for="cid" class="labelInput"></label>
+                    <input type="text" name="CID" class="inputUser" placeholder="Cid" required>
+                    <label for="CID" class="labelInput"></label>
                 </div>
                 <div class="mb-3">
-                    <input type="text" name="codigo" id="endereco" class="inputUser" placeholder="Endereço" required>
-                    <label for="endereco" class="labelInput"></label>
+                    <input type="text" name="rua" class="inputUser" placeholder="Rua" required>
+                    <label for="rua" class="labelInput"></label>
                 </div>
                 <div class="mb-3">
-                    <input type="email" name="codigo" id="email" class="inputUser" placeholder="Email" required>
+                    <input type="text" name="bairro" class="inputUser" placeholder="Bairro" required>
+                    <label for="bairro" class="labelInput"></label>
+                </div>
+                <div class="mb-3">
+                    <input type="email" name="email" class="inputUser" placeholder="Email" required>
                     <label for="email" class="labelInput"></label>
                 </div>
-            </form>
-        </div>
-        <div class="boxText">
-            <form action="">
                 <div class="form-group">
-                    <label for="sobre" class="txt">Sobre:</label>
-                    <textarea class="form-control" name="codigo" id="sobre" rows="3"></textarea>
+                    <label for="sobre" name="sobre" class="txt">Sobre:</label>
+                    <textarea class="form-control" id="sobre" rows="3"></textarea>
                 </div>
+                <button type="submit" class="btn btn-outline-info">Salvar</button>
             </form>
+
         </div>
-        <div class="button">
-            <button type="submit" class="btn btn-outline-info" onclick="atualizarDados()">Salvar alterações</button>
-        </div>
-        <script>
 
-            function atualizarDados() {
-                var xhr = new XMLHttpRequest();
-
-                // Especifique o método e o URL do arquivo PHP que contém a função
-                xhr.open("POST", "function.php", true);
-
-                // Configurar cabeçalhos para enviar dados como um formulário
-                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
-                // Parâmetros a serem enviados para a função PHP
-                var params = "nome=NovoNome&telefone=NovoTelefone&endereco=NovoEndereco&email=NovoEmail";
-
-                // Configurar a função de retorno de chamada para lidar com a resposta do servidor
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState === 4 && xhr.status === 200) {
-                        // A resposta do servidor está pronta
-                        alert("Seus dados foram alterados com sucesso!");
-                    }
-                };
-
-                // Envie a solicitação com os parâmetros
-                xhr.send(params);
-
-                alert("Dados alterados");
-            }
-
-        </script>
 
 
     </div>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
+    <!--  mascara dos inputs-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
+        integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="../../assets/js/vendor/popper.min.js"></script>
     <script src="../../dist/js/bootstrap.min.js"></script>
@@ -292,6 +248,9 @@
                 }, false);
             })();
     </script>
+
+
+
     <footer class="text-muted">
         <div class="container">
             <p class="float-right">
