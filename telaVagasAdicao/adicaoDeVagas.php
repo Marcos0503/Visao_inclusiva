@@ -6,15 +6,28 @@ include "conexao.php";
 $id_empresa = isset($_SESSION['id_empresa']) ? $_SESSION['id_empresa'] : null;
 
 if ($id_empresa !== null) {
-    // Constrói a consulta de atualização
-    $update_query = "UPDATE cadastro_vagas SET id_empresa = '$id_empresa'";
+    // Recupera o ID da vaga a ser atualizada (suponha que esteja sendo passado por GET)
+    $id = isset($_GET['id']) ? $_GET['id'] : null;
 
-    // Executa a consulta de atualização
-    if (mysqli_query($conexao, $update_query)) { 
-      
+    if ($id !== null) {
+        // Constrói a consulta de atualização para atribuir o id_empresa à vaga específica
+        $update_query = "UPDATE cadastro_vagas SET id_empresa = '$id_empresa' WHERE id = $id";
+
+        // Executa a consulta de atualização
+        if (mysqli_query($conexao, $update_query)) {
+            echo "Consulta de atualização executada com sucesso.";
+        } else {
+            echo "Erro na consulta de atualização: " . mysqli_error($conexao);
+        }
     } else {
+        echo "ID da vaga não fornecido ou inválido.";
     }
-};
+} else {
+    echo "ID da empresa não está presente na sessão.";
+}
+
+
+
 
 
 
