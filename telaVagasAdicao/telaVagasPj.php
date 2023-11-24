@@ -405,6 +405,10 @@
             }
         }
 
+        function alterarVagas() {
+    // Redireciona para o link desejado
+    window.location.href = 'cadastrarVagas.php';
+}
         // Array de vagas obtido do PHP
         var vagas = <?php echo json_encode($vagas); ?>;
 
@@ -415,16 +419,16 @@
             vagaElement.className = "vaga";
             vagaElement.setAttribute("onclick", "toggleDetalhes('vaga" + vaga.id + "')");
 
-            vagaElement.innerHTML = "<h3>" + vaga.titulo + "</h3>" +
-                "<span>" + vaga.data_publicacao + "</span>" +
-                "<h4>" + vaga.empresa + "</h4>" +
-                "<p>" + vaga.descricao + "</p>" +
+            vagaElement.innerHTML = "<h1>" + vaga.titulo + "</h1>" +
+                "<h6> Vaga Criada pela Empresa: "  + vaga.empresa + "</h6>" +
+                "<p> Descrição: " + vaga.descricao + "</p>" +
                 "<p>Salário: R$ " + vaga.salario + "</p>" +
-                "<button class='cadastrar-button' onclick='cadastrarVaga(" + vaga.id + ")'>Cadastrar-se</button>" +
                 "<div class='detalhes' id='vaga" + vaga.id + "' style='display: none;'>" +
                 "<p>Localização: " + vaga.localizacao + "</p>" +
                 "<p>Tipo de Contrato: " + vaga.tipo_contrato + "</p>" +
-                "<p>Requisitos: " + vaga.requisitos + "</p>" +
+                "<p>Descrição: " + vaga.descricao + "</p>" +
+                "<button class='cadastrar-button' onclick='alterarVagas(" + vaga.id + ")'>Cadastrar-se</button>" +
+
                 "</div>";
 
             document.getElementById("content-wrap").appendChild(vagaElement);
@@ -525,67 +529,9 @@
             }
         }
 
-        // Adicione esta função no seu script JavaScript
-        // ...
+        
+     
 
-        function cadastrarVaga(vagaId) {
-            // Simulando a obtenção do ID do usuário logado (substitua por sua lógica real)
-            var usuarioLogadoId = obterUsuarioLogadoId(); // Implemente a função para obter o ID do usuário logado
-
-            // Simulando a obtenção do currículo do usuário a partir do BD (substitua por sua lógica real)
-            obterCurriculoDoBD(usuarioLogadoId)
-                .then(curriculoDoUsuario => {
-                    // Simulando o envio do currículo para a empresa (substitua por sua lógica real)
-                    fetch('URL_da_empresa', {
-                        method: 'POST',
-                        body: JSON.stringify({ curriculo: curriculoDoUsuario, vagaId: vagaId }), // Enviando o currículo e o ID da vaga
-                        headers: {
-                            'Content-Type': 'application/json'
-                        }
-                    })
-                        .then(response => {
-                            if (response.ok) {
-                                // Exibindo um alerta ao usuário após o envio bem-sucedido do currículo
-                                alert("Currículo enviado com sucesso para a empresa!");
-                            } else {
-                                alert("Erro ao enviar o currículo para a empresa.");
-                            }
-                        })
-                        .catch(error => {
-                            console.error('Erro ao enviar o currículo:', error);
-                            alert("Erro ao enviar o currículo para a empresa. Verifique sua conexão ou tente novamente mais tarde.");
-                        });
-                })
-                .catch(error => {
-                    console.error('Erro ao obter o currículo do usuário:', error);
-                    alert("Erro ao obter o currículo do usuário. Tente novamente mais tarde.");
-                });
-        }
-
-        // Função para obter o ID do usuário logado (substitua por sua lógica real)
-        function obterUsuarioLogadoId() {
-            // Implemente a lógica para obter o ID do usuário logado (por exemplo, a partir do token de autenticação)
-            // Retorne o ID do usuário ou null se não estiver autenticado
-            // Exemplo:
-            // return usuarioAutenticado ? usuarioAutenticado.id : null;
-            // Substitua 'usuarioAutenticado' pela sua lógica real de verificação de autenticação
-            return null; // Exemplo: retornando null para simular um usuário não autenticado
-        }
-
-        // Função para obter o currículo do usuário a partir do BD (substitua por sua lógica real)
-        function obterCurriculoDoBD(usuarioId) {
-            return new Promise((resolve, reject) => {
-                // Substitua pelo seu código real para obter o currículo do BD com base no ID do usuário
-                // Exemplo simulado:
-                if (usuarioId !== null) {
-                    resolve("Caminho/do/curriculo_do_usuario.pdf");
-                } else {
-                    reject("Usuário não autenticado");
-                }
-            });
-        }
-
-        // Falta: enviar o currículo da pessoa
 
     </script>
 
