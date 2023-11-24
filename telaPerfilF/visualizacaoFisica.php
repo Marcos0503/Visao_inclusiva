@@ -5,6 +5,7 @@ $id_usuario = isset($_SESSION['id_usuario']) ? $_SESSION['id_usuario'] : null;
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -116,7 +117,8 @@ $id_usuario = isset($_SESSION['id_usuario']) ? $_SESSION['id_usuario'] : null;
             margin-left: 35%;
             margin-bottom: 8%;
         }
-        .label{
+
+        .label {
             padding: 5px;
             margin-bottom: 10px;
             font-family: Arial, Helvetica, sans-serif;
@@ -124,7 +126,8 @@ $id_usuario = isset($_SESSION['id_usuario']) ? $_SESSION['id_usuario'] : null;
             font-size: x-large;
             font-weight: 700;
         }
-        .value{
+
+        .value {
             border-bottom: 2px solid #2C5DAE;
             padding: 5px;
             margin-bottom: 10px;
@@ -132,15 +135,18 @@ $id_usuario = isset($_SESSION['id_usuario']) ? $_SESSION['id_usuario'] : null;
             color: black;
             font-size: x-large;
         }
+
         .editable {
-        background-color:azurey;
-        border: 2px solid #2C5DAE;;
-        padding: 8px;
-        min-height: 100px;
-        border-radius: 10px;
+            background-color: azurey;
+            border: 2px solid #2C5DAE;
+            ;
+            padding: 8px;
+            min-height: 100px;
+            border-radius: 10px;
         }
     </style>
 </head>
+
 <body>
     <header>
         <div class="collapse bg" id="navbarHeader">
@@ -170,7 +176,8 @@ $id_usuario = isset($_SESSION['id_usuario']) ? $_SESSION['id_usuario'] : null;
                     <img class="logo" src="../img/logo1.png" alt="Sua Logo" height="40" width="40">
                     <strong>Visão Inclusiva</strong>
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
+                    aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
                     <a href="#" class="text-white">Sobre nós</a>
                 </button>
             </div>
@@ -184,10 +191,6 @@ $id_usuario = isset($_SESSION['id_usuario']) ? $_SESSION['id_usuario'] : null;
             </div>
             <div class="box">
                 <form>
-                    <label class="picture" for="picture__input" tab="0">
-                        <span class="picture__image">Inserir imagem</span>
-                    </label>
-                    <input type="file" accept="image/*" id="picture__input" />
 
                     <?php
                     if ($id_usuario) {
@@ -200,25 +203,42 @@ $id_usuario = isset($_SESSION['id_usuario']) ? $_SESSION['id_usuario'] : null;
                                 $row = mysqli_fetch_assoc($result);
                                 ?>
                                 <p class='company-info'>
+                                <div class='foto-perfil'>
+                                    <h4 class="label">Foto de perfil</h4>
+                                    <img src="<?php echo $row['caminho_foto_perfil']; ?>" alt="Foto de Perfil">
+                                </div>
+                                </p>
+                                <p class='company-info'>
                                     <span class="label">Nome da Pessoa:</span>
-                                    <span class="value"><?php echo $row['nome_completo']; ?></span>
+                                    <span class="value">
+                                        <?php echo $row['nome_completo']; ?>
+                                    </span>
                                 </p>
                                 <p class='company-info'>
                                     <span class="label">E-mail:</span>
-                                    <span class="value"><?php echo $row['email']; ?></span>
+                                    <span class="value">
+                                        <?php echo $row['email']; ?>
+                                    </span>
                                 </p>
                                 <p class='company-info'>
                                     <span class="label">CID:</span>
-                                    <span class="value"><?php echo $row['CID']; ?></span>
+                                    <span class="value">
+                                        <?php echo $row['CID']; ?>
+                                    </span>
                                 </p>
                                 <p class='company-info'>
                                     <span class="label">Telefone:</span>
-                                    <span class="value"><?php echo $row['telefone']; ?></span>
+                                    <span class="value">
+                                        <?php echo $row['telefone']; ?>
+                                    </span>
                                 </p>
                                 <p class='company-info'>
                                     <span class="label">Endereço:</span>
-                                    <span class="value"><?php echo $row['rua'] . ", " . $row['bairro'] . ", " . $row['cidade'] . ", " . $row['estado']; ?></span>
+                                    <span class="value">
+                                        <?php echo $row['rua'] . ", " . $row['bairro'] . ", " . $row['cidade'] . ", " . $row['estado']; ?>
+                                    </span>
                                 </p>
+
                                 <?php
                             } else {
                                 echo "Pessoa não encontrada.";
@@ -233,12 +253,16 @@ $id_usuario = isset($_SESSION['id_usuario']) ? $_SESSION['id_usuario'] : null;
                     ?>
                     <div class="form-group">
                         <label for="sobre" class="label">Sobre:</label>
-                        <div contenteditable="true" class="editable" id="sobre"><?php echo $row['sobre']; ?></div>
+                        <div contenteditable="true" class="editable" id="sobre">
+                            <?php echo $row['sobre']; ?>
+                        </div>
                     </div>
                 </form>
             </div>
 
-            <button class="btn btn-primary btn-custom-sm">Editar</button>
+            <a href="../telaEditarF/editarPessoaFisica.php"><button
+                    class="btn btn-primary btn-custom-sm">Editar</button></a>
+
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -282,4 +306,5 @@ $id_usuario = isset($_SESSION['id_usuario']) ? $_SESSION['id_usuario'] : null;
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.6/holder.min.js"></script>
 </body>
+
 </html>
