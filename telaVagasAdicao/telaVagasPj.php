@@ -1,3 +1,5 @@
+<?php include("D:/xampp/htdocs/www/Visao_inclusiva/telaVagasAdicao/funcaoMostraVagasPj.php"); ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -345,7 +347,6 @@
             <div id="divVagas">
                 <!-- o resto do conteúdo da página -->
                 <!-- <h3>Vagas Disponíveis</h3> -->
-                <?php include("D:/xampp/htdocs/www/Visao_inclusiva/telaVagasAdicao/funcaoMostraVagasPj.php"); ?>
             </div>
         </div>
 
