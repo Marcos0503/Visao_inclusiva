@@ -252,8 +252,8 @@ $id_empresa = isset($_SESSION['id_empresa']) ? $_SESSION['id_empresa'] : null;
                     </div>
                 </form>
             </div>
-            <button class="btn btn-primary btn-custom-sm"
-                href="../telaEditarj/editarPerfilEmpresa.php ">Editar</button></a>
+            <a href="../telaEditarj/editarPerfilEmpresa.php"><button
+                    class="btn btn-primary btn-custom-sm">Editar</button></a>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
