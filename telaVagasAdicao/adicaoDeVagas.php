@@ -299,22 +299,13 @@ include_once('excluirVagas.php');
           <textarea name="beneficios"><?php echo isset($beneficios) ? $beneficios : ''; ?></textarea>
           <div class="botoes-container">
           <input type="submit" name="submit" class="bnt-link" value="Enviar">
-  </form>
+
+          
         <!-- Método excluir vagas -->
-        <form action="excluirVagas.php" method="POST" id="formBotao">
-      <input type="hidden" name="delete_id" value="<?php echo $id; ?>">
-        <button type="submit" name="botaoExcluir" value="Excluir" name="submit">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 39 38" fill="none">
-            <path d="M5.95703 6.44165V37.276H33.4296V6.44165H5.95703Z" fill="#1F78D1" stroke="white"
-                  stroke-linejoin="round" />
-                <path d="M16.0293 15.5103V27.2999" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M23.3574 15.5103V27.2999" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M1.37891 6.44165H38.0089" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M12.3672 6.44135L15.3791 1H24.0678L27.0192 6.44135H12.3672Z" fill="#fff" stroke="white"
-                  stroke-linejoin="round" />
-          </svg>
-        </button>
-      </div>
+        <input type="hidden" name="delete" value="<?php echo $id; ?>">
+            <a class="bnt-link" href="adicaoDeVagas.php?delete_id=<?php echo $id; ?>"
+              onclick="return confirm('Tem certeza que deseja excluir esta vaga?')">Excluir</a>
+
     </form>
   </div>
 </body>

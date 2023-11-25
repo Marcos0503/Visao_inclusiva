@@ -405,10 +405,16 @@
             }
         }
 
-        function alterarVagas() {
-    // Redireciona para o link desejado
-    window.location.href = 'adicaoDeVagas.php';
-}
+        function alterarVagas(id) {
+            // Redireciona para o link desejado
+            window.location.href = 'adicaoDeVagas.php?id=' + id;
+        }
+
+        function excluirVagas() {
+            // Redireciona para o link desejado
+            window.location.href = 'excluirVagas.php';
+        }
+
         // Array de vagas obtido do PHP
         var vagas = <?php echo json_encode($vagas); ?>;
 
@@ -420,15 +426,15 @@
             vagaElement.setAttribute("onclick", "toggleDetalhes('vaga" + vaga.id + "')");
 
             vagaElement.innerHTML = "<h1>" + vaga.titulo + "</h1>" +
-                "<h6> Vaga Criada pela Empresa: "  + vaga.empresa + "</h6>" +
+                "<h6> Vaga Criada pela Empresa: " + vaga.empresa + "</h6>" +
                 "<p> Descrição: " + vaga.descricao + "</p>" +
                 "<p>Salário: R$ " + vaga.salario + "</p>" +
                 "<div class='detalhes' id='vaga" + vaga.id + "' style='display: none;'>" +
                 "<p>Localização: " + vaga.localizacao + "</p>" +
                 "<p>Tipo de Contrato: " + vaga.tipo_contrato + "</p>" +
                 "<p>Descrição: " + vaga.descricao + "</p>" +
-                "<button class='cadastrar-button' onclick='alterarVagas(" + vaga.id + ")'>Cadastrar-se</button>" +
-
+                "<button class='cadastrar-button' onclick='alterarVagas(" + vaga.id + ")'>Alterar</button>" +
+                "<button class='cadastrar-button' onclick='excluirVagas(" + vaga.id + ")'>Excluir</button>" +
                 "</div>";
 
             document.getElementById("content-wrap").appendChild(vagaElement);
@@ -529,8 +535,8 @@
             }
         }
 
-        
-     
+
+
 
 
     </script>
