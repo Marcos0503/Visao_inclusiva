@@ -1,15 +1,3 @@
-# Visao_inclusiva
-Versionamento do software visão inclusiva
-
-Esta aplicação está sendo realizada para a disciplina de Projeto Integrador da Universidade de Sorocaba UNISO, no segundo semestre de 2023.
-
-O projeto se trata de um site de vagas online voltado para PcD's e pessoas neurodivergentes, sendo exclusivo para esse público.
-
-O projeto foi desenvolvido em sincronia com alunas de Fonoaudiologia da mesma universidade.
-
-As tecnologias usadas são: PHP, HTML5, CSS3, JavaScript, conforme o escopo do projeto.
-
-
 <!DOCTYPE html>
     <html lang="pt-BR">
     <head>
@@ -25,6 +13,7 @@ As tecnologias usadas são: PHP, HTML5, CSS3, JavaScript, conforme o escopo do p
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link href="form-validation.css" rel="stylesheet">
+        <link rel="icon" href="../img/logo1.png" type="image/x-icon">
         <!-- <link rel="stylesheet" type="text/css" href="\..\VI_Vagas\estilo\telaVagas.css" media="screen" /> -->
         <style>
             /*Apenas arrumando o cabeçalho*/
@@ -56,7 +45,7 @@ As tecnologias usadas são: PHP, HTML5, CSS3, JavaScript, conforme o escopo do p
     }
     .logo{
         margin-right: 5px;
-        width: 120px;
+        width: 50px;
         height: 50px;
     }
 
@@ -267,7 +256,7 @@ As tecnologias usadas são: PHP, HTML5, CSS3, JavaScript, conforme o escopo do p
 
     </style>
 
-        <title>Vagas | Visão Inclusiva</title>
+        <title>Vagas</title>
     </head>
     <body responsive>
         <header>
@@ -292,15 +281,16 @@ As tecnologias usadas são: PHP, HTML5, CSS3, JavaScript, conforme o escopo do p
       <div class="navbar navbar-dark shadow-sm">
         <div class="container d-flex justify-content-between">
           <a href="#" class="navbar-brand d-flex align-items-center">
-          <img class="logo" src="../img/logoFinal.png" alt="Logo Visão Inclusiva" height="35" width="85">
+          <img class="logo" src="../img/logo1.png" alt="Sua Logo" height="40" width="40">
+          <strong>Visão Inclusiva</strong>
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
         </div>
-            <div class="navbar-nav ml-auto">
+        <div class="navbar-nav ml-auto">
                 <!--o <a> é onde vai entrar o link para a tela de perfil da pessoa-->
-                <a class="nav-link" href="C:\xampp\htdocs\www\Vi_inclusiva\Visao_inclusiva\telaEditarF\editarPessoaFisica.php">
+                <a class="nav-link" href="../telaPerfilF/pf.php">
                     <div class="profile-icon">
                         <!-- Adicione uma imagem de perfil ou ícone de usuário padrão -->
                         <img src="../img/userBase.png" alt="Perfil">
@@ -316,7 +306,7 @@ As tecnologias usadas são: PHP, HTML5, CSS3, JavaScript, conforme o escopo do p
             <div id="divVagas">
             <!-- o resto do conteúdo da página -->
             <!-- <h3>Vagas Disponíveis</h3> -->
-            <?php include("C:/xampp/htdocs/www/Vi_inclusiva/Visao_inclusiva/telaVagas/funcaoMostraVagas.php"); ?>
+            <?php include("funcaoMostraVagas.php"); ?>
         </div>
         </div>
 
@@ -337,30 +327,6 @@ As tecnologias usadas são: PHP, HTML5, CSS3, JavaScript, conforme o escopo do p
             </div>
         </div>
     </div>
-
-    <!-- rodapé da página -->
-        <footer>
-            <br>
-            <div id="links">
-                    <ul>
-                        <li><a id="rodape" href="#mobile">Mobile App</a></li>
-                        <li><a id="rodape" href="#quemSomos">Quem Somos</a></li>
-                        <li><a id="rodape" href="#companhia">Companhia</a></li>
-
-                        <img src="../img/logoFinal.png" alt="Logo Final" id="logoRodape">
-
-                        <li><a id="rodape" href="#helpDesk">Help Desk</a></li>
-                        <li><a id="rodape" href="#blog">Blog</a></li>
-                        <li><a id="rodape" href="#recursos">Recursos</a></li>
-                    </ul>
-                    <br>
-                </div>            
-                <p>
-                    Obrigado por acessar o site. Nós amamos nossos usuários!
-                </p>
-        </footer>
-        </div>
-
         <script>
     // Função para mostrar ou ocultar os detalhes quando uma DIV é clicada
 // Função para mostrar ou ocultar os detalhes quando uma DIV é clicada

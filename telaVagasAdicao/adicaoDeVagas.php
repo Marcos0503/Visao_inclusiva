@@ -6,20 +6,25 @@ include "conexao.php";
 $id_empresa = isset($_SESSION['id_empresa']) ? $_SESSION['id_empresa'] : null;
 
 if ($id_empresa !== null) {
-    // Constrói a consulta de atualização
-    $update_query = "UPDATE cadastro_vagas SET id_empresa = '$id_empresa'";
+    // Recupera o ID da vaga a ser atualizada (suponha que esteja sendo passado por GET)
+    $id = isset($_GET['id']) ? $_GET['id'] : null;
 
-    // Executa a consulta de atualização
-    if (mysqli_query($conexao, $update_query)) {
-    } else {
+    if ($id !== null) {
+        // Constrói a consulta de atualização para atribuir o id_empresa à vaga específica
+        $update_query = "UPDATE cadastro_vagas SET id_empresa = '$id_empresa' WHERE id = $id";
+
+        // Executa a consulta de atualização
+        if (mysqli_query($conexao, $update_query)) {
+           
+        }
+      }
     }
-};
 
 
 
-include_once('C:\xampp\htdocs\www\Vi_inclusiva\Visao_inclusiva\telaVagasAdicao\cadastrarVagas.php');
-include_once('C:\xampp\htdocs\www\Vi_inclusiva\Visao_inclusiva\telaVagasAdicao\alterarVagas.php');
-include_once('C:\xampp\htdocs\www\Vi_inclusiva\Visao_inclusiva\telaVagasAdicao\excluirVagas.php');
+include_once('cadastrarVagas.php');
+include_once('alterarVagas.php');
+include_once('excluirVagas.php');
 
 
 

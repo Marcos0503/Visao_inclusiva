@@ -1,16 +1,15 @@
 <?php
 session_start();
 
-// Conectar ao banco de dados
-$server = "localhost";
-$usuario = "root";
-$senha = "";
-$banco = "visãoinclusiva";
+ $server = "localhost";
+ $usuario = "root";
+ $senha = "";
+ $banco = "visãoinclusiva";
+ $conexao = mysqli_connect($server, $usuario, $senha);
+ $db = mysqli_select_db($conexao, $banco);
 
-$conn = new mysqli($server, $usuario, $senha, $banco);
-
-if ($conn->connect_error) {
-    die("Falha na conexão com o banco de dados: " . $conn->connect_error);
+if ($conexao->connect_error) {
+    die("Falha na conexão com o banco de dados: " . $conexao->connect_error);
 }
 
 // Obter dados do formulário
@@ -18,7 +17,7 @@ $email = $_POST['email'];
 $senha_digitada = $_POST['senha'];
 
 // Consultar na tabela cadastro_pj
-$stmt = $conn->prepare("SELECT * FROM cadastro_pj WHERE email = ?");
+$stmt = $conexao->prepare("SELECT * FROM cadastro_pj WHERE email = ?");
 $stmt->bind_param("s", $email);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -31,13 +30,13 @@ if ($result->num_rows > 0) {
     // Verificar a senha usando password_verify
     if (password_verify($senha_digitada, $senha_hash)) {
         $_SESSION['id_empresa'] = $row['id_empresa'];
-        header("Location: ../telaVagasAdicao/adicaoDeVagas.php");
+        header("Location: ../telaVagasAdicao/telaVagasPj.php");
         exit();
     }
 }
 
 // Se o usuário não foi encontrado na tabela cadastro_pj, verificar na tabela cadastro_pessoal
-$stmt = $conn->prepare("SELECT * FROM cadastro_pessoal WHERE email = ?");
+$stmt = $conexao->prepare("SELECT * FROM cadastro_pessoal WHERE email = ?");
 $stmt->bind_param("s", $email);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -65,5 +64,5 @@ echo 'window.location.href="../telaLogin/login.php";</script>';
 exit();
 
 $stmt->close();
-$conn->close();
+$conexao->close();
 ?>
