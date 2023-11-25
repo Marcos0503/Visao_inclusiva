@@ -1,4 +1,4 @@
-<?php include("D:/xampp/htdocs/www/Visao_inclusiva/telaVagasAdicao/funcaoMostraVagasPj.php"); ?>
+<?php include("funcaoMostraVagasPj.php"); ?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -407,7 +407,7 @@
 
         function alterarVagas() {
     // Redireciona para o link desejado
-    window.location.href = 'cadastrarVagas.php';
+    window.location.href = 'adicaoDeVagas.php';
 }
         // Array de vagas obtido do PHP
         var vagas = <?php echo json_encode($vagas); ?>;
