@@ -266,12 +266,18 @@
       </div>
       <div class="mb-3">
         <label for="fotoPerfil"class="btnPerson">Adicionar Foto de perfil</label>
-        <input type="file" class="form-control-file" id="fotoPerfil" name="fotoPerfil" accept="image/*">
+        <input type="file" class="form-control-file" id="fotoPerfil" name="fotoPerfil" accept="image/*" required>
+        <div class="invalid-feedback" style="width: 100%;">
+          Foto de perfil Obrigatorio.
+        </div>
       </div>
 
       <div class="mb-3">
         <label for="banner"class="btnPerson">Adicionar banner</label>
-        <input type="file" class="form-control-file" id="banner" name="banner" accept="image/*">
+        <input type="file" class="form-control-file" id="banner" name="banner" accept="image/*" required>
+        <div class="invalid-feedback" style="width: 100%;">
+          Foto de banner Obrigatorio.
+        </div>
       </div>
       <div class="custom-control custom-checkbox">
       <input type="checkbox" class="custom-control-input" id="salvar-info" required>
