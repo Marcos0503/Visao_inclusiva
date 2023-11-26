@@ -393,99 +393,154 @@
         }
 
         function searchVagas() {
-            // Obtenha o valor digitado na barra de pesquisa
-            var searchTerm = document.getElementById("search-input").value.toLowerCase();
+        // Obtenha o valor digitado na barra de pesquisa
+        var searchTerm = document.getElementById("search-input").value.toLowerCase();
 
-            // Limpe o conteúdo existente antes de exibir os resultados da pesquisa
-            document.getElementById("content-wrap").innerHTML = "";
+        // Limpe o conteúdo existente antes de exibir os resultados da pesquisa
+        document.getElementById("content-wrap").innerHTML = "";
 
-            // Exiba apenas as vagas que contêm o termo de pesquisa
-            for (var i = 0; i < vagas.length; i++) {
-                var vaga = vagas[i];
+        // Exiba apenas as vagas que contêm o termo de pesquisa
+        for (var i = 0; i < vagas.length; i++) {
+            var vaga = vagas[i];
 
-                // Verifique se o título ou a descrição contêm o termo de pesquisa
-                if (vaga.titulo.toLowerCase().includes(searchTerm) || vaga.descricao.toLowerCase().includes(searchTerm)) {
-                    var vagaElement = document.createElement("div");
-                    vagaElement.className = "vaga";
-                    vagaElement.setAttribute("onclick", "toggleDetalhes('vaga" + vaga.id + "')");
+            // Verifique se o título ou a descrição contêm o termo de pesquisa
+            if (vaga.titulo.toLowerCase().includes(searchTerm) || vaga.descricao.toLowerCase().includes(searchTerm)) {
+                var vagaElement = document.createElement("div");
+                vagaElement.className = "vaga";
+                vagaElement.setAttribute("onclick", "toggleDetalhes('vaga" + vaga.id + "')");
 
-                    vagaElement.innerHTML = "<h3>" + vaga.titulo + "</h3>" +
-                        "<span>" + vaga.data_publicacao + "</span>" +
-                        "<h4>" + vaga.empresa + "</h4>" +
-                        "<p>" + vaga.descricao + "</p>" +
-                        "<p>Salário: R$ " + vaga.salario + "</p>" +
-                        "<div class='detalhes' id='vaga" + vaga.id + "' style='display: none;'>" +
-                        "<p>Localização: " + vaga.localizacao + "</p>" +
-                        "<p>Tipo de Contrato: " + vaga.tipo_contrato + "</p>" +
-                        "<p>Requisitos: " + vaga.requisitos + "</p>" +
-                        "<button onclick='cadastrarVaga(" + vaga.id + ")'>Cadastrar-se</button>" +
-                        "</div>";
+                vagaElement.innerHTML = "<h3>" + vaga.titulo + "</h3>" +
+                    "<span>" + vaga.data_publicacao + "</span>" +
+                    "<h4>" + vaga.empresa + "</h4>" +
+                    "<p>" + vaga.descricao + "</p>" +
+                    "<p>Salário: R$ " + vaga.salario + "</p>" +
+                    "<div class='detalhes' id='vaga" + vaga.id + "' style='display: none;'>" +
+                    "<p>Localização: " + vaga.localizacao + "</p>" +
+                    "<p>Tipo de Contrato: " + vaga.tipo_contrato + "</p>" +
+                    "<p>Requisitos: " + vaga.requisitos + "</p>" +
+                    "<button onclick='cadastrarVaga(" + vaga.id + ")'>Cadastrar-se</button>" +
+                    "</div>";
 
-                    document.getElementById("content-wrap").appendChild(vagaElement);
-                }
+                document.getElementById("content-wrap").appendChild(vagaElement);
             }
         }
+    }
 
-        // Supondo que você tenha um array de todas as vagas (vagas) e o array de vagas já exibidas (exibidas)
-        // Você pode ajustar esses arrays conforme necessário
+    // Supondo que você tenha um array de todas as vagas (vagas) e o array de vagas já exibidas (exibidas)
+    // Você pode ajustar esses arrays conforme necessário
 
+    // Função para obter vagas sugeridas com base nas vagas já exibidas
+    function getSuggestedVagas(exibidas) {
+        // Limite o número de sugestões para evitar repetição
+        var limiteSugestoes = 3;
 
-
-        // Função para embaralhar um array (algoritmo de Fisher-Yates)
-        function shuffleArray(array) {
-            for (var i = array.length - 1; i > 0; i--) {
-                var j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-            return array;
-        }
-
-        // Função para exibir sugestões de vagas
-        function exibirSugestoes(exibidas) {
-            var suggestedVagasElement = document.getElementById("suggested-vagas");
-            suggestedVagasElement.innerHTML = "";
-
-            var sugestoes = getSuggestedVagas(exibidas);
-
-            for (var i = 0; i < sugestoes.length; i++) {
-                var sugestao = sugestoes[i];
-                var sugestaoElement = document.createElement("div");
-                sugestaoElement.className = "suggested-vaga";
-
-                sugestaoElement.innerHTML = "<h3>" + sugestao.titulo + "</h3>" +
-                    "<span>" + sugestao.empresa + "</span>" +
-                    "<p>" + sugestao.descricao.substring(0, 100) + "...</p>";
-
-                suggestedVagasElement.appendChild(sugestaoElement);
-            }
-        }
-
-        // Chamada inicial para exibir sugestões quando a página carrega
-        exibirSugestoes([]);
-
-        // Adicione a seguinte função para ouvir eventos de teclas no campo de pesquisa
-        document.getElementById("search-input").addEventListener("keyup", function () {
-            searchVagas();
+        // Filtrar vagas que ainda não foram exibidas
+        var vagasNaoExibidas = vagas.filter(function (vaga) {
+            return !exibidas.includes(vaga.id);
         });
 
-        // Atualize a função searchVagas() para suportar pesquisa em tempo real
-        function searchVagas() {
-            // Obtenha o valor digitado na barra de pesquisa
-            var searchTerm = document.getElementById("search-input").value.toLowerCase();
+        // Embaralhar as vagas não exibidas para tornar as sugestões mais dinâmicas
+        vagasNaoExibidas = shuffleArray(vagasNaoExibidas);
 
-            // Limpe o conteúdo existente antes de exibir os resultados da pesquisa
-            document.getElementById("content-wrap").innerHTML = "";
+        // Retornar um número limitado de sugestões
+        return vagasNaoExibidas.slice(0, limiteSugestoes);
+    }
 
-            // Exiba apenas as vagas que contêm o termo de pesquisa em tempo real
-            for (var i = 0; i < vagas.length; i++) {
-                var vaga = vagas[i];
-
-                // Verifique se o título ou a descrição contêm o termo de pesquisa
-                if (vaga.titulo.toLowerCase().includes(searchTerm) || vaga.descricao.toLowerCase().includes(searchTerm)) {
-                    // ... (o resto do seu código de exibição de vagas permanece o mesmo)
-                }
-            }
+    // Função para embaralhar um array (algoritmo de Fisher-Yates)
+    function shuffleArray(array) {
+        for (var i = array.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
         }
+        return array;
+    }
+
+    // Função para exibir sugestões de vagas
+    function exibirSugestoes(exibidas) {
+        var suggestedVagasElement = document.getElementById("suggested-vagas");
+        suggestedVagasElement.innerHTML = "";
+
+        var sugestoes = getSuggestedVagas(exibidas);
+
+        for (var i = 0; i < sugestoes.length; i++) {
+            var sugestao = sugestoes[i];
+            var sugestaoElement = document.createElement("div");
+            sugestaoElement.className = "suggested-vaga";
+
+            sugestaoElement.innerHTML = "<h3>" + sugestao.titulo + "</h3>" +
+                "<span>" + sugestao.empresa + "</span>" +
+                "<p>" + sugestao.descricao.substring(0, 100) + "...</p>";
+
+            suggestedVagasElement.appendChild(sugestaoElement);
+        }
+    }
+
+    // Chamada inicial para exibir sugestões quando a página carrega
+    exibirSugestoes([]);
+
+    // Adicione a seguinte função para ouvir eventos de teclas no campo de pesquisa
+    document.getElementById("search-input").addEventListener("keyup", function () {
+        searchVagas();
+    });
+
+    // Atualize a função searchVagas() para suportar pesquisa em tempo real
+    function searchVagas() {
+    var searchTerm = document.getElementById("search-input").value.toLowerCase();
+    var contentWrap = document.getElementById("content-wrap");
+    contentWrap.innerHTML = ""; // Limpe o conteúdo existente
+
+    for (var i = 0; i < vagas.length; i++) {
+        var vaga = vagas[i];
+
+        if (
+            vaga.titulo.toLowerCase().includes(searchTerm) ||
+            vaga.descricao.toLowerCase().includes(searchTerm)
+        ) {
+            var vagaElement = document.createElement("div");
+            vagaElement.className = "vaga";
+            vagaElement.setAttribute(
+                "onclick",
+                "toggleDetalhes('vaga" + vaga.id + "')"
+            );
+
+            vagaElement.innerHTML =
+                "<h3>" +
+                vaga.titulo +
+                "</h3>" +
+                "<span>" +
+                vaga.data_publicacao +
+                "</span>" +
+                "<h4>" +
+                vaga.empresa +
+                "</h4>" +
+                "<p>" +
+                vaga.descricao +
+                "</p>" +
+                "<p>Salário: R$ " +
+                vaga.salario +
+                "</p>" +
+                "<div class='detalhes' id='vaga" +
+                vaga.id +
+                "' style='display: none;'>" +
+                "<p>Localização: " +
+                vaga.localizacao +
+                "</p>" +
+                "<p>Tipo de Contrato: " +
+                vaga.tipo_contrato +
+                "</p>" +
+                "<p>Requisitos: " +
+                vaga.requisitos +
+                "</p>" +
+                "<button onclick='cadastrarVaga(" +
+                vaga.id +
+                ")'>Cadastrar-se</button>" +
+                "</div>";
+
+            contentWrap.appendChild(vagaElement);
+        }
+    }
+}
+
 
 
 
