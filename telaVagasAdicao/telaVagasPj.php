@@ -41,6 +41,19 @@
             margin-right: 5px;
         }
 
+        .profile-icon {
+            width: 40px;
+            height: 40px;
+            overflow: hidden;
+            border-radius: 50%;
+            border: 1px solid #000;
+        }
+
+        .profile-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
         /* pra cima nav bar */
 
@@ -246,25 +259,6 @@
             height: 50px;
         }
 
-        .profile-icon {
-            width: 40px;
-            /* Ajuste conforme necessário */
-            height: 40px;
-            /* Ajuste conforme necessário */
-            overflow: hidden;
-            border-radius: 50%;
-            border: 1px solid #000;
-        }
-
-        .profile-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            /* Garante que a imagem cubra completamente o círculo */
-        }
-
-
-
         .bnt-link {
             justify-content: space-between;
             background-color: #1F78D1;
@@ -296,13 +290,12 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-8 col-md-7 py-4">
-                        <h4 class="text-white">Sobre nós</h4>
-                        <p class="text">A Visão Inclusiva é um site de empregabilidade exclusivo para Pessoas com
-                            Deficiência (PCD). Conectamos candidatos PCD a oportunidades de emprego, permitindo que
-                            empresas anunciem vagas direcionadas a esse público. Os candidatos criam perfis detalhados,
-                            enquanto as empresas podem cadastrar suas vagas especificamente para PCD, promovendo a
-                            inclusão e diversidade no ambiente de trabalho, facilitando o recrutamento e seleção de
-                            forma mais inclusiva..</p>
+                        <h4 class="text-white">Sobre</h4>
+                        <p class="text">Adicione alguma informação sobre o álbum abaixo (autor ou qualquer outro
+                            background).
+                            Faça essas informações terem algumas frases, para a galera ter algumas informações que
+                            besliscar. Além
+                            disso, use link nelas para as redes sociais ou informações de contato.</p>
                     </div>
                     <div class="col-sm-4 offset-md-1 py-4">
                         <h4 class="text-white">Contato</h4>
@@ -325,8 +318,21 @@
                     aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
                     <a href="#" class="text-white">Sobre nós</a>
                 </button>
-            </div>
-        </div>
+                <div class="navbar-nav ml-auto">
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" id="perfilDropdown"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="profile-icon">
+                                <!-- Adicione uma imagem de perfil ou ícone de usuário padrão -->
+                                <img src="../img/userBase.png" alt="Perfil">
+                            </div>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="perfilDropdown">
+                            <button class="dropdown-item" onclick="window.location.href='caminho/para/perfil.html'">Ir
+                                para Perfil</button>
+                        </div>
+                    </div>
+                </div>
     </header>
     <!-- pra cima nav bar -->
     <div id="page-container">
@@ -350,6 +356,11 @@
                     </button>
                 </div>
 
+                <h3>Cadastre Uma Nova Vaga</h3>
+                <form action="adicaoDeVagas.php">
+                    <input class="bnt-link" type="submit" value="Cadastrar Vagas" />
+                </form>
+
                 <h3>Vagas Sugeridas</h3>
                 <div id="suggestions">
                     <div id="suggested-vagas">
@@ -357,10 +368,6 @@
                     </div>
                 </div>
 
-                <h3>Cadastre Uma Nova Vaga</h3>
-                <form action="adicaoDeVagas.php">
-                    <input class="bnt-link" type="submit" value="Cadastrar Vagas" />
-                </form>
 
 
                 <script>
