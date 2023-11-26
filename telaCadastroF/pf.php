@@ -254,13 +254,11 @@
         </div>
       </div>
       <div class="mb-3">
-        <label for="fotoPerfil" class="btnPerson">Adicionar Foto de perfil</label>
-        <input type="file" class="btn btn-primary" placeholder="foto de perfil" id="fotoPerfil" name="fotoPerfil" accept="image/*" value="Novo Texto para Foto de Perfil">
-      </div>
-
-      <div class="mb-3">
-        <label for="curriculo" class="btnPerson">Adicionar Curriculo</label>
-        <input type="file" class="btn btn-primary" name="curriculo" id="curriculo" value="Novo Texto para Currículo"> <br><br>
+        <label for="fotoPerfil"class="btnPerson">Adicionar Foto de perfil</label>
+        <input type="file" class="form-control-file" id="fotoPerfil" name="fotoPerfil" accept="image/*" required>
+        <div class="invalid-feedback" style="width: 100%;">
+          Foto de perfil Obrigatorio.
+        </div>
       </div>
      <div class="custom-control custom-checkbox">
       <input type="checkbox" class="custom-control-input" id="salvar-info" required>

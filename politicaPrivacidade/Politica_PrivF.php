@@ -146,7 +146,7 @@
     <script>
   function voltar() {
 
-    window.location.href = '../telaCadastroJ/pj.php';
+    window.location.href = '../telaCadastrof/pf.php';
 
   };
   </script>
