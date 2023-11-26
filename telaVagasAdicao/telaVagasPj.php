@@ -326,7 +326,29 @@
                             onclick="window.location.href='../telaPerfilJ/visualizacaoEmpresa.php'">
                             <div class="profile-icon">
                                 <!-- Adicione uma imagem de perfil ou ícone de usuário padrão -->
-                                <img src="../img/userBase.png" alt="Perfil">
+
+                                <?php
+                                include "conexao.php";
+                                $id_empresa = isset($_SESSION['id_empresa']) ? $_SESSION['id_empresa'] : null;
+
+
+                                if ($id_empresa) {
+                                    $sql = "SELECT * FROM cadastro_pj WHERE id_empresa = $id_empresa;";
+
+                                    if ($conexao) {
+                                        $result = mysqli_query($conexao, $sql);
+
+                                        if ($result && mysqli_num_rows($result) == 1) {
+                                            $row = mysqli_fetch_assoc($result);
+                                            echo "<p class='company-info'>";
+                                            echo "<div class='foto-perfil'>";
+                                            echo '<img src="' . $row['caminho_foto_perfil'] . '" alt="Foto de Perfil" width="50" height="50">';
+                                            echo "</p>";
+
+                                        }
+                                    }
+                                }
+                                ?>
                             </div>
                         </a>
                     </div>
