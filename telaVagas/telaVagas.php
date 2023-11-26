@@ -54,6 +54,7 @@ include("funcaoMostraVagas.php"); ?>
             overflow: hidden;
             border-radius: 50%;
             border: 1px solid #000;
+            
         }
 
         .profile-icon img {
