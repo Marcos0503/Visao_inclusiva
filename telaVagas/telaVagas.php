@@ -1,4 +1,8 @@
-<?php include("funcaoMostraVagas.php"); ?>
+<?php 
+session_start();
+include "conexao.php";
+$id_usuario = isset($_SESSION['id_usuario']) ? $_SESSION['id_usuario'] : null;
+include("funcaoMostraVagas.php"); ?>
 
 
 <!DOCTYPE html>
@@ -317,20 +321,24 @@
 
 <body responsive>
     <header>
-        <div class="navbar navbar-dark shadow-sm">
-            <div class="container d-flex justify-content-between">
-                <a href="#" class="navbar-brand d-flex align-items-center">
-                    <img class="logo" src="../img/logoFinal.png" alt="Logo Visão Inclusiva" height="35" width="85">
-                </a>
-                <div class="dropdown">
-                    <a class="nav-link" href="#" role="button" onclick="toggleDropdown()">
-                        <div class="profile-icon">
-                            <img src="../img/userBase.png" alt="Perfil">
-                        </div>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="perfilDropdown">
-                        <button class="dropdown-item" onclick="irParaCurriculo()">Ir para Currículo</button>
-                        <button class="dropdown-item" onclick="irParaPerfil()">Ir para Perfil</button>
+        <div class="collapse bg" id="navbarHeader">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-md-7 py-4">
+                        <h4 class="text-white">Sobre</h4>
+                        <p class="text">Adicione alguma informação sobre o álbum abaixo (autor ou qualquer outro
+                            background).
+                            Faça essas informações terem algumas frases, para a galera ter algumas informações que
+                            besliscar. Além
+                            disso, use link nelas para as redes sociais ou informações de contato.</p>
+                    </div>
+                    <div class="col-sm-4 offset-md-1 py-4">
+                        <h4 class="text-white">Contato</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-white">Me siga no Twitter</a></li>
+                            <li><a href="#" class="text-white">Curta no Facebook</a></li>
+                            <li><a href="#" class="text-white">Me envie um e-mail</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -353,13 +361,13 @@
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                             onclick="window.location.href='../telaPerfilF/visualizacaoFisica.php'">
                             <div class="profile-icon">
-                                <!-- Adicione uma imagem de perfil ou ícone de usuário padrão -->
-
+ 
+                            <!-- Adicione uma imagem de perfil ou ícone de usuário padrão -->
                                 <?php
+
+
                                 include "conexao.php";
                                 $id_usuario = isset($_SESSION['id_usuario']) ? $_SESSION['id_usuario'] : null;
-
-
                                 if ($id_usuario) {
                                     $sql = "SELECT * FROM cadastro_pessoal WHERE id_usuario = $id_usuario;";
 
@@ -370,7 +378,7 @@
                                             $row = mysqli_fetch_assoc($result);
                                             echo "<p class='company-info'>";
                                             echo "<div class='foto-perfil'>";
-                                            echo '<img src="' . $row['caminho_foto_perfil'] . '" alt="Foto de Perfil" width="250" height="250">';
+                                            echo '<img src="' . $row['caminho_foto_perfil'] . '" alt="Foto de Perfil" width="50" height="50">';
                                             echo "</p>";
 
                                         }
