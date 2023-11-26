@@ -143,10 +143,16 @@
   
   
   <div class= politica_priv>
-  <a class="bnt-voltar" href="telaVagasPj.php">Voltar</a>
+    <script>
+  function voltar() {
 
-    
+    window.location.href = '../telaCadastroJ/pj.php';
+
+  };
+  </script>
   
+  <button class="bnt-voltar" onclick='voltar()'>Voltar</button>
+
     <p><strong>Política de Privacidade</strong></p>
     <p>Esta Política de Privacidade descreve como coletamos, usamos e compartilhamos suas informações quando você
       utiliza nosso site para conectar profissionais a empresas. Ao acessar ou usar nossos serviços, você concorda com
@@ -210,7 +216,7 @@
     <p><strong>Contato</strong></p>
     <p>Se tiver dúvidas sobre esta Política de Privacidade ou sobre o uso de suas informações, entre em contato conosco.
     </p>
-    <a class="bnt-voltar" href="telaVagasPj.php">Voltar</a>
+    <button class="bnt-voltar" onclick='voltar()'>Voltar</button>
 
   </div>
 </body>
