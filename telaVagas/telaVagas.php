@@ -211,7 +211,7 @@
             <div id="divVagas">
             <!-- o resto do conteúdo da página -->
             <!-- <h3>Vagas Disponíveis</h3> -->
-            <?php include("C:/xampp/htdocs/www/Vi_inclusiva/Visao_inclusiva/telaVagas/funcaoMostraVagas.php"); ?>
+            <?php include("funcaoMostraVagas.php"); ?>
         </div>
         </div>
 
@@ -260,17 +260,17 @@ function toggleDetalhes(vagaId) {
         vagaElement.className = "vaga";
         vagaElement.setAttribute("onclick", "toggleDetalhes('vaga" + vaga.id + "')");
 
-        vagaElement.innerHTML = "<h3>" + vaga.titulo + "</h3>" +
-            "<span>" + vaga.data_publicacao + "</span>" +
-            "<h4>" + vaga.empresa + "</h4>" +
-            "<p>" + vaga.descricao + "</p>" +
+        vagaElement.innerHTML = "<h1>" + vaga.titulo + "</h1>" +
+            "<h6> Vaga Criada pela Empresa: " + vaga.empresa + "</h6>" +
+            "<p> Descrição: " + vaga.descricao + "</p>" +
             "<p>Salário: R$ " + vaga.salario + "</p>" +
             "<button class='cadastrar-button' onclick='cadastrarVaga(" + vaga.id + ")'>Cadastrar-se</button>" +
             "<div class='detalhes' id='vaga" + vaga.id + "' style='display: none;'>" +
             "<p>Localização: " + vaga.localizacao + "</p>" +
             "<p>Tipo de Contrato: " + vaga.tipo_contrato + "</p>" +
-            "<p>Requisitos: " + vaga.requisitos + "</p>" +
             "</div>";
+
+
 
         document.getElementById("content-wrap").appendChild(vagaElement);
     }

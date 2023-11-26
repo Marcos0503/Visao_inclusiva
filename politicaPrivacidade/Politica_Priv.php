@@ -13,6 +13,14 @@
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link href="form-validation.css" rel="stylesheet">
   <style>
+
+.bnt-voltar {
+      background-color: #1F78D1;
+      color: #fff;
+      font-weight: bold; 
+      border-radius: 10px;
+    }
+
     body {
       background-image: url('../img/backgrond.jpeg');
       background-size: cover;
@@ -133,9 +141,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.6/holder.min.js"></script>
 
   
+  
   <div class= politica_priv>
+  <a class="bnt-voltar" href="telaVagasPj.php">Voltar</a>
+
     
-    <hr>
+  
     <p><strong>Política de Privacidade</strong></p>
     <p>Esta Política de Privacidade descreve como coletamos, usamos e compartilhamos suas informações quando você
       utiliza nosso site para conectar profissionais a empresas. Ao acessar ou usar nossos serviços, você concorda com
@@ -199,7 +210,8 @@
     <p><strong>Contato</strong></p>
     <p>Se tiver dúvidas sobre esta Política de Privacidade ou sobre o uso de suas informações, entre em contato conosco.
     </p>
-    <hr>
+    <a class="bnt-voltar" href="telaVagasPj.php">Voltar</a>
+
   </div>
 </body>
 

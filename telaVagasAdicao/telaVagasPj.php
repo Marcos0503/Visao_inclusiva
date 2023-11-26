@@ -41,10 +41,6 @@
             margin-right: 5px;
         }
 
-        .btnlogin {
-            margin-left: -50%;
-            background-color: #ffffff;
-        }
 
         /* pra cima nav bar */
 
@@ -55,14 +51,16 @@
         }
 
         body {
-        margin: 0;
-        background-image: url('../img/background.png'), url('../img/Fundo_azul_claro.png');
-        background-repeat: repeat-y;
-        background-position: left top, right top;   
-        background-size: 69% 100%, 31% 100%; /* 50% para cada imagem */
-        width: 100%;
-        height: 100vh; /* Adicionando altura de 100% da viewport */
-}
+            margin: 0;
+            background-image: url('../img/background.png'), url('../img/Fundo_azul_claro.png');
+            background-repeat: repeat-y;
+            background-position: left top, right top;
+            background-size: 69% 100%, 31% 100%;
+            /* 50% para cada imagem */
+            width: 100%;
+            height: 100vh;
+            /* Adicionando altura de 100% da viewport */
+        }
 
         body,
         html {
@@ -112,7 +110,7 @@
             background-color: #f1f1f1;
         }
 
-    
+
 
         #links {
             border-bottom: 1px solid #4d4d4d80;
@@ -267,6 +265,28 @@
             object-fit: cover;
             /* Garante que a imagem cubra completamente o círculo */
         }
+
+
+
+        .bnt-link {
+            justify-content: space-between;
+            background-color: #1F78D1;
+            color: #fff;
+            border-radius: 10px;
+            text-decoration: none;
+            /* Remove o sublinhado padrão */
+            /* Define como um elemento em linha com bloco */
+            padding: 10px 20px;
+            /* Adapte o preenchimento conforme necessário */
+            text-align: center;
+            /* Centraliza o texto */
+            font-weight: bold;
+            /* Define o peso da fonte como negrito */
+            border: none;
+            margin: 0.5%;
+            height: 20%;
+            cursor: pointer;
+        }
     </style>
 
     <title>Vagas | Visão Inclusiva</title>
@@ -308,7 +328,6 @@
                     aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
                     <a href="#" class="text-white">Sobre nós</a>
                 </button>
-                <a href="../telaLogin/login.php" class="btn btnlogin btn-outline-primary">Login</a>
             </div>
         </div>
     </header>
@@ -323,240 +342,245 @@
         </div>
 
         <!-- parte de pesquisa e sugestão de vagas -->
-        <div id="pesquisaSugestao">
+        <div class="header-container">
+            <!-- parte de pesquisa e sugestão de vagas -->
+            <div id="pesquisaSugestao">
 
-            <div id="search-bar">
-                <input type="text" id="search-input" placeholder="Pesquisar vagas...">
-                <button onclick="searchVagas()" id="botaoVagas">
-                    <img src="../img/iconePesquisa.png" alt="Ir">
-                </button>
-            </div>
+                <div id="search-bar">
+                    <input type="text" id="search-input" placeholder=" Pesquisar vagas...">
+                    <button onclick="searchVagas()" id="botaoVagas">
+                        <img src="../img/iconePesquisa.png" alt="Ir">
+                    </button>
+                </div>
 
+                <h3>Vagas Sugeridas</h3>
+                <div id="suggestions">
+                    <div id="suggested-vagas">
+                        <!-- Vagas sugeridas serão adicionadas aqui dinamicamente com JavaScript -->
+                    </div>
+                </div>
 
-            <h3>Cadastre Uma Nova Vaga</h3>
-            <form action="adicaoDeVagas.php">
-                <input type="submit" value="Cadastrar Vagas" />
-            </form>
-
-        </div>
-
-     
-
-    <script>
-        // Função para mostrar ou ocultar os detalhes quando uma DIV é clicada
-        // Função para mostrar ou ocultar os detalhes quando uma DIV é clicada
-        function toggleDetalhes(vagaId) {
-            var detalhes = document.getElementById(vagaId);
-            if (detalhes.style.display === "none") {
-                detalhes.style.display = "block";
-                var botaoCadastrar = detalhes.querySelector(".cadastrar-button");
-                botaoCadastrar.style.display = "block"; // Exibir o botão quando os detalhes são mostrados
-            } else {
-                detalhes.style.display = "none";
-            }
-        }
-
-        function alterarVagas(id) {
-            // Redireciona para o link desejado
-            window.location.href = 'adicaoDeVagas.php?id=' + id;
-        }
-
-        function excluirVagas(delete_id) {
-            // Redireciona para a página excluirVagas.php passando o delete_id como parâmetro
-            window.location.href = 'excluirVagas.php?delete_id=' + delete_id;
-        }
+                <h3>Cadastre Uma Nova Vaga</h3>
+                <form action="adicaoDeVagas.php">
+                    <input class="bnt-link" type="submit" value="Cadastrar Vagas" />
+                </form>
 
 
-        // Array de vagas obtido do PHP
-        var vagas = <?php echo json_encode($vagas); ?>;
+                <script>
+                    // Função para mostrar ou ocultar os detalhes quando uma DIV é clicada
+                    // Função para mostrar ou ocultar os detalhes quando uma DIV é clicada
+                    function toggleDetalhes(vagaId) {
+                        var detalhes = document.getElementById(vagaId);
+                        if (detalhes.style.display === "none") {
+                            detalhes.style.display = "block";
+                            var botaoCadastrar = detalhes.querySelector(".cadastrar-button");
+                            botaoCadastrar.style.display = "block"; // Exibir o botão quando os detalhes são mostrados
+                        } else {
+                            detalhes.style.display = "none";
+                        }
+                    }
 
-        // Exibir vagas
-        for (var i = 0; i < vagas.length; i++) {
-            var vaga = vagas[i];
-            var vagaElement = document.createElement("div");
-            vagaElement.className = "vaga";
-            vagaElement.setAttribute("onclick", "toggleDetalhes('vaga" + vaga.id + "')");
+                    function alterarVagas(id) {
+                        // Redireciona para o link desejado
+                        window.location.href = 'adicaoDeVagas.php?id=' + id;
+                    }
 
-            vagaElement.innerHTML = "<h1>" + vaga.titulo + "</h1>" +
-                "<h6> Vaga Criada pela Empresa: " + vaga.empresa + "</h6>" +
-                "<p> Descrição: " + vaga.descricao + "</p>" +
-                "<p>Salário: R$ " + vaga.salario + "</p>" +
-                "<div class='detalhes' id='vaga" + vaga.id + "' style='display: none;'>" +
-                "<p>Localização: " + vaga.localizacao + "</p>" +
-                "<p>Tipo de Contrato: " + vaga.tipo_contrato + "</p>" +
-                "<p>Descrição: " + vaga.descricao + "</p>" +
-                "<button class='cadastrar-button' onclick='alterarVagas(" + vaga.id + ")'>Alterar</button>" +
-                "<button class='cadastrar-button' onclick='excluirVagas(" + vaga.id + ")'>Excluir</button>" +
-                "</div>";
-
-            document.getElementById("content-wrap").appendChild(vagaElement);
-        }
-
-        function searchVagas() {
-        // Obtenha o valor digitado na barra de pesquisa
-        var searchTerm = document.getElementById("search-input").value.toLowerCase();
-
-        // Limpe o conteúdo existente antes de exibir os resultados da pesquisa
-        document.getElementById("content-wrap").innerHTML = "";
-
-        // Exiba apenas as vagas que contêm o termo de pesquisa
-        for (var i = 0; i < vagas.length; i++) {
-            var vaga = vagas[i];
-
-            // Verifique se o título ou a descrição contêm o termo de pesquisa
-            if (vaga.titulo.toLowerCase().includes(searchTerm) || vaga.descricao.toLowerCase().includes(searchTerm)) {
-                var vagaElement = document.createElement("div");
-                vagaElement.className = "vaga";
-                vagaElement.setAttribute("onclick", "toggleDetalhes('vaga" + vaga.id + "')");
-
-                vagaElement.innerHTML = "<h3>" + vaga.titulo + "</h3>" +
-                    "<span>" + vaga.data_publicacao + "</span>" +
-                    "<h4>" + vaga.empresa + "</h4>" +
-                    "<p>" + vaga.descricao + "</p>" +
-                    "<p>Salário: R$ " + vaga.salario + "</p>" +
-                    "<div class='detalhes' id='vaga" + vaga.id + "' style='display: none;'>" +
-                    "<p>Localização: " + vaga.localizacao + "</p>" +
-                    "<p>Tipo de Contrato: " + vaga.tipo_contrato + "</p>" +
-                    "<p>Requisitos: " + vaga.requisitos + "</p>" +
-                    "<button onclick='cadastrarVaga(" + vaga.id + ")'>Cadastrar-se</button>" +
-                    "</div>";
-
-                document.getElementById("content-wrap").appendChild(vagaElement);
-            }
-        }
-    }
-
-    // Supondo que você tenha um array de todas as vagas (vagas) e o array de vagas já exibidas (exibidas)
-    // Você pode ajustar esses arrays conforme necessário
-
-    // Função para obter vagas sugeridas com base nas vagas já exibidas
-    function getSuggestedVagas(exibidas) {
-        // Limite o número de sugestões para evitar repetição
-        var limiteSugestoes = 3;
-
-        // Filtrar vagas que ainda não foram exibidas
-        var vagasNaoExibidas = vagas.filter(function (vaga) {
-            return !exibidas.includes(vaga.id);
-        });
-
-        // Embaralhar as vagas não exibidas para tornar as sugestões mais dinâmicas
-        vagasNaoExibidas = shuffleArray(vagasNaoExibidas);
-
-        // Retornar um número limitado de sugestões
-        return vagasNaoExibidas.slice(0, limiteSugestoes);
-    }
-
-    // Função para embaralhar um array (algoritmo de Fisher-Yates)
-    function shuffleArray(array) {
-        for (var i = array.length - 1; i > 0; i--) {
-            var j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-        return array;
-    }
-
-    // Função para exibir sugestões de vagas
-    function exibirSugestoes(exibidas) {
-        var suggestedVagasElement = document.getElementById("suggested-vagas");
-        suggestedVagasElement.innerHTML = "";
-
-        var sugestoes = getSuggestedVagas(exibidas);
-
-        for (var i = 0; i < sugestoes.length; i++) {
-            var sugestao = sugestoes[i];
-            var sugestaoElement = document.createElement("div");
-            sugestaoElement.className = "suggested-vaga";
-
-            sugestaoElement.innerHTML = "<h3>" + sugestao.titulo + "</h3>" +
-                "<span>" + sugestao.empresa + "</span>" +
-                "<p>" + sugestao.descricao.substring(0, 100) + "...</p>";
-
-            suggestedVagasElement.appendChild(sugestaoElement);
-        }
-    }
-
-    // Chamada inicial para exibir sugestões quando a página carrega
-    exibirSugestoes([]);
-
-    // Adicione a seguinte função para ouvir eventos de teclas no campo de pesquisa
-    document.getElementById("search-input").addEventListener("keyup", function () {
-        searchVagas();
-    });
-
-    // Atualize a função searchVagas() para suportar pesquisa em tempo real
-    function searchVagas() {
-    var searchTerm = document.getElementById("search-input").value.toLowerCase();
-    var contentWrap = document.getElementById("content-wrap");
-    contentWrap.innerHTML = ""; // Limpe o conteúdo existente
-
-    for (var i = 0; i < vagas.length; i++) {
-        var vaga = vagas[i];
-
-        if (
-            vaga.titulo.toLowerCase().includes(searchTerm) ||
-            vaga.descricao.toLowerCase().includes(searchTerm)
-        ) {
-            var vagaElement = document.createElement("div");
-            vagaElement.className = "vaga";
-            vagaElement.setAttribute(
-                "onclick",
-                "toggleDetalhes('vaga" + vaga.id + "')"
-            );
-
-            vagaElement.innerHTML =
-                "<h3>" +
-                vaga.titulo +
-                "</h3>" +
-                "<span>" +
-                vaga.data_publicacao +
-                "</span>" +
-                "<h4>" +
-                vaga.empresa +
-                "</h4>" +
-                "<p>" +
-                vaga.descricao +
-                "</p>" +
-                "<p>Salário: R$ " +
-                vaga.salario +
-                "</p>" +
-                "<div class='detalhes' id='vaga" +
-                vaga.id +
-                "' style='display: none;'>" +
-                "<p>Localização: " +
-                vaga.localizacao +
-                "</p>" +
-                "<p>Tipo de Contrato: " +
-                vaga.tipo_contrato +
-                "</p>" +
-                "<p>Requisitos: " +
-                vaga.requisitos +
-                "</p>" +
-                "<button onclick='cadastrarVaga(" +
-                vaga.id +
-                ")'>Cadastrar-se</button>" +
-                "</div>";
-
-            contentWrap.appendChild(vagaElement);
-        }
-    }
-}
+                    function excluirVagas(delete_id) {
+                        // Redireciona para a página excluirVagas.php passando o delete_id como parâmetro
+                        window.location.href = 'excluirVagas.php?delete_id=' + delete_id;
+                    }
 
 
+                    // Array de vagas obtido do PHP
+                    var vagas = <?php echo json_encode($vagas); ?>;
+
+                    // Exibir vagas
+                    for (var i = 0; i < vagas.length; i++) {
+                        var vaga = vagas[i];
+                        var vagaElement = document.createElement("div");
+                        vagaElement.className = "vaga";
+                        vagaElement.setAttribute("onclick", "toggleDetalhes('vaga" + vaga.id + "')");
+
+                        vagaElement.innerHTML = "<h1>" + vaga.titulo + "</h1>" + "<pre>" +
+                            "                                                                                                                           <button class='cadastrar-button' onclick='alterarVagas(" + vaga.id + ")'>Alterar</button>" +
+                            "  <button class='cadastrar-button' onclick='excluirVagas(" + vaga.id + ")'>Excluir</button></pre>" +
+                            "<h6> Vaga Criada pela Empresa: " + vaga.empresa + "</h6>" +
+                            "<p>Salário: R$ " + vaga.salario + "</p>" +
+                            "<div class='detalhes' id='vaga" + vaga.id + "' style='display: none;'>" +
+                            "<p>Localização: " + vaga.localizacao + "</p>" +
+                            "<p>Tipo de Contrato: " + vaga.tipo_contrato + "</p>" +
+                            "<p>Descrição: " + vaga.descricao + "</p>" +
+
+                            "</div>";
+
+                        document.getElementById("content-wrap").appendChild(vagaElement);
+                    }
+
+                    function searchVagas() {
+                        // Obtenha o valor digitado na barra de pesquisa
+                        var searchTerm = document.getElementById("search-input").value.toLowerCase();
+
+                        // Limpe o conteúdo existente antes de exibir os resultados da pesquisa
+                        document.getElementById("content-wrap").innerHTML = "";
+
+                        // Exiba apenas as vagas que contêm o termo de pesquisa
+                        for (var i = 0; i < vagas.length; i++) {
+                            var vaga = vagas[i];
+
+                            // Verifique se o título ou a descrição contêm o termo de pesquisa
+                            if (vaga.titulo.toLowerCase().includes(searchTerm) || vaga.descricao.toLowerCase().includes(searchTerm)) {
+                                var vagaElement = document.createElement("div");
+                                vagaElement.className = "vaga";
+                                vagaElement.setAttribute("onclick", "toggleDetalhes('vaga" + vaga.id + "')");
+
+                                vagaElement.innerHTML = "<h3>" + vaga.titulo + "</h3>" +
+                                    "<span>" + vaga.data_publicacao + "</span>" +
+                                    "<h4>" + vaga.empresa + "</h4>" +
+                                    "<p>" + vaga.descricao + "</p>" +
+                                    "<p>Salário: R$ " + vaga.salario + "</p>" +
+                                    "<div class='detalhes' id='vaga" + vaga.id + "' style='display: none;'>" +
+                                    "<p>Localização: " + vaga.localizacao + "</p>" +
+                                    "<p>Tipo de Contrato: " + vaga.tipo_contrato + "</p>" +
+                                    "<p>Requisitos: " + vaga.requisitos + "</p>" +
+                                    "<button onclick='cadastrarVaga(" + vaga.id + ")'>Cadastrar-se</button>" +
+                                    "</div>";
+
+                                document.getElementById("content-wrap").appendChild(vagaElement);
+                            }
+                        }
+                    }
+
+                    // Supondo que você tenha um array de todas as vagas (vagas) e o array de vagas já exibidas (exibidas)
+                    // Você pode ajustar esses arrays conforme necessário
+
+                    // Função para obter vagas sugeridas com base nas vagas já exibidas
+                    function getSuggestedVagas(exibidas) {
+                        // Limite o número de sugestões para evitar repetição
+                        var limiteSugestoes = 3;
+
+                        // Filtrar vagas que ainda não foram exibidas
+                        var vagasNaoExibidas = vagas.filter(function (vaga) {
+                            return !exibidas.includes(vaga.id);
+                        });
+
+                        // Embaralhar as vagas não exibidas para tornar as sugestões mais dinâmicas
+                        vagasNaoExibidas = shuffleArray(vagasNaoExibidas);
+
+                        // Retornar um número limitado de sugestões
+                        return vagasNaoExibidas.slice(0, limiteSugestoes);
+                    }
+
+                    // Função para embaralhar um array (algoritmo de Fisher-Yates)
+                    function shuffleArray(array) {
+                        for (var i = array.length - 1; i > 0; i--) {
+                            var j = Math.floor(Math.random() * (i + 1));
+                            [array[i], array[j]] = [array[j], array[i]];
+                        }
+                        return array;
+                    }
+
+                    // Função para exibir sugestões de vagas
+                    function exibirSugestoes(exibidas) {
+                        var suggestedVagasElement = document.getElementById("suggested-vagas");
+                        suggestedVagasElement.innerHTML = "";
+
+                        var sugestoes = getSuggestedVagas(exibidas);
+
+                        for (var i = 0; i < sugestoes.length; i++) {
+                            var sugestao = sugestoes[i];
+                            var sugestaoElement = document.createElement("div");
+                            sugestaoElement.className = "suggested-vaga";
+
+                            sugestaoElement.innerHTML = "<h3>" + sugestao.titulo + "</h3>" +
+                                "<span>" + sugestao.empresa + "</span>" +
+                                "<p>" + sugestao.descricao.substring(0, 100) + "...</p>";
+
+                            suggestedVagasElement.appendChild(sugestaoElement);
+                        }
+                    }
+
+                    // Chamada inicial para exibir sugestões quando a página carrega
+                    exibirSugestoes([]);
+
+                    // Adicione a seguinte função para ouvir eventos de teclas no campo de pesquisa
+                    document.getElementById("search-input").addEventListener("keyup", function () {
+                        searchVagas();
+                    });
+
+                    // Atualize a função searchVagas() para suportar pesquisa em tempo real
+                    function searchVagas() {
+                        var searchTerm = document.getElementById("search-input").value.toLowerCase();
+                        var contentWrap = document.getElementById("content-wrap");
+                        contentWrap.innerHTML = ""; // Limpe o conteúdo existente
+
+                        for (var i = 0; i < vagas.length; i++) {
+                            var vaga = vagas[i];
+
+                            if (
+                                vaga.titulo.toLowerCase().includes(searchTerm) ||
+                                vaga.descricao.toLowerCase().includes(searchTerm)
+                            ) {
+                                var vagaElement = document.createElement("div");
+                                vagaElement.className = "vaga";
+                                vagaElement.setAttribute(
+                                    "onclick",
+                                    "toggleDetalhes('vaga" + vaga.id + "')"
+                                );
+
+                                vagaElement.innerHTML =
+                                    "<h3>" +
+                                    vaga.titulo +
+                                    "</h3>" +
+                                    "<span>" +
+                                    vaga.data_publicacao +
+                                    "</span>" +
+                                    "<h4>" +
+                                    vaga.empresa +
+                                    "</h4>" +
+                                    "<p>" +
+                                    vaga.descricao +
+                                    "</p>" +
+                                    "<p>Salário: R$ " +
+                                    vaga.salario +
+                                    "</p>" +
+                                    "<div class='detalhes' id='vaga" +
+                                    vaga.id +
+                                    "' style='display: none;'>" +
+                                    "<p>Localização: " +
+                                    vaga.localizacao +
+                                    "</p>" +
+                                    "<p>Tipo de Contrato: " +
+                                    vaga.tipo_contrato +
+                                    "</p>" +
+                                    "<p>Requisitos: " +
+                                    vaga.requisitos +
+                                    "</p>" +
+                                    "<button onclick='cadastrarVaga(" +
+                                    vaga.id +
+                                    ")'>Cadastrar-se</button>" +
+                                    "</div>";
+
+                                contentWrap.appendChild(vagaElement);
+                            }
+                        }
+                    }
 
 
 
 
-    </script>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-Uo7DzGnMz9ATKxIep9tiCxS/Z9fNfEXZJT3MXP7iNH49yIexK3MciF8HZJ3Z5mwC"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+
+                </script>
+
+                <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                    crossorigin="anonymous"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+                    integrity="sha384-Uo7DzGnMz9ATKxIep9tiCxS/Z9fNfEXZJT3MXP7iNH49yIexK3MciF8HZJ3Z5mwC"
+                    crossorigin="anonymous"></script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+                    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+                    crossorigin="anonymous"></script>
 
 </body>
 
