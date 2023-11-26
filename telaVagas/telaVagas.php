@@ -207,29 +207,29 @@
             height: 100%;
         }
 
-        .dropdown-menu {
-            text-align: center;
-            border-radius: 10px;
-            /* Arredonda as bordas da caixa do dropdown, ajuste conforme necessário */
-            display: none;
-            /* Torna o dropdown inicialmente não visível */
-            background-color: #2C5DAE;
-            border: none;
+        .dropdown {
+            position: relative;
+            display: inline-block;
         }
 
-        /* Estilizando os botões do dropdown */
+        .dropdown-menu {
+            margin-left: auto;
+            border-radius: 10px;
+            background-color: transparent;
+            border: none;
+            width: 10%;
+        }
+
         .dropdown-menu button {
-            width: 100%;
             text-align: left;
+            /* Para alinhar o texto do botão à esquerda */
             display: block;
             padding: 8px 16px;
-            /* Ajuste o padding conforme necessário para o espaçamento desejado */
             border-radius: 10px;
-            /* Arredonda as bordas dos botões, ajuste conforme necessário */
             margin-bottom: 8px;
-            /* Adiciona um espaçamento inferior entre os botões, ajuste conforme necessário */
             background-color: #C2D7E8;
             color: #fff;
+            cursor: pointer;
         }
     </style>
 
@@ -237,50 +237,34 @@
 </head>
 
 <body responsive>
-    <header>
-        <div class="collapse bg" id="navbarHeader">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-8 col-md-7 py-4">
-                        <h4 class="text-white">Sobre</h4>
-                        <p class="text">Adicione alguma informação sobre o álbum abaixo (autor ou qualquer outro background). Faça essas informações terem algumas frases, para a galera ter algumas informações que besliscar. Além disso, use link nelas para as redes sociais ou informações de contato.</p>
+<header>
+    <div class="navbar navbar-dark shadow-sm">
+        <div class="container d-flex justify-content-between">
+            <a href="#" class="navbar-brand d-flex align-items-center">
+                <img class="logo" src="../img/logoFinal.png" alt="Logo Visão Inclusiva" height="35" width="85">
+            </a>
+            <div class="dropdown">
+                <a class="nav-link" href="#" role="button" onclick="toggleDropdown()">
+                    <div class="profile-icon">
+                        <img src="../img/userBase.png" alt="Perfil">
                     </div>
-                    <div class="col-sm-4 offset-md-1 py-4">
-                        <h4 class="text-white">Contato</h4>
-                        <ul class="list-unstyled">
-                            <li><a href="#" class="text-white">Me siga no Twitter</a></li>
-                            <li><a href="#" class="text-white">Curta no Facebook</a></li>
-                            <li><a href="#" class="text-white">Me envie um e-mail</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="navbar navbar-dark shadow-sm">
-            <div class="container d-flex justify-content-between">
-                <a href="#" class="navbar-brand d-flex align-items-center">
-                    <img class="logo" src="../img/logoFinal.png" alt="Logo Visão Inclusiva" height="35" width="85">
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-            <div class="navbar-nav ml-auto">
-                <div class="dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" id="perfilDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="toggleDropdown()">
-                        <div class="profile-icon">
-                            <!-- Adicione uma imagem de perfil ou ícone de usuário padrão -->
-                            <img src="../img/userBase.png" alt="Perfil">
-                        </div>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="perfilDropdown">
-                        <button class="dropdown-item" onclick="window.location.href='../curriculo/telaCurriculo.php'">Currículo</button>
-                        <button class="dropdown-item" onclick="window.location.href='../telaPerfilF/visualizacaoFisica.php'">Perfil</button>
-                    </div>
+                <div class="dropdown-menu" aria-labelledby="perfilDropdown">
+                    <button class="dropdown-item" onclick="irParaCurriculo()">Ir para Currículo</button>
+                    <button class="dropdown-item" onclick="irParaPerfil()">Ir para Perfil</button>
                 </div>
             </div>
         </div>
-    </header>
+    </div>
+</header>
+
+    <div class="dropdown">
+        <div class="dropdown-menu" aria-labelledby="perfilDropdown">
+            <button class="dropdown-item" onclick="irParaCurriculo()">Ir para Currículo</button>
+            <button class="dropdown-item" onclick="irParaPerfil()">Ir para Perfil</button>
+        </div>
+    </div>
+    </div>
 
     <div id="page-container">
 
@@ -561,8 +545,17 @@
         });
 
         function toggleDropdown() {
-            var dropdown = document.querySelector('.dropdown-menu');
-            dropdown.style.display = (dropdown.style.display === 'none' || dropdown.style.display === '') ? 'block' : 'none';
+            var dropdownMenu = document.querySelector('.dropdown-menu');
+            dropdownMenu.classList.toggle('show');
+        }
+
+
+        function irParaCurriculo() {
+            window.location.href = '../telaCurriculo/telaCurriculo/curriculo.php';
+        }
+
+        function irParaPerfil() {
+            window.location.href = '../telaPerfilF/visualizacaoFisica.php';
         }
     </script>
 
