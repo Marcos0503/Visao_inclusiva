@@ -73,7 +73,7 @@ if (isset($_GET['delete_id'])) {
     if ($delete_result) {
         echo "<script>alert('Vaga excluída com sucesso.');</script>";
         // Redirecionar para evitar o reenvio do formulário após a exclusão
-        header("Location: adicaoDeVagas.php");
+        header("Location: telaVagasPj.php");
         exit();
     } else {
         echo "<script>alert('Erro ao excluir a vaga.');</script>";

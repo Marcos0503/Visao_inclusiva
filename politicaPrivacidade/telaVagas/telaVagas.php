@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
     <html lang="pt-BR">
     <head>
@@ -15,8 +13,24 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link href="form-validation.css" rel="stylesheet">
-    
+        <link rel="icon" href="../img/logo1.png" type="image/x-icon">
+        <!-- <link rel="stylesheet" type="text/css" href="\..\VI_Vagas\estilo\telaVagas.css" media="screen" /> -->
         <style>
+            /*Apenas arrumando o cabeçalho*/
+    /* header{
+        background-color: #C2D7E8;
+        color: #2C5DAE;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        overflow: hidden;
+        text-align: center;
+        text-decoration: none;
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+        font-family: 'Montserrat', sans-serif;
+    }
+    */
     
     .bg{
       background-color: #2C5DAE; /* Cor de fundo do collapse */
@@ -27,12 +41,11 @@
     .navbar {
       background-color:  #2C5DAE; /* Cor de fundo do cabeçalho */
       min-height: 80px;
-    position: relative; /* Adicione a propriedade position */
-    z-index: 1000;
+
     }
     .logo{
         margin-right: 5px;
-        width: 120px;
+        width: 50px;
         height: 50px;
     }
 
@@ -42,18 +55,105 @@
         -webkit-locale: "pt-BR";
     }
 
-    body {
+    body{
         margin: 0;
         background-image: url('../img/background.png'), url('../img/Fundo_azul_claro.png');
-        background-repeat: repeat-y;
-        background-position: left top, right top;   
-        background-size: 69% 100%, 31% 100%; /* 50% para cada imagem */
-        width: 100%;
-        height: 100vh; /* Adicionando altura de 100% da viewport */
-}
+        background-repeat: no-repeat;
+        background-position: left, right;   
+        background-size: 69% 100%, 31% 100%; /* Ajuste as porcentagens conforme necessário */
+    }
 
     body, html {
         height: 100%;
+    }
+
+
+    /*Ajeitando o rodapé*/
+    #content-wrap {
+        max-height: 100vh; /* Defina a altura máxima como a altura da viewport (100% da altura visível) */
+        overflow-y: auto; /* Adiciona uma barra de rolagem vertical quando o conteúdo excede a altura máxima */
+        padding-bottom: 2.5rem; /* Adicione espaço para o rodapé */
+    }
+
+/* Estilização da barra de rolagem para navegadores WebKit (Chrome, Safari) */
+#content-wrap::-webkit-scrollbar {
+    width: 12px; /* Largura da barra de rolagem */
+}
+
+#content-wrap::-webkit-scrollbar-thumb {
+    background-color: #2C5DAE; /* Cor do botão de rolagem */
+    border-radius: 6px; /* Borda do botão de rolagem */
+}
+
+#content-wrap::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Cor da trilha da barra de rolagem */
+}
+
+/* Estilização da barra de rolagem para o Firefox */
+#content-wrap::-moz-scrollbar {
+    width: 12px;
+}
+
+#content-wrap::-moz-scrollbar-thumb {
+    background-color: #2C5DAE;
+    border-radius: 6px;
+}
+
+#content-wrap::-moz-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+    footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column; /* Coloca os elementos em coluna */
+        justify-content: center; /* Centraliza o conteúdo verticalmente */
+        align-items: center; /* Centraliza o conteúdo horizontalmente */
+        background-color: #fff;
+        border-top: 1px solid #4d4d4d80;
+        margin-top: 10%;
+    }
+
+    #links {
+        border-bottom: 1px solid #4d4d4d80;
+        background-color: #fff;
+        align-items: center; /* Centraliza o conteúdo verticalmente */
+    }
+
+    #links ul {
+        color: #2C5DAE;
+        font-family: 'Montserrat', sans-serif;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        gap: 20px; /* Espaçamento entre os itens (ajuste conforme necessário) */
+        justify-content: center; /* Centraliza o conteúdo horizontalmente */
+        align-items: center; /* Centraliza o conteúdo verticalmente */
+    }
+
+    #page-container {
+        position: relative;
+        min-height: 100vh;
+    }
+
+    #redesSociais {
+        background-color: #fff;
+        margin: 0;
+        color: #4c4c4c;
+        font-size: smaller;
+        border-top: 0;
+        display: flex;
+        align-items: center; /* Centraliza o conteúdo verticalmente */
+        justify-content: center; /* Centraliza horizontalmente */
+    }
+
+    #links, #redesSociais {
+        width: 100%; /* Ocupar toda a largura do rodapé */
+        text-align: center; /* Centralizar o texto dentro das divs */
+        
     }
 
     /*Estiliza as DIVs que aparece as vagas*/
@@ -85,8 +185,6 @@
         justify-content: flex-end; /* Alinha os itens à direita */
         margin-right: 20px; /* Adiciona margem à direita para afastar da borda da página */
         margin-top: 2.5%;
-        height: 10%;
-        padding-left: 10px;
     }
 
     #search-input {
@@ -94,32 +192,28 @@
         height: 5%;
         margin-right: 1%;
         border-radius: 15px;
-        border: none;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra sutil */
-        z-index: 999; /* Adicione um z-index menor que o do header */
     }
 
-  
+    button {
+        height: 40px;
+    }
 
     #search-bar button img {
-        width: 18px;
-        height: 18px;
-        z-index: 999; /* Adicione um z-index menor que o do header */
+        width: 20px;
+        height: 20px;
     }
 
-    #pesquisaSugestao {
-    width: 30%;
-    float: right;
-    position: absolute;
-    top: 15%;
-    right: 0;
-    border-radius: 15px;
-    z-index: 999; /* Adicione um z-index menor que o do header */
-}
+    #pesquisaSugestao{
+        width: 30%;
+        float: right;   
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-radius: 15px;
+    }
 
     #pesquisaSugestao h3 {
         padding-left: 10px;
-            z-index: 999; /* Adicione um z-index menor que o do header */
     }
 
     #botaoVagas{
@@ -141,6 +235,11 @@
         width: 90%;
     }
 
+    #logoRodape{
+        width: 120px;
+        height: 50px;
+    }
+
     .profile-icon {
     width: 40px; /* Ajuste conforme necessário */
     height: 40px; /* Ajuste conforme necessário */
@@ -157,7 +256,7 @@
 
     </style>
 
-        <title>Vagas | Visão Inclusiva</title>
+        <title>Vagas</title>
     </head>
     <body responsive>
         <header>
@@ -182,15 +281,16 @@
       <div class="navbar navbar-dark shadow-sm">
         <div class="container d-flex justify-content-between">
           <a href="#" class="navbar-brand d-flex align-items-center">
-          <img class="logo" src="../img/logoFinal.png" alt="Logo Visão Inclusiva" height="35" width="85">
+          <img class="logo" src="../img/logo1.png" alt="Sua Logo" height="40" width="40">
+          <strong>Visão Inclusiva</strong>
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
         </div>
-            <div class="navbar-nav ml-auto">
+        <div class="navbar-nav ml-auto">
                 <!--o <a> é onde vai entrar o link para a tela de perfil da pessoa-->
-                <a class="nav-link" href="C:\xampp\htdocs\www\Vi_inclusiva\Visao_inclusiva\telaEditarF\editarPessoaFisica.php">
+                <a class="nav-link" href="../telaPerfilF/pf.php">
                     <div class="profile-icon">
                         <!-- Adicione uma imagem de perfil ou ícone de usuário padrão -->
                         <img src="../img/userBase.png" alt="Perfil">
@@ -210,12 +310,11 @@
         </div>
         </div>
 
-        <div class="header-container">
     <!-- parte de pesquisa e sugestão de vagas -->
     <div id="pesquisaSugestao">
 
         <div id="search-bar">
-            <input type="text" id="search-input" placeholder=" Pesquisar vagas...">
+            <input type="text" id="search-input" placeholder="Pesquisar vagas...">
             <button onclick="searchVagas()" id="botaoVagas">
             <img src="../img/iconePesquisa.png"alt="Ir">
         </button>
@@ -228,9 +327,6 @@
             </div>
         </div>
     </div>
-    </div>
-        </div>
-
         <script>
     // Função para mostrar ou ocultar os detalhes quando uma DIV é clicada
 // Função para mostrar ou ocultar os detalhes quando uma DIV é clicada
@@ -255,18 +351,17 @@ function toggleDetalhes(vagaId) {
         vagaElement.className = "vaga";
         vagaElement.setAttribute("onclick", "toggleDetalhes('vaga" + vaga.id + "')");
 
-        vagaElement.innerHTML = "<h1>" + vaga.titulo + "</h1>" + "<pre>" +
-        "                                                                                                                                <button class='cadastrar-button' onclick='cadastrarVaga(" + vaga.id + ")'>Cadastrar-se</button></pre>" +
-
-            "<h6> Vaga Criada pela Empresa: " + vaga.empresa + "</h6>" +
-            "<p> Descrição: " + vaga.descricao + "</p>" +
+        vagaElement.innerHTML = "<h3>" + vaga.titulo + "</h3>" +
+            "<span>" + vaga.data_publicacao + "</span>" +
+            "<h4>" + vaga.empresa + "</h4>" +
+            "<p>" + vaga.descricao + "</p>" +
             "<p>Salário: R$ " + vaga.salario + "</p>" +
+            "<button class='cadastrar-button' onclick='cadastrarVaga(" + vaga.id + ")'>Cadastrar-se</button>" +
             "<div class='detalhes' id='vaga" + vaga.id + "' style='display: none;'>" +
             "<p>Localização: " + vaga.localizacao + "</p>" +
             "<p>Tipo de Contrato: " + vaga.tipo_contrato + "</p>" +
+            "<p>Requisitos: " + vaga.requisitos + "</p>" +
             "</div>";
-
-
 
         document.getElementById("content-wrap").appendChild(vagaElement);
     }
@@ -364,62 +459,22 @@ function toggleDetalhes(vagaId) {
 
     // Atualize a função searchVagas() para suportar pesquisa em tempo real
     function searchVagas() {
-    var searchTerm = document.getElementById("search-input").value.toLowerCase();
-    var contentWrap = document.getElementById("content-wrap");
-    contentWrap.innerHTML = ""; // Limpe o conteúdo existente
+        // Obtenha o valor digitado na barra de pesquisa
+        var searchTerm = document.getElementById("search-input").value.toLowerCase();
 
-    for (var i = 0; i < vagas.length; i++) {
-        var vaga = vagas[i];
+        // Limpe o conteúdo existente antes de exibir os resultados da pesquisa
+        document.getElementById("content-wrap").innerHTML = "";
 
-        if (
-            vaga.titulo.toLowerCase().includes(searchTerm) ||
-            vaga.descricao.toLowerCase().includes(searchTerm)
-        ) {
-            var vagaElement = document.createElement("div");
-            vagaElement.className = "vaga";
-            vagaElement.setAttribute(
-                "onclick",
-                "toggleDetalhes('vaga" + vaga.id + "')"
-            );
+        // Exiba apenas as vagas que contêm o termo de pesquisa em tempo real
+        for (var i = 0; i < vagas.length; i++) {
+            var vaga = vagas[i];
 
-            vagaElement.innerHTML =
-                "<h3>" +
-                vaga.titulo +
-                "</h3>" +
-                "<span>" +
-                vaga.data_publicacao +
-                "</span>" +
-                "<h4>" +
-                vaga.empresa +
-                "</h4>" +
-                "<p>" +
-                vaga.descricao +
-                "</p>" +
-                "<p>Salário: R$ " +
-                vaga.salario +
-                "</p>" +
-                "<div class='detalhes' id='vaga" +
-                vaga.id +
-                "' style='display: none;'>" +
-                "<p>Localização: " +
-                vaga.localizacao +
-                "</p>" +
-                "<p>Tipo de Contrato: " +
-                vaga.tipo_contrato +
-                "</p>" +
-                "<p>Requisitos: " +
-                vaga.requisitos +
-                "</p>" +
-                "<button onclick='cadastrarVaga(" +
-                vaga.id +
-                ")'>Cadastrar-se</button>" +
-                "</div>";
-
-            contentWrap.appendChild(vagaElement);
+            // Verifique se o título ou a descrição contêm o termo de pesquisa
+            if (vaga.titulo.toLowerCase().includes(searchTerm) || vaga.descricao.toLowerCase().includes(searchTerm)) {
+                // ... (o resto do seu código de exibição de vagas permanece o mesmo)
+            }
         }
     }
-}
-
 
     // Adicione esta função no seu script JavaScript
 // ...
@@ -457,6 +512,31 @@ function cadastrarVaga(vagaId) {
             alert("Erro ao obter o currículo do usuário. Tente novamente mais tarde.");
         });
 }
+
+// Função para obter o ID do usuário logado (substitua por sua lógica real)
+function obterUsuarioLogadoId() {
+    // Implemente a lógica para obter o ID do usuário logado (por exemplo, a partir do token de autenticação)
+    // Retorne o ID do usuário ou null se não estiver autenticado
+    // Exemplo:
+    // return usuarioAutenticado ? usuarioAutenticado.id : null;
+    // Substitua 'usuarioAutenticado' pela sua lógica real de verificação de autenticação
+    return null; // Exemplo: retornando null para simular um usuário não autenticado
+}
+
+// Função para obter o currículo do usuário a partir do BD (substitua por sua lógica real)
+function obterCurriculoDoBD(usuarioId) {
+    return new Promise((resolve, reject) => {
+        // Substitua pelo seu código real para obter o currículo do BD com base no ID do usuário
+        // Exemplo simulado:
+        if (usuarioId !== null) {
+            resolve("Caminho/do/curriculo_do_usuario.pdf");
+        } else {
+            reject("Usuário não autenticado");
+        }
+    });
+}
+
+// Falta: enviar o currículo da pessoa
 
 </script>
 
