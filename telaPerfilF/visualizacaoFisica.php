@@ -136,7 +136,7 @@ $id_usuario = isset($_SESSION['id_usuario']) ? $_SESSION['id_usuario'] : null;
             font-size: x-large;
         }
 
-        .editable {
+        #sobre {
             background-color: azurey;
             border: 2px solid #2C5DAE;
             ;
@@ -205,7 +205,7 @@ $id_usuario = isset($_SESSION['id_usuario']) ? $_SESSION['id_usuario'] : null;
                                 <p class='company-info'>
                                 <div class='foto-perfil'>
                                     <h4 class="label">Foto de perfil</h4>
-                                    <img src="<?php echo $row['caminho_foto_perfil']; ?>" alt="Foto de Perfil">
+                                    <img src="<?php echo $row['caminho_foto_perfil']; ?>" alt="Foto de Perfil"  width="250" height="250">
                                 </div>
                                 </p>
                                 <p class='company-info'>
@@ -253,9 +253,10 @@ $id_usuario = isset($_SESSION['id_usuario']) ? $_SESSION['id_usuario'] : null;
                     ?>
                     <div class="form-group">
                         <label for="sobre" class="label">Sobre:</label>
-                        <div contenteditable="true" class="editable" id="sobre">
+                        <div contenteditable="true" id="sobre">
                             <?php echo $row['sobre']; ?>
                         </div>
+
                     </div>
                 </form>
             </div>

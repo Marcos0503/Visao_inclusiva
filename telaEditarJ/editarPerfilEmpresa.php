@@ -199,8 +199,8 @@ $id_empresa = isset($_SESSION['id_empresa']) ? $_SESSION['id_empresa'] : null;
                     <label for="email" class="labelInput"></label>
                 </div>
                 <div class="form-group">
-                    <label for="sobre" name="sobre" class="txt">Sobre:</label>
-                    <textarea class="form-control" id="sobre" rows="3"></textarea>
+                    <label for="sobre" class="txt">Sobre:</label>
+                    <textarea class="form-control" id="sobre" name="sobre" rows="3"></textarea>
                 </div>
                 <button type="submit" class="btn btn-outline-info">Salvar</button>
             </form>
@@ -244,19 +244,6 @@ $id_empresa = isset($_SESSION['id_empresa']) ? $_SESSION['id_empresa'] : null;
                 }, false);
             })();
     </script>
-
-
-
-    <footer class="text-muted">
-        <div class="container">
-            <p class="float-right">
-                <a href="#">Voltar ao topo</a>
-            </p>
-            <p>Este exemplo de álbum é &copy; Bootstrap, mas, por favor, baixe e customize por conta própria.</p>
-            <p>Novo no Bootstrap? <a href="../../">Visite a página principal</a> ou leia nosso guia <a
-                    href="../../getting-started/">getting started</a>.</p>
-        </div>
-    </footer>
 
     <!-- Principal JavaScript do Bootstrap
     ================================================== -->
