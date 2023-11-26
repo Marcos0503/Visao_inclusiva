@@ -20,22 +20,7 @@
     <link href="form-validation.css" rel="stylesheet">
     <!-- <link rel="stylesheet" type="text/css" href="\..\VI_Vagas\estilo\telaVagas.css" media="screen" /> -->
     <style>
-        /*Apenas arrumando o cabeçalho*/
-        /* header{
-        background-color: #C2D7E8;
-        color: #2C5DAE;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px;
-        overflow: hidden;
-        text-align: center;
-        text-decoration: none;
-        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
-        font-family: 'Montserrat', sans-serif;
-    }
-    */
-
+        /* pra baixo nav bar */
         .bg {
             background-color: #2C5DAE;
             /* Cor de fundo do collapse */
@@ -54,9 +39,14 @@
 
         .logo {
             margin-right: 5px;
-            width: 120px;
-            height: 50px;
         }
+
+        .btnlogin {
+            margin-left: -50%;
+            background-color: #ffffff;
+        }
+
+        /* pra cima nav bar */
 
         /*Aplicando em todo documento*/
 
@@ -296,16 +286,19 @@
 </head>
 
 <body responsive>
+    <!-- pra baixo nav bar -->
     <header>
         <div class="collapse bg" id="navbarHeader">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-8 col-md-7 py-4">
-                        <h4 class="text-white">Sobre</h4>
-                        <p class="text">Adicione alguma informação sobre o álbum abaixo (autor ou qualquer outro
-                            background). Faça essas informações terem algumas frases, para a galera ter algumas
-                            informações que besliscar. Além disso, use link nelas para as redes sociais ou informações
-                            de contato.</p>
+                        <h4 class="text-white">Sobre nós</h4>
+                        <p class="text">A Visão Inclusiva é um site de empregabilidade exclusivo para Pessoas com
+                            Deficiência (PCD). Conectamos candidatos PCD a oportunidades de emprego, permitindo que
+                            empresas anunciem vagas direcionadas a esse público. Os candidatos criam perfis detalhados,
+                            enquanto as empresas podem cadastrar suas vagas especificamente para PCD, promovendo a
+                            inclusão e diversidade no ambiente de trabalho, facilitando o recrutamento e seleção de
+                            forma mais inclusiva..</p>
                     </div>
                     <div class="col-sm-4 offset-md-1 py-4">
                         <h4 class="text-white">Contato</h4>
@@ -321,26 +314,18 @@
         <div class="navbar navbar-dark shadow-sm">
             <div class="container d-flex justify-content-between">
                 <a href="#" class="navbar-brand d-flex align-items-center">
-                    <img class="logo" src="../img/logoFinal.png" alt="Logo Visão Inclusiva" height="35" width="85">
+                    <img class="logo" src="../img/logo1.png" alt="Sua Logo" height="40" width="40">
+                    <strong>Visão Inclusiva</strong>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
                     aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <a href="#" class="text-white">Sobre nós</a>
                 </button>
-            </div>
-            <div class="navbar-nav ml-auto">
-                <!--o <a> é onde vai entrar o link para a tela de perfil da pessoa-->
-                <a class="nav-link"
-                    href="C:\xampp\htdocs\www\Vi_inclusiva\Visao_inclusiva\telaEditarF\editarPessoaFisica.php">
-                    <div class="profile-icon">
-                        <!-- Adicione uma imagem de perfil ou ícone de usuário padrão -->
-                        <img src="../img/userBase.png" alt="Perfil">
-                    </div>
-                </a>
+                <a href="../telaLogin/login.php" class="btn btnlogin btn-outline-primary">Login</a>
             </div>
         </div>
     </header>
-
+    <!-- pra cima nav bar -->
     <div id="page-container">
 
         <div id="content-wrap">
@@ -368,28 +353,7 @@
 
         </div>
 
-        <!-- rodapé da página -->
-        <footer>
-            <br>
-            <div id="links">
-                <ul>
-                    <li><a id="rodape" href="#mobile">Mobile App</a></li>
-                    <li><a id="rodape" href="#quemSomos">Quem Somos</a></li>
-                    <li><a id="rodape" href="#companhia">Companhia</a></li>
-
-                    <img src="../img/logoFinal.png" alt="Logo Final" id="logoRodape">
-
-                    <li><a id="rodape" href="#helpDesk">Help Desk</a></li>
-                    <li><a id="rodape" href="#blog">Blog</a></li>
-                    <li><a id="rodape" href="#recursos">Recursos</a></li>
-                </ul>
-                <br>
-            </div>
-            <p>
-                Obrigado por acessar o site. Nós amamos nossos usuários!
-            </p>
-        </footer>
-    </div>
+     
 
     <script>
         // Função para mostrar ou ocultar os detalhes quando uma DIV é clicada

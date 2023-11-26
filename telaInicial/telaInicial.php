@@ -20,7 +20,7 @@
         height: 100vh; /* Adiciona esta linha para definir a altura da tela inteira */
         margin: 0;
     }
-
+    /* pra baixo nav bar */
     .bg{
       background-color: #2C5DAE; /* Cor de fundo do collapse */
     }
@@ -39,6 +39,8 @@
       margin-left: -50%;
       background-color: #ffffff;
     }
+
+    /* pra cima nav bar */
       .titulo {
       color: #003a98;
       font-family: arial black;
@@ -105,7 +107,7 @@
   </head>
 
   <body>
-
+<!-- pra baixo nav bar -->
     <header>
       <div class="collapse bg" id="navbarHeader">
         <div class="container">
@@ -138,6 +140,7 @@
         </div>
       </div>
     </header>
+    <!-- pra cima nav bar -->
     <div class="container-fluid primeira-tela"style= "background-image: url('../img/backgrond.jpeg');">
       <div class="row">
         <div class="col-md-12 d-flex">
