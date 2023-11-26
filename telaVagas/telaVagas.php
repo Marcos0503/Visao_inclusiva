@@ -551,11 +551,11 @@
 
 
         function irParaCurriculo() {
-            window.location.href = 'caminho/para/curriculo.html';
+            window.location.href = '../telaCurriculo/telaCurriculo/curriculo.php';
         }
 
         function irParaPerfil() {
-            window.location.href = '../telaVagas/telaVagas.php';
+            window.location.href = '../telaPerfilF/visualizacaoFisica.php';
         }
     </script>
 
