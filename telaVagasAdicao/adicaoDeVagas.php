@@ -130,6 +130,22 @@ include_once('excluirVagas.php');
       cursor: pointer;
     }
 
+    .bnt-voltar{
+      justify-content: space-between;
+      background-color: #1F78D1;
+      color: #fff;
+      border-radius: 10px;
+      text-decoration: none;
+      text-align: center;
+      /* Centraliza o texto */
+      font-weight: bold;
+      /* Define o peso da fonte como negrito */
+      border: none;
+      margin-left:80%;
+      cursor: pointer;
+
+    }
+
     .botaoExcluir{
       justify-content: space-between;
       width: 100%;
@@ -254,13 +270,20 @@ include_once('excluirVagas.php');
             </div>
       </div>
         </header>
-    
+
+   
         <div class="card">
+        <a class="bnt-voltar" href="telaVagasPj.php"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="50" height="50">
+  <path d="M256 73.82A182.18 182.18 0 1 0 438.18 256 182.18 182.18 0 0 0 256 73.82zm90.615 272.724a24.554 24.554 0 0 1-34.712 0l-54.664-54.667-57.142 57.146a24.544 24.544 0 0 1-34.704-34.717l57.138-57.128-53.2-53.209a24.547 24.547 0 0 1 34.712-34.717l53.196 53.208 50.717-50.72a24.547 24.547 0 0 1 34.713 34.716l-50.713 50.722 54.659 54.65a24.56 24.56 0 0 1 0 34.717z" data-name="Close"/>
+</svg>
+</a>
+
         <form action="processarVaga.php" method="POST">
     <input type="hidden" name="action" value="addOrUpdate">
     <input type="hidden" name="id" value="<?php echo isset($id) ? $id : ''; ?>">
 
         <div class="mb-3">
+      
           <h1 class="titulo">Sobre a Vaga</h1>
           <input class="entrada" type="text" name="titulo" value="<?php echo isset($titulo) ? $titulo : ''; ?>"
             placeholder="Titulo da vaga">
