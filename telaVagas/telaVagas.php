@@ -99,12 +99,7 @@
         z-index: 999; /* Adicione um z-index menor que o do header */
     }
 
-    button {
-        height: 10%;
-        border: none;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra sutil */
-        z-index: 999; /* Adicione um z-index menor que o do header */
-    }
+  
 
     #search-bar button img {
         width: 18px;
@@ -260,11 +255,12 @@ function toggleDetalhes(vagaId) {
         vagaElement.className = "vaga";
         vagaElement.setAttribute("onclick", "toggleDetalhes('vaga" + vaga.id + "')");
 
-        vagaElement.innerHTML = "<h1>" + vaga.titulo + "</h1>" +
+        vagaElement.innerHTML = "<h1>" + vaga.titulo + "</h1>" + "<pre>" +
+        "                                                                                                                                <button class='cadastrar-button' onclick='cadastrarVaga(" + vaga.id + ")'>Cadastrar-se</button></pre>" +
+
             "<h6> Vaga Criada pela Empresa: " + vaga.empresa + "</h6>" +
             "<p> Descrição: " + vaga.descricao + "</p>" +
             "<p>Salário: R$ " + vaga.salario + "</p>" +
-            "<button class='cadastrar-button' onclick='cadastrarVaga(" + vaga.id + ")'>Cadastrar-se</button>" +
             "<div class='detalhes' id='vaga" + vaga.id + "' style='display: none;'>" +
             "<p>Localização: " + vaga.localizacao + "</p>" +
             "<p>Tipo de Contrato: " + vaga.tipo_contrato + "</p>" +

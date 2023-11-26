@@ -202,9 +202,6 @@
             border-radius: 15px;
         }
 
-        button {
-            height: 40px;
-        }
 
         #search-bar button img {
             width: 20px;
