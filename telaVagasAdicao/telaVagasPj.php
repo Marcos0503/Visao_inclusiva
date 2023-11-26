@@ -55,13 +55,14 @@
         }
 
         body {
-            margin: 0;
-            background-image: url('../img/background.png'), url('../img/Fundo_azul_claro.png');
-            background-repeat: no-repeat;
-            background-position: left, right;
-            background-size: 69% 100%, 31% 100%;
-            /* Ajuste as porcentagens conforme necessário */
-        }
+        margin: 0;
+        background-image: url('../img/background.png'), url('../img/Fundo_azul_claro.png');
+        background-repeat: repeat-y;
+        background-position: left top, right top;   
+        background-size: 69% 100%, 31% 100%; /* 50% para cada imagem */
+        width: 100%;
+        height: 100vh; /* Adicionando altura de 100% da viewport */
+}
 
         body,
         html {
@@ -111,21 +112,7 @@
             background-color: #f1f1f1;
         }
 
-        footer {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            /* Coloca os elementos em coluna */
-            justify-content: center;
-            /* Centraliza o conteúdo verticalmente */
-            align-items: center;
-            /* Centraliza o conteúdo horizontalmente */
-            background-color: #fff;
-            border-top: 1px solid #4d4d4d80;
-            margin-top: 10%;
-        }
+    
 
         #links {
             border-bottom: 1px solid #4d4d4d80;
