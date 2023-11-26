@@ -66,9 +66,9 @@
             display: flex;
             align-items: center;
         }
-        
 
-        .navbar-toggler{
+
+        .navbar-toggler {
 
             margin-left: 40%;
         }
@@ -171,7 +171,7 @@
             min-height: 100vh;
         }
 
-      
+
 
         /*Estiliza as DIVs que aparece as vagas*/
 
@@ -309,19 +309,21 @@
         </div>
         <div class="navbar navbar-dark shadow-sm">
             <div class="container d-flex justify-content-between">
-                <a href="#" class="navbar-brand d-flex align-items-center"onclick="window.location.href='../telaInicial/telaInicial.php'">
-                    <img class="logo" src="../img/logo1.png" alt="Sua Logo" height="40" width="40" >
-                     <strong>Visão Inclusiva</strong>
+                <a href="#" class="navbar-brand d-flex align-items-center"
+                    onclick="window.location.href='../telaInicial/telaInicial.php'">
+                    <img class="logo" src="../img/logo1.png" alt="Sua Logo" height="40" width="40">
+                    <strong>Visão Inclusiva</strong>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
                     aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
                     <a href="#" class="text-white">Sobre nós</a>
                 </button>
                 <div class="navbar-nav ml-auto">
-                    
+
                     <div class="dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" id="perfilDropdown"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  onclick="window.location.href='../telaPerfilJ/visualizacaoEmpresa.php'">
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                            onclick="window.location.href='../telaPerfilJ/visualizacaoEmpresa.php'">
                             <div class="profile-icon">
                                 <!-- Adicione uma imagem de perfil ou ícone de usuário padrão -->
                                 <img src="../img/userBase.png" alt="Perfil">
@@ -401,9 +403,10 @@
                         vagaElement.className = "vaga";
                         vagaElement.setAttribute("onclick", "toggleDetalhes('vaga" + vaga.id + "')");
 
-                        vagaElement.innerHTML = "<h1>" + vaga.titulo + "</h1>" + "<pre>" +
-                            "                                                                                                                           <button class='cadastrar-button' onclick='alterarVagas(" + vaga.id + ")'>Alterar</button>" +
-                            "  <button class='cadastrar-button' onclick='excluirVagas(" + vaga.id + ")'>Excluir</button></pre>" +
+                        vagaElement.innerHTML =
+                            "<button class='cadastrar-button' onclick='alterarVagas(" + vaga.id + ")'>Alterar</button>" +
+                            "  <button class='cadastrar-button' onclick='excluirVagas(" + vaga.id + ")'>Excluir</button>" +
+                            "<h1>" + vaga.titulo + "</h1>" +
                             "<h6> Vaga Criada pela Empresa: " + vaga.empresa + "</h6>" +
                             "<p>Salário: R$ " + vaga.salario + "</p>" +
                             "<div class='detalhes' id='vaga" + vaga.id + "' style='display: none;'>" +
