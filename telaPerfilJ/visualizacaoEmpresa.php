@@ -126,8 +126,9 @@ $id_empresa = isset($_SESSION['id_empresa']) ? $_SESSION['id_empresa'] : null;
             font-size: x-large;
         }
 
-        .editable {
-            background-color: azure;
+
+        #sobre {
+            background-color: azurey;
             border: 2px solid #2C5DAE;
             ;
             padding: 8px;
@@ -246,15 +247,17 @@ $id_empresa = isset($_SESSION['id_empresa']) ? $_SESSION['id_empresa'] : null;
                     ?>
                     <div class="form-group">
                         <label for="sobre" class="label">Sobre:</label>
-                        <div contenteditable="true" class="editable" id="sobre">
+                        <div contenteditable="true" id="sobre">
                             <?php echo $row['sobre']; ?>
                         </div>
+
                     </div>
                 </form>
             </div>
-            <a href="../telaEditarj/editarPerfilEmpresa.php"><button
-                    class="btn btn-primary btn-custom-sm">Editar</button></a>
+
         </div>
+        <a href="..\telaEditarJ\editarPerfilEmpresa.php"><button
+                class="btn btn-primary btn-custom-sm">Editar</button></a>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

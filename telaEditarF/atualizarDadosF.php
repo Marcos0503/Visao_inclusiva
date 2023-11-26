@@ -44,15 +44,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         sobre = '$sobre'
     WHERE id_usuario = $id_usuario;";
 
-    $conn->query($sql);
+$conn->query($sql);
 
-    // Verifica se a atualização foi bem-sucedida
-    if ($conn->affected_rows > 0) {
-        // A atualização foi bem-sucedida
-        echo "<p>Os dados do usuário foram atualizados com sucesso.</p>";
-    } else {
-        // A atualização falhou
-        echo "<p>Ocorreu um erro ao atualizar os dados do usuário.</p>";
-    }
+// Verifica se a atualização foi bem-sucedida
+if ($conn->affected_rows > 0) {
+    // A atualização foi bem-sucedida
+
+    // Redireciona para a página desejada
+    header("Location: ../telaPerfilF/visualizacaoFisica.php");
+    exit();
+} else {
+    // A atualização falhou
+    echo "<p>Ocorreu um erro ao atualizar os dados do usuário.</p>";
+}
 }
 ?>
