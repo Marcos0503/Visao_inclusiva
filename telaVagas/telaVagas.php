@@ -272,7 +272,7 @@
             <div id="divVagas">
                 <!-- o resto do conteúdo da página -->
                 <!-- <h3>Vagas Disponíveis</h3> -->
-                <?php include("C:/xampp/htdocs/www/Vi_inclusiva/Visao_inclusiva/telaVagas/funcaoMostraVagas.php"); ?>
+                <?php include("funcaoMostraVagas.php"); ?>
             </div>
         </div>
 

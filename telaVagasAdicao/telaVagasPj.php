@@ -34,7 +34,6 @@
             background-color: #2C5DAE;
             /* Cor de fundo do cabeçalho */
             min-height: 80px;
-
         }
 
         .logo {
@@ -53,6 +52,49 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+
+        .navbar-nav .dropdown-toggle::after {
+            display: none;
+        }
+
+        .navbar-nav .dropdown-toggle::before {
+            display: none;
+        }
+
+        .navbar-nav .nav-link {
+            display: flex;
+            align-items: center;
+        }
+
+
+        .navbar-toggler {
+
+            margin-left: 40%;
+        }
+
+
+        .dropdown-item {
+            height: 100%;
+        }
+
+        .dropdown-menu {
+            text-align: center;
+            border-radius: 10px;
+            display: none;
+            background-color: #2C5DAE;
+            border: none;
+        }
+
+        .dropdown-menu button {
+            width: 100%;
+            text-align: left;
+            display: block;
+            padding: 8px 16px;
+            border-radius: 10px;
+            margin-bottom: 8px;
+            background-color: #C2D7E8;
+            color: #fff;
         }
 
         /* pra cima nav bar */
@@ -124,55 +166,12 @@
         }
 
 
-
-        #links {
-            border-bottom: 1px solid #4d4d4d80;
-            background-color: #fff;
-            align-items: center;
-            /* Centraliza o conteúdo verticalmente */
-        }
-
-        #links ul {
-            color: #2C5DAE;
-            font-family: 'Montserrat', sans-serif;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            gap: 20px;
-            /* Espaçamento entre os itens (ajuste conforme necessário) */
-            justify-content: center;
-            /* Centraliza o conteúdo horizontalmente */
-            align-items: center;
-            /* Centraliza o conteúdo verticalmente */
-        }
-
         #page-container {
             position: relative;
             min-height: 100vh;
         }
 
-        #redesSociais {
-            background-color: #fff;
-            margin: 0;
-            color: #4c4c4c;
-            font-size: smaller;
-            border-top: 0;
-            display: flex;
-            align-items: center;
-            /* Centraliza o conteúdo verticalmente */
-            justify-content: center;
-            /* Centraliza horizontalmente */
-        }
 
-        #links,
-        #redesSociais {
-            width: 100%;
-            /* Ocupar toda a largura do rodapé */
-            text-align: center;
-            /* Centralizar o texto dentro das divs */
-
-        }
 
         /*Estiliza as DIVs que aparece as vagas*/
 
@@ -310,28 +309,26 @@
         </div>
         <div class="navbar navbar-dark shadow-sm">
             <div class="container d-flex justify-content-between">
-                <a href="#" class="navbar-brand d-flex align-items-center"onclick="window.location.href='../telaInicial/telaInicial.php'">
-                    <img class="logo" src="../img/logo1.png" alt="Sua Logo" height="40" width="40" >
-                     <strong>Visão Inclusiva</strong>
+                <a href="#" class="navbar-brand d-flex align-items-center"
+                    onclick="window.location.href='../telaInicial/telaInicial.php'">
+                    <img class="logo" src="../img/logo1.png" alt="Sua Logo" height="40" width="40">
+                    <strong>Visão Inclusiva</strong>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
                     aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
                     <a href="#" class="text-white">Sobre nós</a>
                 </button>
                 <div class="navbar-nav ml-auto">
-                    
+
                     <div class="dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" id="perfilDropdown"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                            onclick="window.location.href='../telaPerfilJ/visualizacaoEmpresa.php'">
                             <div class="profile-icon">
                                 <!-- Adicione uma imagem de perfil ou ícone de usuário padrão -->
                                 <img src="../img/userBase.png" alt="Perfil">
                             </div>
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="perfilDropdown">
-                            <button class="dropdown-item" onclick="window.location.href='caminho/para/perfil.html'">Ir
-                                para Perfil</button>
-                        </div>
                     </div>
                 </div>
     </header>
@@ -406,9 +403,10 @@
                         vagaElement.className = "vaga";
                         vagaElement.setAttribute("onclick", "toggleDetalhes('vaga" + vaga.id + "')");
 
-                        vagaElement.innerHTML = "<h1>" + vaga.titulo + "</h1>" + "<pre>" +
-                            "                                                                                                                           <button class='cadastrar-button' onclick='alterarVagas(" + vaga.id + ")'>Alterar</button>" +
-                            "  <button class='cadastrar-button' onclick='excluirVagas(" + vaga.id + ")'>Excluir</button></pre>" +
+                        vagaElement.innerHTML =
+                            "<button class='cadastrar-button' onclick='alterarVagas(" + vaga.id + ")'>Alterar</button>" +
+                            "  <button class='cadastrar-button' onclick='excluirVagas(" + vaga.id + ")'>Excluir</button>" +
+                            "<h1>" + vaga.titulo + "</h1>" +
                             "<h6> Vaga Criada pela Empresa: " + vaga.empresa + "</h6>" +
                             "<p>Salário: R$ " + vaga.salario + "</p>" +
                             "<div class='detalhes' id='vaga" + vaga.id + "' style='display: none;'>" +
