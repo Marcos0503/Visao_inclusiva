@@ -1,8 +1,11 @@
-<?php 
+<?php
 session_start();
 include "conexao.php";
 $id_usuario = isset($_SESSION['id_usuario']) ? $_SESSION['id_usuario'] : null;
-include("funcaoMostraVagas.php"); ?>
+
+include("funcaoMostraVagas.php");
+
+?>
 
 
 <!DOCTYPE html>
@@ -54,7 +57,7 @@ include("funcaoMostraVagas.php"); ?>
             overflow: hidden;
             border-radius: 50%;
             border: 1px solid #000;
-            
+
         }
 
         .profile-icon img {
@@ -362,8 +365,8 @@ include("funcaoMostraVagas.php"); ?>
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                             onclick="window.location.href='../telaPerfilF/visualizacaoFisica.php'">
                             <div class="profile-icon">
- 
-                            <!-- Adicione uma imagem de perfil ou ícone de usuário padrão -->
+
+                                <!-- Adicione uma imagem de perfil ou ícone de usuário padrão -->
                                 <?php
 
 
@@ -406,7 +409,6 @@ include("funcaoMostraVagas.php"); ?>
             <div id="divVagas">
                 <!-- o resto do conteúdo da página -->
                 <!-- <h3>Vagas Disponíveis</h3> -->
-                <?php include("funcaoMostraVagas.php"); ?>
             </div>
         </div>
 
