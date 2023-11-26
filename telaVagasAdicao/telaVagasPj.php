@@ -410,10 +410,11 @@
             window.location.href = 'adicaoDeVagas.php?id=' + id;
         }
 
-        function excluirVagas() {
-            // Redireciona para o link desejado
-            window.location.href = 'excluirVagas.php';
+        function excluirVagas(delete_id) {
+            // Redireciona para a página excluirVagas.php passando o delete_id como parâmetro
+            window.location.href = 'excluirVagas.php?delete_id=' + delete_id;
         }
+
 
         // Array de vagas obtido do PHP
         var vagas = <?php echo json_encode($vagas); ?>;
