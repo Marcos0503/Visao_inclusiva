@@ -310,15 +310,16 @@
         </div>
         <div class="navbar navbar-dark shadow-sm">
             <div class="container d-flex justify-content-between">
-                <a href="#" class="navbar-brand d-flex align-items-center">
-                    <img class="logo" src="../img/logo1.png" alt="Sua Logo" height="40" width="40">
-                    <strong>Visão Inclusiva</strong>
+                <a href="#" class="navbar-brand d-flex align-items-center"onclick="window.location.href='../telaInicial/telaInicial.php'">
+                    <img class="logo" src="../img/logo1.png" alt="Sua Logo" height="40" width="40" >
+                     <strong>Visão Inclusiva</strong>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
                     aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
                     <a href="#" class="text-white">Sobre nós</a>
                 </button>
                 <div class="navbar-nav ml-auto">
+                    
                     <div class="dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" id="perfilDropdown"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
