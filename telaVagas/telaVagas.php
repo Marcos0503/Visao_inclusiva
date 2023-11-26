@@ -231,32 +231,62 @@
             color: #fff;
             cursor: pointer;
         }
+
+        .cadastrar-button {
+            background-color: #4CAF50;
+            /* Cor de fundo do botão */
+            color: white;
+            /* Cor do texto do botão */
+            border: none;
+            /* Remova a borda */
+            padding: 10px 20px;
+            /* Adicione preenchimento ao botão */
+            text-align: center;
+            /* Alinhe o texto ao centro */
+            text-decoration: none;
+            /* Remova a decoração de texto */
+            display: inline-block;
+            /* Faça o botão comportar-se como um elemento em linha */
+            font-size: 16px;
+            /* Tamanho da fonte */
+            margin: 4px 2px;
+            /* Adicione margem ao botão */
+            cursor: pointer;
+            /* Adicione um cursor ao passar o mouse sobre o botão */
+            border-radius: 8px;
+            /* Adicione borda arredondada */
+        }
+
+        .cadastrar-button:hover {
+            background-color: #45a049;
+            /* Mudar cor de fundo ao passar o mouse sobre o botão */
+        }
     </style>
 
     <title>Vagas | Visão Inclusiva</title>
 </head>
 
 <body responsive>
-<header>
-    <div class="navbar navbar-dark shadow-sm">
-        <div class="container d-flex justify-content-between">
-            <a href="#" class="navbar-brand d-flex align-items-center">
-                <img class="logo" src="../img/logoFinal.png" alt="Logo Visão Inclusiva" height="35" width="85">
-            </a>
-            <div class="dropdown">
-                <a class="nav-link" href="#" role="button" onclick="toggleDropdown()">
-                    <div class="profile-icon">
-                        <img src="../img/userBase.png" alt="Perfil">
-                    </div>
+    <header>
+        <div class="navbar navbar-dark shadow-sm">
+            <div class="container d-flex justify-content-between">
+                <a href="#" class="navbar-brand d-flex align-items-center">
+                    <img class="logo" src="../img/logoFinal.png" alt="Logo Visão Inclusiva" height="35" width="85">
                 </a>
-                <div class="dropdown-menu" aria-labelledby="perfilDropdown">
-                    <button class="dropdown-item" onclick="irParaCurriculo()">Ir para Currículo</button>
-                    <button class="dropdown-item" onclick="irParaPerfil()">Ir para Perfil</button>
+                <div class="dropdown">
+                    <a class="nav-link" href="#" role="button" onclick="toggleDropdown()">
+                        <div class="profile-icon">
+                            <img src="../img/userBase.png" alt="Perfil">
+                        </div>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="perfilDropdown">
+                        <button class="dropdown-item" onclick="irParaCurriculo()">Ir para Currículo</button>
+                        <button class="dropdown-item" onclick="irParaPerfil()">Ir para Perfil</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</header>
+    </header>
 
     <div class="dropdown">
         <div class="dropdown-menu" aria-labelledby="perfilDropdown">
@@ -300,16 +330,26 @@
     <script>
         // Função para mostrar ou ocultar os detalhes quando uma DIV é clicada
         // Função para mostrar ou ocultar os detalhes quando uma DIV é clicada
-        function toggleDetalhes(vagaId) {
+        function toggleDetalhes(vagaId, event) {
             var detalhes = document.getElementById(vagaId);
-            if (detalhes.style.display === "none") {
+
+            // Verificar se o clique ocorreu no botão
+            var isButtonClicked = event.target.tagName.toLowerCase() === 'button';
+
+            if (detalhes.style.display === "none" && !isButtonClicked) {
                 detalhes.style.display = "block";
                 var botaoCadastrar = detalhes.querySelector(".cadastrar-button");
                 botaoCadastrar.style.display = "block"; // Exibir o botão quando os detalhes são mostrados
             } else {
                 detalhes.style.display = "none";
+
+                // Se o clique ocorreu no botão, redirecione
+                if (isButtonClicked) {
+                    cadastrarVaga(vagaId);
+                }
             }
         }
+
 
         // Array de vagas obtido do PHP
         var vagas = <?php echo json_encode($vagas); ?>;
@@ -319,14 +359,14 @@
             var vaga = vagas[i];
             var vagaElement = document.createElement("div");
             vagaElement.className = "vaga";
-            vagaElement.setAttribute("onclick", "toggleDetalhes('vaga" + vaga.id + "')");
+            vagaElement.setAttribute("onclick", "toggleDetalhes('vaga" + vaga.id + "', event)");
 
             vagaElement.innerHTML = "<h3>" + vaga.titulo + "</h3>" +
                 "<span>" + vaga.data_publicacao + "</span>" +
                 "<h4>" + vaga.empresa + "</h4>" +
                 "<p>" + vaga.descricao + "</p>" +
                 "<p>Salário: R$ " + vaga.salario + "</p>" +
-                "<button class='cadastrar-button' onclick='cadastrarVaga(" + vaga.id + ")'>Cadastrar-se</button>" +
+                "<button class='cadastrar-button' onclick=\"window.location.href='../telaCurriculo/telaCurriculo/curriculo.php'\">Cadastrar-se</button>" +
                 "<div class='detalhes' id='vaga" + vaga.id + "' style='display: none;'>" +
                 "<p>Localização: " + vaga.localizacao + "</p>" +
                 "<p>Tipo de Contrato: " + vaga.tipo_contrato + "</p>" +
@@ -362,7 +402,7 @@
                         "<p>Localização: " + vaga.localizacao + "</p>" +
                         "<p>Tipo de Contrato: " + vaga.tipo_contrato + "</p>" +
                         "<p>Requisitos: " + vaga.requisitos + "</p>" +
-                        "<button onclick='cadastrarVaga(" + vaga.id + ")'>Cadastrar-se</button>" +
+                        "<button class='cadastrar-button' onclick='cadastrarVaga(" + vaga.id + ")'>Cadastrar-se</button>" +
                         "</div>";
 
                     document.getElementById("content-wrap").appendChild(vagaElement);
@@ -488,61 +528,12 @@
         // ...
 
         function cadastrarVaga(vagaId) {
-            // Simulando a obtenção do ID do usuário logado (substitua por sua lógica real)
-            var usuarioLogadoId = obterUsuarioLogadoId(); // Implemente a função para obter o ID do usuário logado
+            var usuarioLogadoId = obterUsuarioLogadoId(id);
 
-            // Simulando a obtenção do currículo do usuário a partir do BD (substitua por sua lógica real)
-            obterCurriculoDoBD(usuarioLogadoId)
-                .then(curriculoDoUsuario => {
-                    // Simulando o envio do currículo para a empresa (substitua por sua lógica real)
-                    fetch('URL_da_empresa', {
-                            method: 'POST',
-                            body: JSON.stringify({
-                                curriculo: curriculoDoUsuario,
-                                vagaId: vagaId
-                            }), // Enviando o currículo e o ID da vaga
-                            headers: {
-                                'Content-Type': 'application/json'
-                            }
-                        })
-                        .then(response => {
-                            if (response.ok) {
-                                // Exibindo um alerta ao usuário após o envio bem-sucedido do currículo
-                                alert("Currículo enviado com sucesso para a empresa!");
-                            } else {
-                                alert("Erro ao enviar o currículo para a empresa.");
-                            }
-                        })
-                        .catch(error => {
-                            console.error('Erro ao enviar o currículo:', error);
-                            alert("Erro ao enviar o currículo para a empresa. Verifique sua conexão ou tente novamente mais tarde.");
-                        });
-                })
-                .catch(error => {
-                    console.error('Erro ao obter o currículo do usuário:', error);
-                    alert("Erro ao obter o currículo do usuário. Tente novamente mais tarde.");
-                });
+            window.location.href = '../telaCurriculo/telaCurriculo/curriculo.php';
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const irparacurriculoButton = document.getElementById('irparacurriculo');
 
-            if (irparacurriculoButton) {
-                irparacurriculoButton.addEventListener('click', function() {
-                    window.location.href = 'caminho/para/curriculo.html';
-                });
-            }
-        });
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const irparaperfilButton = document.getElementById('irparaperfil');
-
-            if (irparaperfilButton) {
-                irparaperfilButton.addEventListener('click', function() {
-                    window.location.href = 'caminho/para/perfil.html';
-                });
-            }
-        });
 
         function toggleDropdown() {
             var dropdownMenu = document.querySelector('.dropdown-menu');

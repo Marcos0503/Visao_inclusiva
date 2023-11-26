@@ -7,8 +7,7 @@
     <link rel="icon" href="../img/logo1.png">
     <title>Cadastro</title>
     <!-- Principal CSS do Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <!-- Estilos customizados para esse template -->
     <style>
         /* Estilo do plano de fundo */
@@ -162,8 +161,7 @@
                     <img class="logo" src="../img/logo1.png" alt="Sua Logo" height="40" width="40">
                     <strong>Visão Inclusiva</strong>
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
-                    aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
                     <a href="#" class="text-white">Sobre nós</a>
                 </button>
             </div>
@@ -179,13 +177,10 @@
         <hr class="section-divider">
 
         <div class="col-md-8 order-md-1">
-            <form class="needs-validation" novalidate name="Cadastro" action="Cadastrar.php" method="POST"
-                enctype="multipart/form-data">
+            <form class="needs-validation" novalidate name="Cadastro" action="Cadastrar.php" method="POST" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="titulo"></label>
-                    <textarea type="text" class="form-control custom-input inputObj" id="titulo" name="titulo"
-                        placeholder="O objetivo do currículo é fornecer uma visão rápida e clara sobre quem você é como profissional e o que você busca alcançar em sua carreira. Ele geralmente é colocado no início do currículo e serve como uma declaração concisa de seus objetivos profissionais."
-                        required></textarea>
+                    <textarea type="text" class="form-control custom-input inputObj" id="titulo" name="titulo" placeholder="O objetivo do currículo é fornecer uma visão rápida e clara sobre quem você é como profissional e o que você busca alcançar em sua carreira. Ele geralmente é colocado no início do currículo e serve como uma declaração concisa de seus objetivos profissionais." required></textarea>
                 </div>
 
                 <!-- Formação Acadêmica -->
@@ -193,16 +188,13 @@
                     <h3>Formação Acadêmica 1</h3>
                     <div class="mb-3">
                         <label for="instituicao"></label>
-                        <input type="text" class="form-control custom-input" id="instituicao" name="instituicao[]"
-                            placeholder="Instituição" required>
+                        <input type="text" class="form-control custom-input" id="instituicao" name="instituicao[]" placeholder="Instituição" required>
 
                         <label for="curso"></label>
-                        <input type="text" class="form-control custom-input" id="curso" name="curso[]"
-                            placeholder="Curso" required>
+                        <input type="text" class="form-control custom-input" id="curso" name="curso[]" placeholder="Curso" required>
 
                         <label for="ano_conclusao"></label>
-                        <input type="date" class="form-control custom-input" id="ano_conclusao" name="ano_conclusao[]"
-                            placeholder="Ano de Conclusão" required>
+                        <input type="date" class="form-control custom-input" id="ano_conclusao" name="ano_conclusao[]" placeholder="Ano de Conclusão" required>
                     </div>
                 </div>
                 <!-- Formação Acadêmica -->
@@ -210,69 +202,65 @@
                     <h3>Formação Acadêmica 2</h3>
                     <div class="mb-3">
                         <label for="instituicao"></label>
-                        <input type="text" class="form-control custom-input" id="instituicao" name="instituicao[]"
-                            placeholder="Instituição" required>
+                        <input type="text" class="form-control custom-input" id="instituicao" name="instituicao[]" placeholder="Instituição" required>
 
                         <label for="curso"></label>
-                        <input type="text" class="form-control custom-input" id="curso" name="curso[]"
-                            placeholder="Curso" required>
+                        <input type="text" class="form-control custom-input" id="curso" name="curso[]" placeholder="Curso" required>
 
                         <label for="ano_conclusao"></label>
-                        <input type="date" class="form-control custom-input" id="ano_conclusao" name="ano_conclusao[]"
-                            placeholder="Ano de Conclusão" required>
+                        <input type="date" class="form-control custom-input" id="ano_conclusao" name="ano_conclusao[]" placeholder="Ano de Conclusão" required>
 
                     </div>
                 </div>
                 <div id="experienceContainer" class="Container">
-                <h3>Experiência Profissional 1</h3>
-                <div class="mb-3">
-                    <label for="empresa"></label>
-                    <input type="text" class="form-control custom-input" id="empresa" name="empresa[]" placeholder="Empresa" required>
+                    <h3>Experiência Profissional 1</h3>
+                    <div class="mb-3">
+                        <label for="empresa"></label>
+                        <input type="text" class="form-control custom-input" id="empresa" name="empresa[]" placeholder="Empresa" required>
 
-                    <label for="cargo"></label>
-                    <input type="text" class="form-control custom-input" id="cargo" name="cargo[]" placeholder="Cargo" required>
+                        <label for="cargo"></label>
+                        <input type="text" class="form-control custom-input" id="cargo" name="cargo[]" placeholder="Cargo" required>
 
-                    <div class="row" id="experienceContainerrow">
-                        <div class="col-md-6 mb-3">
-                            <label for="ano_inicio"></label>
-                            <input type="date" class="form-control custom-input" id="ano_inicio" name="ano_inicio[]" placeholder="Ano de Início" required>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="ano_fim"></label>
-                            <input type="text" class="form-control custom-input" id="ano_fim" name="ano_fim[]" placeholder="Ano de Fim">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Experiência Profissional 2 -->
-            <div id="experienceContainer" class="Container">
-                <h3>Experiência Profissional 2</h3>
-                <div class="mb-3">
-                    <label for="empresa"></label>
-                    <input type="text" class="form-control custom-input" id="empresa" name="empresa[]" placeholder="Empresa" required>
-
-                    <label for="cargo"></label>
-                    <input type="text" class="form-control custom-input" id="cargo" name="cargo[]" placeholder="Cargo" required>
-
-                    <div class="row" id="experienceContainerrow">
-                        <div class="col-md-6 mb-3">
-                            <label for="ano_inicio"></label>
-                            <input type="date" class="form-control custom-input" id="ano_inicio" name="ano_inicio[]" placeholder="Ano de Início" required>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="ano_fim"></label>
-                            <input type="text" class="form-control custom-input" id="ano_fim" name="ano_fim[]" placeholder="Ano de Fim">
+                        <div class="row" id="experienceContainerrow">
+                            <div class="col-md-6 mb-3">
+                                <label for="ano_inicio"></label>
+                                <input type="date" class="form-control custom-input" id="ano_inicio" name="ano_inicio[]" placeholder="Ano de Início" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="ano_fim"></label>
+                                <input type="text" class="form-control custom-input" id="ano_fim" name="ano_fim[]" placeholder="Ano de Fim">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+
+                <!-- Experiência Profissional 2 -->
+                <div id="experienceContainer" class="Container">
+                    <h3>Experiência Profissional 2</h3>
+                    <div class="mb-3">
+                        <label for="empresa"></label>
+                        <input type="text" class="form-control custom-input" id="empresa" name="empresa[]" placeholder="Empresa" required>
+
+                        <label for="cargo"></label>
+                        <input type="text" class="form-control custom-input" id="cargo" name="cargo[]" placeholder="Cargo" required>
+
+                        <div class="row" id="experienceContainerrow">
+                            <div class="col-md-6 mb-3">
+                                <label for="ano_inicio"></label>
+                                <input type="date" class="form-control custom-input" id="ano_inicio" name="ano_inicio[]" placeholder="Ano de Início" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="ano_fim"></label>
+                                <input type="text" class="form-control custom-input" id="ano_fim" name="ano_fim[]" placeholder="Ano de Fim">
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div id="skillsContainer" class="Container">
                     <h3>Habilidade 1</h3>
                     <div class="mb-3">
                         <label for="habilidade[]"></label>
-                        <input type="text" class="form-control custom-input" id="habilidade" name="habilidade[]"
-                            placeholder="Habilidade">
+                        <input type="text" class="form-control custom-input" id="habilidade" name="habilidade[]" placeholder="Habilidade">
                         <label for="nivel[]"></label>
                         <select class="form-control custom-input nivel" id="nivel" name="nivel[]" required>
                             <option value="Iniciante">Iniciante</option>
@@ -287,8 +275,7 @@
                     <h3>Habilidade 2</h3>
                     <div class="mb-3">
                         <label for="habilidade[]"></label>
-                        <input type="text" class="form-control custom-input" id="habilidade" name="habilidade[]"
-                            placeholder="Habilidade">
+                        <input type="text" class="form-control custom-input" id="habilidade" name="habilidade[]" placeholder="Habilidade">
                         <label for="nivel[]"></label>
                         <select class="form-control custom-input nivel" id="nivel" name="nivel[]" required>
                             <option value="Iniciante">Iniciante</option>
@@ -303,8 +290,7 @@
                     <h3>Habilidade 3</h3>
                     <div class="mb-3">
                         <label for="habilidade[]"></label>
-                        <input type="text" class="form-control custom-input" id="habilidade" name="habilidade[]"
-                            placeholder="Habilidade">
+                        <input type="text" class="form-control custom-input" id="habilidade" name="habilidade[]" placeholder="Habilidade">
                         <label for="nivel[]"></label>
                         <select class="form-control custom-input nivel" id="nivel" name="nivel[]" required>
                             <option value="Iniciante">Iniciante</option>
@@ -315,7 +301,7 @@
                     </div>
                 </div>
                 <div>
-                    <button class="btn btn-custom btn-lg btn-block " type="submit">Cadastrar</button>
+                    <button class="btn btn-custom btn-lg btn-block" type="submit" onclick="exibirAlerta()">Cadastrar</button>
                 </div>
             </form>
         </div>
@@ -333,6 +319,12 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.6/holder.min.js"></script>
+
+    <script>
+        function exibirAlerta() {
+            alert("Currículo enviado!");
+        }
+    </script>
 </body>
 
 </html>
