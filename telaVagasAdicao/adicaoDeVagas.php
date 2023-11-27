@@ -76,15 +76,71 @@ include_once('excluirVagas.php');
       background-color: #2C5DAE;
       /* Cor de fundo do cabeçalho */
       min-height: 80px;
-
     }
 
     .logo {
       margin-right: 5px;
     }
 
+    .profile-icon {
+      width: 40px;
+      height: 40px;
+      overflow: hidden;
+      border-radius: 50%;
+      border: 1px solid #000;
+    }
+
+    .profile-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .navbar-nav .dropdown-toggle::after {
+      display: none;
+    }
+
+    .navbar-nav .dropdown-toggle::before {
+      display: none;
+    }
+
+    .navbar-nav .nav-link {
+      display: flex;
+      align-items: center;
+    }
+
+
+    .navbar-toggler {
+
+      margin-left: 40%;
+    }
+
+
+    .dropdown-item {
+      height: 100%;
+    }
+
+    .dropdown-menu {
+      text-align: center;
+      border-radius: 10px;
+      display: none;
+      background-color: #2C5DAE;
+      border: none;
+    }
+
+    .dropdown-menu button {
+      width: 100%;
+      text-align: left;
+      display: block;
+      padding: 8px 16px;
+      border-radius: 10px;
+      margin-bottom: 8px;
+      background-color: #C2D7E8;
+      color: #fff;
+    }
 
     /* pra cima nav bar */
+
 
 
     .profile-icon {
@@ -155,7 +211,7 @@ include_once('excluirVagas.php');
       margin-left: 80%;
       cursor: pointer;
       width: 20%;
-   
+
     }
 
     .botaoExcluir {
@@ -252,27 +308,30 @@ include_once('excluirVagas.php');
       <div class="container">
         <div class="row">
           <div class="col-sm-8 col-md-7 py-4">
-            <h4 class="text-white">Sobre nós</h4>
-            <p class="text">A Visão Inclusiva é um site de empregabilidade exclusivo para Pessoas com Deficiência (PCD).
-              Conectamos candidatos PCD a oportunidades de emprego, permitindo que empresas anunciem vagas direcionadas
-              a esse público. Os candidatos criam perfis detalhados, enquanto as empresas podem cadastrar suas vagas
-              especificamente para PCD, promovendo a inclusão e diversidade no ambiente de trabalho, facilitando o
-              recrutamento e seleção de forma mais inclusiva..</p>
+            <h4 class="text-white">Sobre</h4>
+            <p class="text">A Visão Inclusiva é um site de empregabilidade exclusivo para Pessoas com
+              Deficiência (PCD). Conectamos candidatos PCD a oportunidades de emprego, permitindo que
+              empresas anunciem vagas direcionadas a esse público. Os candidatos criam perfis detalhados,
+              enquanto as empresas podem cadastrar suas vagas especificamente para PCD, promovendo a
+              inclusão e diversidade no ambiente de trabalho, facilitando o recrutamento e seleção de
+              forma mais inclusiva..</p>
           </div>
           <div class="col-sm-4 offset-md-1 py-4">
             <h4 class="text-white">Contato</h4>
             <ul class="list-unstyled">
-              <li><a href="#" class="text-white">Me siga no Twitter</a></li>
+              <li><a href="#" class="text-white">Me siga no Instagram</a></li>
               <li><a href="#" class="text-white">Curta no Facebook</a></li>
-              <li><a href="#" class="text-white">Me envie um e-mail</a></li>
+              <li><a href="#" class="text-white">InclusivaVisao@gmail.com</a></li>
             </ul>
           </div>
         </div>
       </div>
     </div>
+    </div>
     <div class="navbar navbar-dark shadow-sm">
       <div class="container d-flex justify-content-between">
-        <a href="#" class="navbar-brand d-flex align-items-center">
+        <a href="#" class="navbar-brand d-flex align-items-center"
+          onclick="window.location.href='../telaInicial/telaInicial.php'">
           <img class="logo" src="../img/logo1.png" alt="Sua Logo" height="40" width="40">
           <strong>Visão Inclusiva</strong>
         </a>
@@ -280,8 +339,41 @@ include_once('excluirVagas.php');
           aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
           <a href="#" class="text-white">Sobre nós</a>
         </button>
-      </div>
-    </div>
+        <div class="navbar-nav ml-auto">
+
+          <div class="dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" id="perfilDropdown" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false"
+              onclick="window.location.href='../telaPerfilJ/visualizacaoEmpresa.php'">
+              <div class="profile-icon">
+                <!-- Adicione uma imagem de perfil ou ícone de usuário padrão -->
+
+                <?php
+                include "conexao.php";
+                $id_empresa = isset($_SESSION['id_empresa']) ? $_SESSION['id_empresa'] : null;
+
+
+                if ($id_empresa) {
+                  $sql = "SELECT * FROM cadastro_pj WHERE id_empresa = $id_empresa;";
+
+                  if ($conexao) {
+                    $result = mysqli_query($conexao, $sql);
+
+                    if ($result && mysqli_num_rows($result) == 1) {
+                      $row = mysqli_fetch_assoc($result);
+                      echo "<p class='company-info'>";
+                      echo "<div class='foto-perfil'>";
+                      echo '<img src="' . $row['caminho_foto_perfil'] . '" alt="Foto de Perfil" width="50" height="50">';
+                      echo "</p>";
+
+                    }
+                  }
+                }
+                ?>
+              </div>
+            </a>
+          </div>
+        </div>
   </header>
   <!-- pra cima nav bar -->
 

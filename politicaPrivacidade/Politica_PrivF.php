@@ -13,10 +13,11 @@
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link href="form-validation.css" rel="stylesheet">
   <style>
-    .bnt-voltar {
+
+.bnt-voltar {
       background-color: #1F78D1;
       color: #fff;
-      font-weight: bold;
+      font-weight: bold; 
       border-radius: 10px;
     }
 
@@ -49,12 +50,12 @@
     .politica_priv {
       margin: 10px 2% 1em;
       margin-left: 25%;
-      background-color: rgb(255, 255, 255);
+      background-color:rgb(255, 255, 255);
       width: 50%;
       height: 50%;
       border-width: 2px;
       border-radius: 1%;
-      border-color: #c4c5c7;
+      border-color:#c4c5c7;
       border-style: solid;
       display: inline-block;
       width: 50%;
@@ -65,7 +66,7 @@
 
 <body>
 
-  <header>
+<header>
     <div class="collapse bg" id="navbarHeader">
       <div class="container">
         <div class="row">
@@ -144,18 +145,18 @@
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.6/holder.min.js"></script>
 
-
-
-  <div class=politica_priv>
+  
+  
+  <div class= politica_priv>
     <script>
-      function voltar() {
+  function voltar() {
 
-        window.location.href = '../telaCadastroJ/pj.php';
+    window.location.href = '../telaCadastrof/pf.php';
 
-      };
-    </script>
-
-    <button class="bnt-voltar" onclick='voltar()'>Voltar</button>
+  };
+  </script>
+  
+  <button class="bnt-voltar" onclick='voltar()'>Voltar</button>
 
     <p><strong>Política de Privacidade</strong></p>
     <p>Esta Política de Privacidade descreve como coletamos, usamos e compartilhamos suas informações quando você

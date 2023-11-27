@@ -49,7 +49,7 @@ if ($result->num_rows > 0) {
     // Verificar a senha usando password_verify
     if (password_verify($senha_digitada, $senha_hash)) {
         $_SESSION['id_usuario'] = $row['id_usuario'];
-        header("Location: ../telaPerfilF/visualizacaoFisica.php");
+        header("Location: ../telaVagas/telaVagas.php");
         exit();
     }
 }

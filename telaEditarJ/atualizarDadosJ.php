@@ -2,7 +2,7 @@
 $host = "localhost";
 $user = "root";
 $password = ""; // Senha do seu banco de dados, se houver
-$database = "visaoinclusiva"; // Nome do seu banco de dados
+$database = "visãoinclusiva"; // Nome do seu banco de dados
 
 $conn = new mysqli($host, $user, $password, $database);
 
@@ -42,15 +42,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         sobre = '$sobre'
     WHERE id_empresa = $id_empresa;";
 
-    $conn->query($sql);
+$conn->query($sql);
 
-    // Verifica se a atualização foi bem-sucedida
-    if ($conn->affected_rows > 0) {
-        // A atualização foi bem-sucedida
-        echo "<p>Os dados do usuário foram atualizados com sucesso.</p>";
-    } else {
-        // A atualização falhou
-        echo "<p>Ocorreu um erro ao atualizar os dados do usuário.</p>";
-    }
+// Verifica se a atualização foi bem-sucedida
+if ($conn->affected_rows > 0) {
+    // A atualização foi bem-sucedida
+
+    // Redireciona para a página desejada
+    header("Location: ../telaPerfilJ/visualizacaoEmpresa.php");
+    exit();
+} else {
+    // A atualização falhou
+    echo "<p>Ocorreu um erro ao atualizar os dados do usuário.</p>";
+}
 }
 ?>

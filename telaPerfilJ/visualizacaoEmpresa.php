@@ -126,8 +126,9 @@ $id_empresa = isset($_SESSION['id_empresa']) ? $_SESSION['id_empresa'] : null;
             font-size: x-large;
         }
 
-        .editable {
-            background-color: azure;
+
+        #sobre {
+            background-color: azurey;
             border: 2px solid #2C5DAE;
             ;
             padding: 8px;
@@ -139,28 +140,30 @@ $id_empresa = isset($_SESSION['id_empresa']) ? $_SESSION['id_empresa'] : null;
 
 <body>
 
-    <header>
-        <div class="collapse bg" id="navbarHeader">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-8 col-md-7 py-4">
-                        <h4 class="text-white">Sobre</h4>
-                        <p class="text">Adicione alguma informação sobre o álbum abaixo (autor ou qualquer outro
-                            background). Faça essas informações terem algumas frases, para a galera ter algumas
-                            informações que besliscar. Além disso, use link nelas para as redes sociais ou informações
-                            de contato.</p>
-                    </div>
-                    <div class="col-sm-4 offset-md-1 py-4">
-                        <h4 class="text-white">Contato</h4>
-                        <ul class="list-unstyled">
-                            <li><a href="#" class="text-white">Me siga no Twitter</a></li>
-                            <li><a href="#" class="text-white">Curta no Facebook</a></li>
-                            <li><a href="#" class="text-white">Me envie um e-mail</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+<header>
+    <div class="collapse bg" id="navbarHeader">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-md-7 py-4">
+            <h4 class="text-white">Sobre</h4>
+            <p class="text">A Visão Inclusiva é um site de empregabilidade exclusivo para Pessoas com
+              Deficiência (PCD). Conectamos candidatos PCD a oportunidades de emprego, permitindo que
+              empresas anunciem vagas direcionadas a esse público. Os candidatos criam perfis detalhados,
+              enquanto as empresas podem cadastrar suas vagas especificamente para PCD, promovendo a
+              inclusão e diversidade no ambiente de trabalho, facilitando o recrutamento e seleção de
+              forma mais inclusiva..</p>
+          </div>
+          <div class="col-sm-4 offset-md-1 py-4">
+            <h4 class="text-white">Contato</h4>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-white">Me siga no Instagram</a></li>
+              <li><a href="#" class="text-white">Curta no Facebook</a></li>
+              <li><a href="#" class="text-white">InclusivaVisao@gmail.com</a></li>
+            </ul>
+          </div>
         </div>
+      </div>
+    </div>
         <div class="navbar navbar-dark shadow-sm">
             <div class="container d-flex justify-content-between">
                 <a href="#" class="navbar-brand d-flex align-items-center">
@@ -246,15 +249,17 @@ $id_empresa = isset($_SESSION['id_empresa']) ? $_SESSION['id_empresa'] : null;
                     ?>
                     <div class="form-group">
                         <label for="sobre" class="label">Sobre:</label>
-                        <div contenteditable="true" class="editable" id="sobre">
+                        <div contenteditable="true" id="sobre">
                             <?php echo $row['sobre']; ?>
                         </div>
+
                     </div>
                 </form>
             </div>
-            <a href="../telaEditarj/editarPerfilEmpresa.php"><button
-                    class="btn btn-primary btn-custom-sm">Editar</button></a>
+
         </div>
+        <a href="..\telaEditarJ\editarPerfilEmpresa.php"><button
+                class="btn btn-primary btn-custom-sm">Editar</button></a>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
