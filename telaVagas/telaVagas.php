@@ -403,7 +403,7 @@ include("funcaoMostraVagas.php");
         </div>
     </div>
     </div>
-
+    </header>
     <div id="page-container">
 
         <div id="content-wrap">
