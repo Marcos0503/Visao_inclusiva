@@ -2,7 +2,7 @@
 $host = "localhost";
 $user = "root";
 $password = ""; // Senha do seu banco de dados, se houver
-$database = "visaoinclusiva"; // Nome do seu banco de dados
+$database = "visãoinclusiva"; // Nome do seu banco de dados
 
 $conn = new mysqli($host, $user, $password, $database);
 

@@ -13,11 +13,10 @@
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link href="form-validation.css" rel="stylesheet">
   <style>
-
-.bnt-voltar {
+    .bnt-voltar {
       background-color: #1F78D1;
       color: #fff;
-      font-weight: bold; 
+      font-weight: bold;
       border-radius: 10px;
     }
 
@@ -50,12 +49,12 @@
     .politica_priv {
       margin: 10px 2% 1em;
       margin-left: 25%;
-      background-color:rgb(255, 255, 255);
+      background-color: rgb(255, 255, 255);
       width: 50%;
       height: 50%;
       border-width: 2px;
       border-radius: 1%;
-      border-color:#c4c5c7;
+      border-color: #c4c5c7;
       border-style: solid;
       display: inline-block;
       width: 50%;
@@ -72,14 +71,19 @@
         <div class="row">
           <div class="col-sm-8 col-md-7 py-4">
             <h4 class="text-white">Sobre</h4>
-            <p class="text">A Visão Inclusiva é um site de empregabilidade exclusivo para Pessoas com Deficiência (PCD). Conectamos candidatos PCD a oportunidades de emprego, permitindo que empresas anunciem vagas direcionadas a esse público. Os candidatos criam perfis detalhados, enquanto as empresas podem cadastrar suas vagas especificamente para PCD, promovendo a inclusão e diversidade no ambiente de trabalho, facilitando o recrutamento e seleção de forma mais inclusiva..</p>
+            <p class="text">A Visão Inclusiva é um site de empregabilidade exclusivo para Pessoas com
+              Deficiência (PCD). Conectamos candidatos PCD a oportunidades de emprego, permitindo que
+              empresas anunciem vagas direcionadas a esse público. Os candidatos criam perfis detalhados,
+              enquanto as empresas podem cadastrar suas vagas especificamente para PCD, promovendo a
+              inclusão e diversidade no ambiente de trabalho, facilitando o recrutamento e seleção de
+              forma mais inclusiva..</p>
           </div>
           <div class="col-sm-4 offset-md-1 py-4">
             <h4 class="text-white">Contato</h4>
             <ul class="list-unstyled">
-              <li><a href="#" class="text-white">Me siga no Twitter</a></li>
+              <li><a href="#" class="text-white">Me siga no Instagram</a></li>
               <li><a href="#" class="text-white">Curta no Facebook</a></li>
-              <li><a href="#" class="text-white">Me envie um e-mail</a></li>
+              <li><a href="#" class="text-white">InclusivaVisao@gmail.com</a></li>
             </ul>
           </div>
         </div>
@@ -140,18 +144,18 @@
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.6/holder.min.js"></script>
 
-  
-  
-  <div class= politica_priv>
+
+
+  <div class=politica_priv>
     <script>
-  function voltar() {
+      function voltar() {
 
-    window.location.href = '../telaCadastroJ/pj.php';
+        window.location.href = '../telaCadastroJ/pj.php';
 
-  };
-  </script>
-  
-  <button class="bnt-voltar" onclick='voltar()'>Voltar</button>
+      };
+    </script>
+
+    <button class="bnt-voltar" onclick='voltar()'>Voltar</button>
 
     <p><strong>Política de Privacidade</strong></p>
     <p>Esta Política de Privacidade descreve como coletamos, usamos e compartilhamos suas informações quando você

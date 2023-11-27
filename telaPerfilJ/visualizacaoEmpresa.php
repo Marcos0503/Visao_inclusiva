@@ -140,28 +140,30 @@ $id_empresa = isset($_SESSION['id_empresa']) ? $_SESSION['id_empresa'] : null;
 
 <body>
 
-    <header>
-        <div class="collapse bg" id="navbarHeader">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-8 col-md-7 py-4">
-                        <h4 class="text-white">Sobre</h4>
-                        <p class="text">Adicione alguma informação sobre o álbum abaixo (autor ou qualquer outro
-                            background). Faça essas informações terem algumas frases, para a galera ter algumas
-                            informações que besliscar. Além disso, use link nelas para as redes sociais ou informações
-                            de contato.</p>
-                    </div>
-                    <div class="col-sm-4 offset-md-1 py-4">
-                        <h4 class="text-white">Contato</h4>
-                        <ul class="list-unstyled">
-                            <li><a href="#" class="text-white">Me siga no Twitter</a></li>
-                            <li><a href="#" class="text-white">Curta no Facebook</a></li>
-                            <li><a href="#" class="text-white">Me envie um e-mail</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+<header>
+    <div class="collapse bg" id="navbarHeader">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-md-7 py-4">
+            <h4 class="text-white">Sobre</h4>
+            <p class="text">A Visão Inclusiva é um site de empregabilidade exclusivo para Pessoas com
+              Deficiência (PCD). Conectamos candidatos PCD a oportunidades de emprego, permitindo que
+              empresas anunciem vagas direcionadas a esse público. Os candidatos criam perfis detalhados,
+              enquanto as empresas podem cadastrar suas vagas especificamente para PCD, promovendo a
+              inclusão e diversidade no ambiente de trabalho, facilitando o recrutamento e seleção de
+              forma mais inclusiva..</p>
+          </div>
+          <div class="col-sm-4 offset-md-1 py-4">
+            <h4 class="text-white">Contato</h4>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-white">Me siga no Instagram</a></li>
+              <li><a href="#" class="text-white">Curta no Facebook</a></li>
+              <li><a href="#" class="text-white">InclusivaVisao@gmail.com</a></li>
+            </ul>
+          </div>
         </div>
+      </div>
+    </div>
         <div class="navbar navbar-dark shadow-sm">
             <div class="container d-flex justify-content-between">
                 <a href="#" class="navbar-brand d-flex align-items-center">
