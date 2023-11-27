@@ -325,31 +325,6 @@
                         <a class="nav-link dropdown-toggle" href="#" role="button" id="perfilDropdown"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                             onclick="window.location.href='../telaPerfilF/visualizacaoFisica.php'">
-                            <div class="profile-icon">
-
-                                <!-- Adicione uma imagem de perfil ou ícone de usuário padrão -->
-                                <?php
-
-
-                                include "conexao.php";
-                                $id_usuario = isset($_SESSION['id_usuario']) ? $_SESSION['id_usuario'] : null;
-                                if ($id_usuario) {
-                                    $sql = "SELECT * FROM cadastro_pessoal WHERE id_usuario = $id_usuario;";
-
-                                    if ($conexao) {
-                                        $result = mysqli_query($conexao, $sql);
-
-                                        if ($result && mysqli_num_rows($result) == 1) {
-                                            $row = mysqli_fetch_assoc($result);
-                                            echo "<p class='company-info'>";
-                                            echo "<div class='foto-perfil'>";
-                                            echo '<img src="' . $row['caminho_foto_perfil'] . '" alt="Foto de Perfil" width="50" height="50">';
-                                            echo "</p>";
-
-                                        }
-                                    }
-                                }
-                                ?>
                             </div>
                         </a>
                     </div>
