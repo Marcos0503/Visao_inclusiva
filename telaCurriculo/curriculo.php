@@ -103,13 +103,6 @@
             align-items: center;
         }
 
-
-        .navbar-toggler {
-
-            margin-left: 40%;
-        }
-
-
         .dropdown-item {
             height: 100%;
         }
@@ -141,7 +134,7 @@
 
         .navbar-toggler {
 
-            margin-left: 40%;
+            margin-left: 70%;
         }
 
 

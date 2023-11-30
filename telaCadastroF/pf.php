@@ -78,7 +78,7 @@
 
         .navbar-toggler {
 
-            margin-left: 40%;
+            margin-left: 70%;
         }
 
 

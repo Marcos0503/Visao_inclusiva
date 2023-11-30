@@ -21,6 +21,90 @@ $id_usuario = isset($_SESSION['id_usuario']) ? $_SESSION['id_usuario'] : null;
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="form-validation.css" rel="stylesheet">
     <style>
+
+        /* pra baixo nav bar */
+        .bg {
+            background-color: #2C5DAE;
+            /* Cor de fundo do collapse */
+        }
+
+        .text {
+            color: white;
+        }
+
+        .navbar {
+            background-color: #2C5DAE;
+            /* Cor de fundo do cabeçalho */
+            min-height: 80px;
+        }
+
+        .logo {
+            margin-right: 5px;
+        }
+
+        .profile-icon {
+            width: 40px;
+            height: 40px;
+            overflow: hidden;
+            border-radius: 50%;
+            border: 1px solid #000;
+
+        }
+
+        .profile-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .navbar-nav .dropdown-toggle::after {
+            display: none;
+        }
+
+        .navbar-nav .dropdown-toggle::before {
+            display: none;
+        }
+
+        .navbar-nav .nav-link {
+            display: flex;
+            align-items: center;
+        }
+
+
+        .navbar-toggler {
+
+            margin-left: 60%;
+        }
+
+
+        .dropdown-item {
+            height: 100%;
+        }
+
+        .dropdown-menu {
+            text-align: center;
+            border-radius: 10px;
+            display: none;
+            background-color: #2C5DAE;
+            border: none;
+        }
+
+        .dropdown-menu button {
+            width: 100%;
+            text-align: left;
+            display: block;
+            padding: 8px 16px;
+            border-radius: 10px;
+            margin-bottom: 8px;
+            background-color: #C2D7E8;
+            color: #fff;
+        }
+
+        /* pra cima nav bar */
+
+
+
+
         body {
             background-image: url("img/background.png");
             background-size: cover;
@@ -133,6 +217,7 @@ $id_usuario = isset($_SESSION['id_usuario']) ? $_SESSION['id_usuario'] : null;
 <body>
 
 <header>
+<header>
     <div class="collapse bg" id="navbarHeader">
       <div class="container">
         <div class="row">
@@ -158,17 +243,52 @@ $id_usuario = isset($_SESSION['id_usuario']) ? $_SESSION['id_usuario'] : null;
     </div>
         <div class="navbar navbar-dark shadow-sm">
             <div class="container d-flex justify-content-between">
-                <a href="#" class="navbar-brand d-flex align-items-center">
+                <a href="#" class="navbar-brand d-flex align-items-center"
+                    onclick="window.location.href='../telaInicial/telaInicial.php'">
                     <img class="logo" src="../img/logo1.png" alt="Sua Logo" height="40" width="40">
                     <strong>Visão Inclusiva</strong>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
                     aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <a href="#" class="text-white">Sobre nós</a>
                 </button>
-            </div>
-        </div>
+                <div class="navbar-nav ml-auto">
+
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" id="perfilDropdown"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                            onclick="window.location.href='../telaPerfilF/visualizacaoFisica.php'">
+                            <div class="profile-icon">
+
+                                <!-- Adicione uma imagem de perfil ou ícone de usuário padrão -->
+                                <?php
+
+
+                                include "conexao.php";
+                                $id_usuario = isset($_SESSION['id_usuario']) ? $_SESSION['id_usuario'] : null;
+                                if ($id_usuario) {
+                                    $sql = "SELECT * FROM cadastro_pessoal WHERE id_usuario = $id_usuario;";
+
+                                    if ($conexao) {
+                                        $result = mysqli_query($conexao, $sql);
+
+                                        if ($result && mysqli_num_rows($result) == 1) {
+                                            $row = mysqli_fetch_assoc($result);
+                                            echo "<p class='company-info'>";
+                                            echo "<div class='foto-perfil'>";
+                                            echo '<img src="' . $row['caminho_foto_perfil'] . '" alt="Foto de Perfil" width="50" height="50">';
+                                            echo "</p>";
+
+                                        }
+                                    }
+                                }
+                                ?>
+                            </div>
+                        </a>
+                    </div>
+                </div>
     </header>
+
     <div class="container center-form">
         <!-- Adicione a classe "center-form" para centralizar -->
         <div class="py-5 text-center">

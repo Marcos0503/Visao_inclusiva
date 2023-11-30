@@ -82,7 +82,7 @@ include("funcaoMostraVagas.php");
 
         .navbar-toggler {
 
-            margin-left: 40%;
+            margin-left: 60%;
         }
 
 
