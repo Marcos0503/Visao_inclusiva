@@ -44,18 +44,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         sobre = '$sobre'
     WHERE id_usuario = $id_usuario;";
 
-$conn->query($sql);
+if (isset($_POST['id_usuario']) && is_numeric($_POST['id_usuario'])) {
+    // Obtém o ID do usuário
+    $id_usuario = $_POST['id_usuario'];
 
-// Verifica se a atualização foi bem-sucedida
-if ($conn->affected_rows > 0) {
-    // A atualização foi bem-sucedida
+    // Consulta para recuperar os dados da pessoa
+    $query = "SELECT nome_completo, telefone, CID, rua, bairro, email, sobre FROM cadastro_pessoal WHERE id_usuario = $id_usuario";
+    $result = mysqli_query($conn, $query);
 
-    // Redireciona para a página desejada
-    header("Location: ../telaPerfilF/visualizacaoFisica.php");
-    exit();
-} else {
-    // A atualização falhou
-    echo "<p>Ocorreu um erro ao atualizar os dados do usuário.</p>";
+    if ($result) {
+        $row = mysqli_fetch_assoc($result);
+        // Atribuindo os valores recuperados para as variáveis
+        $nome_completo = $row['nome_completo'];
+        $telefone = $row['telefone'];
+        $CID = $row['CID'];
+        $rua = $row['rua'];
+        $bairro = $row['bairro'];
+        $email = $row['email'];
+        $sobre = $row['sobre'];
+    } else {
+        echo "Erro ao buscar os dados da vaga.";
+    }
 }
+
+    $conn->query($sql);
+
+    // Verifica se a atualização foi bem-sucedida
+    if ($conn->affected_rows > 0) {
+        // A atualização foi bem-sucedida
+
+        // Redireciona para a página desejada
+        header("Location: ../telaPerfilF/visualizacaoFisica.php");
+        exit();
+    } else {
+        // A atualização falhou
+        echo "<p>Ocorreu um erro ao atualizar os dados do usuário.</p>";
+    }
 }
 ?>

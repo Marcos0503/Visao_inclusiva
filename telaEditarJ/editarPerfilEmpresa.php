@@ -297,28 +297,28 @@ $id_empresa = isset($_SESSION['id_empresa']) ? $_SESSION['id_empresa'] : null;
                 <input type="hidden" name="action" value="addOrUpdate">
                 <input type="hidden" name="id_empresa" value="<?php echo isset($id_empresa) ? $id_empresa : ''; ?>">
                 <div class="mb-3">
-                    <input type="text" name="nome_empresa" class="inputUser" placeholder="Nome" required>
+                    <input type="text" name="nome_empresa" value="<?php echo $row['nome_empresa']; ?>"class="inputUser" required>
                     <label for="nome_empresa" class="labelInput"></label>
                 </div>
                 <div class="mb-3">
-                    <input type="text" name="telefone" class="inputUser" placeholder="Telefone" required>
+                    <input type="text" name="telefone" value="<?php echo $row['telefone']; ?>"class="inputUser" required>
                     <label for="telefone" class="labelInput"></label>
                 </div>
                 <div class="mb-3">
-                    <input type="text" name="rua" class="inputUser" placeholder="Rua" required>
+                    <input type="text" name="rua" value="<?php echo $row['rua']; ?>"class="inputUser" required>
                     <label for="rua" class="labelInput"></label>
                 </div>
                 <div class="mb-3">
-                    <input type="text" name="bairro" class="inputUser" placeholder="Bairro" required>
+                    <input type="text" name="bairro" value="<?php echo $row['bairro']; ?>"class="inputUser"  required>
                     <label for="bairro" class="labelInput"></label>
                 </div>
                 <div class="mb-3">
-                    <input type="email" name="email" class="inputUser" placeholder="Email" required>
+                    <input type="email" name="email" value="<?php echo $row['email']; ?>"class="inputUser"required>
                     <label for="email" class="labelInput"></label>
                 </div>
                 <div class="form-group">
                     <label for="sobre" class="txt">Sobre:</label>
-                    <textarea class="form-control" id="sobre" name="sobre" rows="3"></textarea>
+                    <textarea class="form-control" id="sobre" name="sobre" value="<?php echo $row['sobre']; ?>"rows="3"></textarea>
                 </div>
                 <button type="submit" class="btn btn-outline-info">Salvar</button>
             </form>

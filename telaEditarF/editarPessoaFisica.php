@@ -21,7 +21,6 @@ $id_usuario = isset($_SESSION['id_usuario']) ? $_SESSION['id_usuario'] : null;
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="form-validation.css" rel="stylesheet">
     <style>
-
         /* pra baixo nav bar */
         .bg {
             background-color: #2C5DAE;
@@ -216,174 +215,183 @@ $id_usuario = isset($_SESSION['id_usuario']) ? $_SESSION['id_usuario'] : null;
 
 <body>
 
-<header>
-<header>
-    <div class="collapse bg" id="navbarHeader">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-8 col-md-7 py-4">
-            <h4 class="text-white">Sobre</h4>
-            <p class="text">A Visão Inclusiva é um site de empregabilidade exclusivo para Pessoas com
-              Deficiência (PCD). Conectamos candidatos PCD a oportunidades de emprego, permitindo que
-              empresas anunciem vagas direcionadas a esse público. Os candidatos criam perfis detalhados,
-              enquanto as empresas podem cadastrar suas vagas especificamente para PCD, promovendo a
-              inclusão e diversidade no ambiente de trabalho, facilitando o recrutamento e seleção de
-              forma mais inclusiva..</p>
-          </div>
-          <div class="col-sm-4 offset-md-1 py-4">
-            <h4 class="text-white">Contato</h4>
-            <ul class="list-unstyled">
-              <li><a href="#" class="text-white">Me siga no Instagram</a></li>
-              <li><a href="#" class="text-white">Curta no Facebook</a></li>
-              <li><a href="#" class="text-white">InclusivaVisao@gmail.com</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-        <div class="navbar navbar-dark shadow-sm">
-            <div class="container d-flex justify-content-between">
-                <a href="#" class="navbar-brand d-flex align-items-center"
-                    onclick="window.location.href='../telaInicial/telaInicial.php'">
-                    <img class="logo" src="../img/logo1.png" alt="Sua Logo" height="40" width="40">
-                    <strong>Visão Inclusiva</strong>
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
-                    aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-                    <a href="#" class="text-white">Sobre nós</a>
-                </button>
-                <div class="navbar-nav ml-auto">
-
-                    <div class="dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" id="perfilDropdown"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                            onclick="window.location.href='../telaPerfilF/visualizacaoFisica.php'">
-                            <div class="profile-icon">
-
-                                <!-- Adicione uma imagem de perfil ou ícone de usuário padrão -->
-                                <?php
-
-
-                                include "conexao.php";
-                                $id_usuario = isset($_SESSION['id_usuario']) ? $_SESSION['id_usuario'] : null;
-                                if ($id_usuario) {
-                                    $sql = "SELECT * FROM cadastro_pessoal WHERE id_usuario = $id_usuario;";
-
-                                    if ($conexao) {
-                                        $result = mysqli_query($conexao, $sql);
-
-                                        if ($result && mysqli_num_rows($result) == 1) {
-                                            $row = mysqli_fetch_assoc($result);
-                                            echo "<p class='company-info'>";
-                                            echo "<div class='foto-perfil'>";
-                                            echo '<img src="' . $row['caminho_foto_perfil'] . '" alt="Foto de Perfil" width="50" height="50">';
-                                            echo "</p>";
-
-                                        }
-                                    }
-                                }
-                                ?>
-                            </div>
-                        </a>
+    <header>
+        <header>
+            <div class="collapse bg" id="navbarHeader">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 col-md-7 py-4">
+                            <h4 class="text-white">Sobre</h4>
+                            <p class="text">A Visão Inclusiva é um site de empregabilidade exclusivo para Pessoas com
+                                Deficiência (PCD). Conectamos candidatos PCD a oportunidades de emprego, permitindo que
+                                empresas anunciem vagas direcionadas a esse público. Os candidatos criam perfis
+                                detalhados,
+                                enquanto as empresas podem cadastrar suas vagas especificamente para PCD, promovendo a
+                                inclusão e diversidade no ambiente de trabalho, facilitando o recrutamento e seleção de
+                                forma mais inclusiva..</p>
+                        </div>
+                        <div class="col-sm-4 offset-md-1 py-4">
+                            <h4 class="text-white">Contato</h4>
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="text-white">Me siga no Instagram</a></li>
+                                <li><a href="#" class="text-white">Curta no Facebook</a></li>
+                                <li><a href="#" class="text-white">InclusivaVisao@gmail.com</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-    </header>
+            </div>
+            <div class="navbar navbar-dark shadow-sm">
+                <div class="container d-flex justify-content-between">
+                    <a href="#" class="navbar-brand d-flex align-items-center"
+                        onclick="window.location.href='../telaInicial/telaInicial.php'">
+                        <img class="logo" src="../img/logo1.png" alt="Sua Logo" height="40" width="40">
+                        <strong>Visão Inclusiva</strong>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
+                        aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                        <a href="#" class="text-white">Sobre nós</a>
+                    </button>
+                    <div class="navbar-nav ml-auto">
 
-    <div class="container center-form">
-        <!-- Adicione a classe "center-form" para centralizar -->
-        <div class="py-5 text-center">
-            <h2 class="custom-heading-responsive">Perfil</h2>
-            <p class="lead"></p>
+                        <div class="dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" id="perfilDropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                onclick="window.location.href='../telaPerfilF/visualizacaoFisica.php'">
+                                <div class="profile-icon">
+
+                                    <!-- Adicione uma imagem de perfil ou ícone de usuário padrão -->
+                                    <?php
+
+
+                                    include "conexao.php";
+                                    $id_usuario = isset($_SESSION['id_usuario']) ? $_SESSION['id_usuario'] : null;
+                                    if ($id_usuario) {
+                                        $sql = "SELECT * FROM cadastro_pessoal WHERE id_usuario = $id_usuario;";
+
+                                        if ($conexao) {
+                                            $result = mysqli_query($conexao, $sql);
+
+                                            if ($result && mysqli_num_rows($result) == 1) {
+                                                $row = mysqli_fetch_assoc($result);
+                                                echo "<p class='company-info'>";
+                                                echo "<div class='foto-perfil'>";
+                                                echo '<img src="' . $row['caminho_foto_perfil'] . '" alt="Foto de Perfil" width="50" height="50">';
+                                                echo "</p>";
+
+                                            }
+                                        }
+                                    }
+                                    ?>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+        </header>
+
+        <div class="container center-form">
+            <!-- Adicione a classe "center-form" para centralizar -->
+            <div class="py-5 text-center">
+                <h2 class="custom-heading-responsive">Perfil</h2>
+                <p class="lead"></p>
+            </div>
+
+            <div class="box">
+                <form action="atualizarDadosF.php" method="POST">
+                    <input type="hidden" name="action" value="addOrUpdate">
+                    <input type="hidden" name="id_usuario" value="<?php echo isset($id_usuario) ? $id_usuario : ''; ?>">
+                    <div class="mb-3">
+                        <input type="text" name="nome_completo" class="inputUser"
+                            value="<?php echo $row['nome_completo']; ?>" required>
+                        <label for="nome_completo" class="labelInput"></label>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" name="telefone" class="inputUser" value="<?php echo $row['telefone']; ?>"
+                            maxlength="15" required>
+                        <label for="telefone" class="labelInput"></label>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" name="CID" class="inputUser" value="<?php echo $row['CID']; ?>" required>
+                        <label for="CID" class="labelInput"></label>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" name="rua" class="inputUser" value="<?php echo $row['rua'] ?>" required>
+                        <label for="rua" class="labelInput"></label>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" name="bairro" class="inputUser" value="<?php echo $row['bairro'] ?>"
+                            required>
+                        <label for="bairro" class="labelInput"></label>
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" name="email" class="inputUser" value="<?php echo $row['email']; ?> "
+                            required>
+                        <label for="email" class="labelInput"></label>
+                    </div>
+                    <div class="form-group">
+                        <label for="sobre" class="txt">Sobre:</label>
+                        <textarea class="form-control" id="sobre" value="<?php echo $row['sobre']; ?> " name="sobre"
+                            rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-outline-info">Salvar</button>
+                </form>
+
+            </div>
+
+
+
         </div>
 
-        <div class="box">
-            <form action="atualizarDadosF.php" method="POST">
-                <input type="hidden" name="action" value="addOrUpdate">
-                <input type="hidden" name="id_usuario" value="<?php echo isset($id_usuario) ? $id_usuario : ''; ?>">
-                <div class="mb-3">
-                    <input type="text" name="nome_completo" class="inputUser" placeholder="Nome" required>
-                    <label for="nome_completo" class="labelInput"></label>
-                </div>
-                <div class="mb-3">
-                    <input type="text" name="telefone" class="inputUser" placeholder="Telefone" required>
-                    <label for="telefone" class="labelInput"></label>
-                </div>
-                <div class="mb-3">
-                    <input type="text" name="CID" class="inputUser" placeholder="Cid" required>
-                    <label for="CID" class="labelInput"></label>
-                </div>
-                <div class="mb-3">
-                    <input type="text" name="rua" class="inputUser" placeholder="Rua" required>
-                    <label for="rua" class="labelInput"></label>
-                </div>
-                <div class="mb-3">
-                    <input type="text" name="bairro" class="inputUser" placeholder="Bairro" required>
-                    <label for="bairro" class="labelInput"></label>
-                </div>
-                <div class="mb-3">
-                    <input type="email" name="email" class="inputUser" placeholder="Email" required>
-                    <label for="email" class="labelInput"></label>
-                </div>
-                <div class="form-group">
-                    <label for="sobre" class="txt">Sobre:</label>
-                    <textarea class="form-control" id="sobre" name="sobre" rows="3"></textarea>
-                </div>
-                <button type="submit" class="btn btn-outline-info">Salvar</button>
-            </form>
-
-        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <!--  mascara dos inputs-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
+            integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
+        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+        <script src="../../assets/js/vendor/popper.min.js"></script>
+        <script src="../../dist/js/bootstrap.min.js"></script>
+        <script src="../../assets/js/vendor/holder.min.js"></script>
+        <script>
+                // Exemplo de JavaScript para desativar o envio do formulário, se tiver algum campo inválido.
+                (function () {
+                    'use strict';
 
-    </div>
+                    window.addEventListener('load', function () {
+                        var forms = document.getElementsByClassName('needs-validation');
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <!--  mascara dos inputs-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
-        integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+                        var validation = Array.prototype.filter.call(forms, function (form) {
+                            form.addEventListener('submit', function (event) {
+                                if (form.checkValidity() === false) {
+                                    event.preventDefault();
+                                    event.stopPropagation();
+                                }
+                                form.classList.add('was-validated');
+                            }, false);
+                        });
+                    }, false);
+                })();
 
 
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <script src="../../assets/js/vendor/holder.min.js"></script>
-    <script>
-            // Exemplo de JavaScript para desativar o envio do formulário, se tiver algum campo inválido.
-            (function () {
-                'use strict';
+        </script>
 
-                window.addEventListener('load', function () {
-                    var forms = document.getElementsByClassName('needs-validation');
-
-                    var validation = Array.prototype.filter.call(forms, function (form) {
-                        form.addEventListener('submit', function (event) {
-                            if (form.checkValidity() === false) {
-                                event.preventDefault();
-                                event.stopPropagation();
-                            }
-                            form.classList.add('was-validated');
-                        }, false);
-                    });
-                }, false);
-            })();
-    </script>
-
-    <!-- Principal JavaScript do Bootstrap
+        <!-- Principal JavaScript do Bootstrap
     ================================================== -->
-    <!-- Foi colocado no final para a página carregar mais rápido -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-Uo7DzGnMz9ATKxIep9tiCxS/Z9fNfEXZJT3MXP7iNH49yIexK3MciF8HZJ3Z5mwC"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.6/holder.min.js"></script>
+        <!-- Foi colocado no final para a página carregar mais rápido -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-Uo7DzGnMz9ATKxIep9tiCxS/Z9fNfEXZJT3MXP7iNH49yIexK3MciF8HZJ3Z5mwC"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.6/holder.min.js"></script>
+
 </body>
 
 </html>
