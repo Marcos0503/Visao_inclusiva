@@ -63,7 +63,7 @@
 
     .navbar-toggler {
 
-      margin-left: 40%;
+      margin-left: 60%;
     }
 
 
@@ -193,34 +193,35 @@
         <div class="row">
           <div class="col-sm-8 col-md-7 py-4">
             <h4 class="text-white">Sobre</h4>
-            <p class="text">Adicione alguma informação sobre o álbum abaixo (autor ou qualquer outro
-              background).
-              Faça essas informações terem algumas frases, para a galera ter algumas informações que
-              besliscar. Além
-              disso, use link nelas para as redes sociais ou informações de contato.</p>
+            <p class="text">A Visão Inclusiva é um site de empregabilidade exclusivo para Pessoas com
+              Deficiência (PCD). Conectamos candidatos PCD a oportunidades de emprego, permitindo que
+              empresas anunciem vagas direcionadas a esse público. Os candidatos criam perfis detalhados,
+              enquanto as empresas podem cadastrar suas vagas especificamente para PCD, promovendo a
+              inclusão e diversidade no ambiente de trabalho, facilitando o recrutamento e seleção de
+              forma mais inclusiva..</p>
           </div>
           <div class="col-sm-4 offset-md-1 py-4">
             <h4 class="text-white">Contato</h4>
             <ul class="list-unstyled">
-              <li><a href="#" class="text-white">Me siga no Twitter</a></li>
+              <li><a href="#" class="text-white">Me siga no Instagram</a></li>
               <li><a href="#" class="text-white">Curta no Facebook</a></li>
-              <li><a href="#" class="text-white">Me envie um e-mail</a></li>
+              <li><a href="#" class="text-white">InclusivaVisao@gmail.com</a></li>
             </ul>
           </div>
         </div>
       </div>
     </div>
-    <div class="navbar navbar-dark shadow-sm">
-      <div class="container d-flex justify-content-between">
-        <a href="#" class="navbar-brand d-flex align-items-center"
-          onclick="window.location.href='../telaInicial/telaInicial.php'">
-          <img class="logo" src="../img/logo1.png" alt="Sua Logo" height="40" width="40">
-          <strong>Visão Inclusiva</strong>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
-          aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-          <a href="#" class="text-white">Sobre nós</a>
-        </button>
+        <div class="navbar navbar-dark shadow-sm">
+            <div class="container d-flex justify-content-between">
+                <a href="#" class="navbar-brand d-flex align-items-center"
+                    onclick="window.location.href='../telaInicial/telaInicial.php'">
+                    <img class="logo" src="../img/logo1.png" alt="Sua Logo" height="40" width="40">
+                    <strong>Visão Inclusiva</strong>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
+                    aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                    <a href="#" class="text-white">Sobre nós</a>
+                </button>
         <div class="navbar-nav ml-auto">
           <a href="../telaLogin/login.php" class="btn btnlogin btn-outline-primary">Login</a>
         </div>
