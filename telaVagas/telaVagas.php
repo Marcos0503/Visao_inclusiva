@@ -469,8 +469,8 @@ include("funcaoMostraVagas.php");
             vagaElement.setAttribute("onclick", "toggleDetalhes('vaga" + vaga.id + "', event)");
 
             vagaElement.innerHTML = "<h3>" + vaga.titulo + "</h3>" +
-                "<span>" + vaga.data_publicacao + "</span>" +
-                "<h4>" + vaga.empresa + "</h4>" +
+                //"<span>" + vaga.data_publicacao + "</span>" +
+                //"<h4>" + vaga.empresa + "</h4>" +
                 "<p>" + vaga.descricao + "</p>" +
                 "<p>Salário: R$ " + vaga.salario + "</p>" +
                 "<button class='cadastrar-button' onclick=\"window.location.href='../telaCurriculo/curriculo.php'\">Cadastrar-se</button>" +
@@ -501,8 +501,8 @@ include("funcaoMostraVagas.php");
                     vagaElement.setAttribute("onclick", "toggleDetalhes('vaga" + vaga.id + "')");
 
                     vagaElement.innerHTML = "<h3>" + vaga.titulo + "</h3>" +
-                        "<span>" + vaga.data_publicacao + "</span>" +
-                        "<h4>" + vaga.empresa + "</h4>" +
+                        //"<span>" + vaga.data_publicacao + "</span>" +
+                        //"<h4>" + vaga.empresa + "</h4>" +
                         "<p>" + vaga.descricao + "</p>" +
                         "<p>Salário: R$ " + vaga.salario + "</p>" +
                         "<div class='detalhes' id='vaga" + vaga.id + "' style='display: none;'>" +

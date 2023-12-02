@@ -49,12 +49,10 @@ CREATE TABLE `cadastro_pessoal` (
 -- Despejando dados para a tabela `cadastro_pessoal`
 --
 
-/*INSERT INTO `cadastro_pessoal` (`id_usuario`, `nome_completo`, `CPF`, `RG`, `date_nasc`, `telefone`, `CID`, `rua`, `cidade`, `bairro`, `estado`, `pais`, `CEP`, `email`, `senha`, `sobre`, `caminho_foto_perfil`) VALUES
-(5, 'João Guilherme', '698.741.233', '58.767.876-5', '2001-01-20', '(15) 9 9778-083', 'F20 + G19.', 'Travessa sua mãe, 70', 'São Paulo', 'jardim casa nova', 'São Paulo', 'Brasil', '18950-00', 'marcoshenrique96126638@gmail.com', '$2y$10$8T1jIG0.RFNy6I4EF6kMgOiL1jhPp0iwP1XOPIONEtafJtwjNucGK', 'Texto de apresentação', '../imagem_perfil/images.jfif'),
-(7, 'Rubens Nervoso', '698.741.233', '58.767.876-5', '2023-05-10', '(15) 9 9778-083', 'F20 + G19.', 'Travessa sua mãe, 70', 'São Paulo', 'jardim casa nova', 'São Paulo', 'Brasil', '18950-00', 'Robsonentregas@hotmail.com', '$2y$10$emjUBIfrq1eNSUaPzfY6b.MqkhfgaJ.wa7kGguuVUICden48kcOvu', 'texto', '../imagem_perfil/Design sem nome (2).png'),
-(8, 'Alessandra', '303.721.138', '58.767.876-5', '1981-10-29', '(15) 9706-3057', 'F20 + G19.', 'joaquim gabriel soares, 70', 'Ibiuna', 'Vila lima', 'São Paulo', 'Brasil', '18150-00', 'alessandra@gmail.com', '$2y$10$QtAwTMawyZB2buuiyka0ouMHxJVMz6rV34i5VynNVBcX7i600r/F.', 'Eu sou alessandra', '../imagem_perfil/images.jfif'),
-(15, 'Marcos Henrique', '548.381.388', '58.767.876-5', '2003-03-05', '(15) 9 9778-083', 'F20 + G19.', 'joaquim gabriel soares, 70', 'Ibiuna', 'Vila lima', 'São Paulo', 'Brasil', '18150-00', 'as8196110@gmail.com', '$2y$10$U456pOdVq1847gTWL2FqgePHf2tjPC.FQQ2LBaOy7IIiR9N5vW1ii', 'Texto', '../imagem_perfil/65626bc25690f_WhatsApp Image 2023-11-22 at 17.12.37.jpeg');
-*/
+INSERT INTO `cadastro_pessoal` (`id_usuario`, `nome_completo`, `date_nasc`, `telefone`, `CID`, `rua`, `cidade`, `bairro`, `estado`, `pais`, `CEP`, `email`, `senha`, `sobre`, `caminho_foto_perfil`) VALUES
+(7, 'Rubens Nervoso',  '2023-05-10', '(15) 9 9778-083', 'F20 + G19.', 'tchurusbango, 70', 'São Paulo', 'jardim casa nova', 'São Paulo', 'Brasil', '18950-00', 'rubens@gmail.com', '$2y$10$emjUBIfrq1eNSUaPzfY6b.MqkhfgaJ.wa7kGguuVUICden48kcOvu', 'texto', '../imagem_perfil/Design sem nome (2).png'),
+(15, 'Marcos Henrique',  '2003-03-05', '(15) 9 9778-083', 'F20 + G19.', 'joaquim gabriel soares, 70', 'Ibiuna', 'Vila lima', 'São Paulo', 'Brasil', '18150-00', 'marcos@gmail.com', '$2y$10$U456pOdVq1847gTWL2FqgePHf2tjPC.FQQ2LBaOy7IIiR9N5vW1ii', 'Texto', '../imagem_perfil/65626bc25690f_WhatsApp Image 2023-11-22 at 17.12.37.jpeg');
+
 -- --------------------------------------------------------
 
 --
@@ -85,8 +83,8 @@ CREATE TABLE `cadastro_pj` (
 --
 
 INSERT INTO `cadastro_pj` (`id_empresa`, `nome_empresa`, `CNPJ`, `email`, `telefone`, `ramo_empresa`, `rua`, `pais`, `bairro`, `cidade`, `estado`, `CEP`, `senha`, `sobre`, `caminho_foto_perfil`, `caminho_banner`) VALUES
-(70, 'Tecmundo', '89.654.321/800', 'visaoinclusiva@gmail.com', '(15) 9 9778-083', 'Jornalismo', 'Travessa sua mãe, 70', 'Brasil', 'jardim casa nova', 'São Paulo', 'São Paulo', '18950-00', '$2y$10$xTpuIiMQZFg0PXNq1AybPevjPxhgNHlM6ehk4xbCkr.QlGE1WjB/2', '[Seu Nome] é alguém que ilumina qualquer ambiente com sua presença calorosa e sorriso contagiante. Apaixonado(a) por [mencionar um interesse ou hobby], [Seu Nome] transforma sua dedicação em verdadeiras obras de arte.\r\n\r\nSeu espírito aventureiro o(a) leva a explorar o mundo ao redor, sempre em busca de novas experiências e aprendizados. Com uma mente inquisitiva, [Seu Nome] encontra beleza nas pequenas coisas e inspiração nas complexidades da vida.','../imagemPerfilEmpresa/perfil_70_cachorro.png', '../banner/banner_70_cachorro.png'),
-(71, 'Tecmundo', '89.654.321/800', 'pcd@gmail.com', '(15) 9 9778-083', 'Jornalismo', 'Travessa sua mãe, 70', 'Brasil', 'jardim casa nova', 'São Paulo', 'São Paulo', '18950-00', '$2y$10$1wFPeChVFsZO0esyi.e3vewYk6SkwE24kdLfOVbzpK2fReINzglze', 'texto', '../imagemPerfilEmpresa/perfil_71_nerdola.png', '../banner/banner_71_rika.png');
+(70, 'Tecmundo', '89.654.321/800', 'visaoinclusiva@gmail.com', '(15) 9 9778-083', 'Jornalismo', 'tchurusbango, 70', 'Brasil', 'jardim casa nova', 'São Paulo', 'São Paulo', '18950-00', '$2y$10$xTpuIiMQZFg0PXNq1AybPevjPxhgNHlM6ehk4xbCkr.QlGE1WjB/2', '[Seu Nome] é alguém que ilumina qualquer ambiente com sua presença calorosa e sorriso contagiante. Apaixonado(a) por [mencionar um interesse ou hobby], [Seu Nome] transforma sua dedicação em verdadeiras obras de arte.\r\n\r\nSeu espírito aventureiro o(a) leva a explorar o mundo ao redor, sempre em busca de novas experiências e aprendizados. Com uma mente inquisitiva, [Seu Nome] encontra beleza nas pequenas coisas e inspiração nas complexidades da vida.','../imagemPerfilEmpresa/perfil_70_cachorro.png', '../banner/banner_70_cachorro.png'),
+(71, 'Tecmundo', '89.654.321/800', 'pcd@gmail.com', '(15) 9 9778-083', 'Jornalismo', 'tchurusbango, 70', 'Brasil', 'jardim casa nova', 'São Paulo', 'São Paulo', '18950-00', '$2y$10$1wFPeChVFsZO0esyi.e3vewYk6SkwE24kdLfOVbzpK2fReINzglze', 'texto', '../imagemPerfilEmpresa/perfil_71_nerdola.png', '../banner/banner_71_rika.png');
 -- --------------------------------------------------------
 
 --
@@ -112,9 +110,9 @@ CREATE TABLE `cadastro_vagas` (
 --
 
 INSERT INTO `cadastro_vagas` (`id`, `id_empresa`, `titulo`, `empresa`, `localizacao`, `periodo`, `salario`, `tipo_contrato`, `descricao`, `atividades`, `beneficios`) VALUES
-(1, 71, 'GAROTO DE PROGRAMA', 'Google', 'Ibiuna', 'Noite', 500.00, 'Eterno', 'venha fazer programa com a gente ', 'Programar', 'Vale Vips'),
-(2, 70, 'GAROTO DE TI', 'Google', 'Ibiuna', 'Noite', 500.00, 'Eterno', 'venha fazer programa com a gente ', 'Programar', 'Vale Vips'),
-(3, 70, 'Jornalista', 'Google', 'Ibiuna', 'Noite', 500.00, 'Eterno', 'venha fazer programa com a gente ', 'Programar', 'Vale Vips');
+(1, 71, 'Veterinario', 'uniso', 'Ibiuna', 'Noite', 500.00, 'Eterno', 'venha fazer cuidar de bicho com a gente ', 'Programar', 'dinheiro'),
+(2, 70, 'Desenvolvedor', 'Google', 'Ibiuna', 'Noite', 500.00, 'Eterno', 'venha fazer programa com a gente ', 'Programar', 'dinheiro'),
+(3, 70, 'Jornalista', 'sbt', 'Ibiuna', 'Noite', 500.00, 'Eterno', 'venha fazer programa de tv com a gente ', 'Programar', 'dinheiro');
 
 -- --------------------------------------------------------
 
