@@ -559,7 +559,7 @@ include("funcaoMostraVagas.php");
                 sugestaoElement.className = "suggested-vaga";
 
                 sugestaoElement.innerHTML = "<h3>" + sugestao.titulo + "</h3>" +
-                    "<span>" + sugestao.empresa + "</span>" +
+                    //"<span>" + sugestao.empresa + "</span>" +
                     "<p>" + sugestao.descricao.substring(0, 100) + "...</p>";
 
                 suggestedVagasElement.appendChild(sugestaoElement);
