@@ -50,8 +50,9 @@ CREATE TABLE `cadastro_pessoal` (
 --
 
 INSERT INTO `cadastro_pessoal` (`id_usuario`, `nome_completo`, `date_nasc`, `telefone`, `CID`, `rua`, `cidade`, `bairro`, `estado`, `pais`, `CEP`, `email`, `senha`, `sobre`, `caminho_foto_perfil`) VALUES
-(7, 'Rubens Nervoso',  '2023-05-10', '(15) 9 9778-083', 'F20 + G19.', 'tchurusbango, 70', 'São Paulo', 'jardim casa nova', 'São Paulo', 'Brasil', '18950-00', 'rubens@gmail.com', '$2y$10$emjUBIfrq1eNSUaPzfY6b.MqkhfgaJ.wa7kGguuVUICden48kcOvu', 'texto', '../imagem_perfil/nerdola.png'),
-(15, 'Marcos Henrique',  '2003-03-05', '(15) 9 9778-083', 'F20 + G19.', 'joaquim gabriel soares, 70', 'Ibiuna', 'Vila lima', 'São Paulo', 'Brasil', '18150-00', 'marcos@gmail.com', '$2y$10$U456pOdVq1847gTWL2FqgePHf2tjPC.FQQ2LBaOy7IIiR9N5vW1ii', 'Texto', '../imagem_perfil/marcos.jpg');
+(1, 'Rubens Gustavo',  '2023-05-10', '(15) 9 9778-083', 'F20 + G19.', 'tchurusbango, 70', 'São Paulo', 'jardim casa nova', 'São Paulo', 'Brasil', '18950-00', 'rubens@gmail.com', '$2y$10$emjUBIfrq1eNSUaPzfY6b.MqkhfgaJ.wa7kGguuVUICden48kcOvu', 'texto', '../imagem_perfil/nerdola.png'),
+(2, 'Marcos Henrique',  '2003-03-05', '(15) 9 9778-083', 'F20 + G19.', 'joaquim gabriel soares, 70', 'Ibiuna', 'Vila lima', 'São Paulo', 'Brasil', '18150-00', 'marcos@gmail.com', '$2y$10$U456pOdVq1847gTWL2FqgePHf2tjPC.FQQ2LBaOy7IIiR9N5vW1ii', 'Texto', '../imagem_perfil/marcos.jpg'),
+(3, 'Samira Floresta',  '2003-03-05', '(15) 9 9778-083', 'F20 + G19.', 'joaquim gabriel soares, 70', 'Ibiuna', 'Vila lima', 'São Paulo', 'Brasil', '18150-00', 'samira@gmail.com', '$2y$10$U456pOdVq1847gTWL2FqgePHf2tjPC.FQQ2LBaOy7IIiR9N5vW1ii', 'Texto', '../imagem_perfil/samira.png');
 
 -- --------------------------------------------------------
 
