@@ -2,10 +2,8 @@
 session_start();
 
 $nome_completo = $_POST['nome_Completo'];
-$RG = $_POST['RG'];
-$date_nasc = $_POST['date_nasc'];
-$CPF = $_POST['CPF'];
 $telefone = $_POST['telefone'];
+$date_nasc = $_POST['date_nasc'];
 $CID = $_POST['CID'];
 $email = $_POST['email'];
 $rua = $_POST['rua'];
@@ -42,8 +40,8 @@ if ($totalEmail > 0) {
 // Salva o ID do usuário na sessão
 $_SESSION['id_usuario'] = $id_usuario;
 
-$stmt = $strcon->prepare("INSERT INTO cadastro_pessoal (nome_completo, RG, date_nasc, CPF, telefone, CID, email, rua, cidade, bairro, pais, estado, CEP, senha, sobre, caminho_foto_perfil) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("ssssssssssssssss", $nome_completo, $RG, $date_nasc, $CPF, $telefone, $CID, $email, $rua, $cidade, $bairro, $pais, $estado, $CEP, $senha, $sobre, $fotoPerfilPath);
+$stmt = $strcon->prepare("INSERT INTO cadastro_pessoal (nome_completo, telefone ,date_nasc,  CID, email, rua, cidade, bairro, pais, estado, CEP, senha, sobre, caminho_foto_perfil) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("ssssssssssssss", $nome_completo,$telefone, $date_nasc, $CID, $email, $rua, $cidade, $bairro, $pais, $estado, $CEP, $senha, $sobre, $fotoPerfilPath);
 
 if ($stmt->execute()) {
     move_uploaded_file($_FILES['fotoPerfil']['tmp_name'], $fotoPerfilPath);

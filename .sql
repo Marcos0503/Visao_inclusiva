@@ -30,8 +30,6 @@ SET time_zone = "+00:00";
 CREATE TABLE `cadastro_pessoal` (
   `id_usuario` int(11) NOT NULL,
   `nome_completo` varchar(255) NOT NULL,
-  `CPF` char(11) NOT NULL,
-  `RG` varchar(20) DEFAULT NULL,
   `date_nasc` date DEFAULT NULL,
   `telefone` varchar(15) DEFAULT NULL,
   `CID` varchar(10) DEFAULT NULL,
@@ -51,12 +49,12 @@ CREATE TABLE `cadastro_pessoal` (
 -- Despejando dados para a tabela `cadastro_pessoal`
 --
 
-INSERT INTO `cadastro_pessoal` (`id_usuario`, `nome_completo`, `CPF`, `RG`, `date_nasc`, `telefone`, `CID`, `rua`, `cidade`, `bairro`, `estado`, `pais`, `CEP`, `email`, `senha`, `sobre`, `caminho_foto_perfil`) VALUES
+/*INSERT INTO `cadastro_pessoal` (`id_usuario`, `nome_completo`, `CPF`, `RG`, `date_nasc`, `telefone`, `CID`, `rua`, `cidade`, `bairro`, `estado`, `pais`, `CEP`, `email`, `senha`, `sobre`, `caminho_foto_perfil`) VALUES
 (5, 'João Guilherme', '698.741.233', '58.767.876-5', '2001-01-20', '(15) 9 9778-083', 'F20 + G19.', 'Travessa sua mãe, 70', 'São Paulo', 'jardim casa nova', 'São Paulo', 'Brasil', '18950-00', 'marcoshenrique96126638@gmail.com', '$2y$10$8T1jIG0.RFNy6I4EF6kMgOiL1jhPp0iwP1XOPIONEtafJtwjNucGK', 'Texto de apresentação', '../imagem_perfil/images.jfif'),
 (7, 'Rubens Nervoso', '698.741.233', '58.767.876-5', '2023-05-10', '(15) 9 9778-083', 'F20 + G19.', 'Travessa sua mãe, 70', 'São Paulo', 'jardim casa nova', 'São Paulo', 'Brasil', '18950-00', 'Robsonentregas@hotmail.com', '$2y$10$emjUBIfrq1eNSUaPzfY6b.MqkhfgaJ.wa7kGguuVUICden48kcOvu', 'texto', '../imagem_perfil/Design sem nome (2).png'),
 (8, 'Alessandra', '303.721.138', '58.767.876-5', '1981-10-29', '(15) 9706-3057', 'F20 + G19.', 'joaquim gabriel soares, 70', 'Ibiuna', 'Vila lima', 'São Paulo', 'Brasil', '18150-00', 'alessandra@gmail.com', '$2y$10$QtAwTMawyZB2buuiyka0ouMHxJVMz6rV34i5VynNVBcX7i600r/F.', 'Eu sou alessandra', '../imagem_perfil/images.jfif'),
 (15, 'Marcos Henrique', '548.381.388', '58.767.876-5', '2003-03-05', '(15) 9 9778-083', 'F20 + G19.', 'joaquim gabriel soares, 70', 'Ibiuna', 'Vila lima', 'São Paulo', 'Brasil', '18150-00', 'as8196110@gmail.com', '$2y$10$U456pOdVq1847gTWL2FqgePHf2tjPC.FQQ2LBaOy7IIiR9N5vW1ii', 'Texto', '../imagem_perfil/65626bc25690f_WhatsApp Image 2023-11-22 at 17.12.37.jpeg');
-
+*/
 -- --------------------------------------------------------
 
 --
