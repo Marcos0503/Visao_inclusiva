@@ -394,17 +394,17 @@ include_once('excluirVagas.php');
           placeholder="Nome da empresa">
         <input class="entrada" type="text" name="localizacao"
           value="<?php echo isset($localizacao) ? $localizacao : ''; ?>" placeholder="Local">
-        <input class="entrada" type="number" name="salario" value="<?php echo isset($salario) ? $salario : ''; ?>"
+        <input class="entrada" type="text" name="salario" value="<?php echo isset($salario) ? $salario : ''; ?>"
           placeholder="Salário">
         <input class="entrada" type="text" name="periodo" value="<?php echo isset($periodo) ? $periodo : ''; ?>"
-          placeholder="Periodo">
+          placeholder="Periodo" list="periodo">
         <datalist id="periodo">
           <input></input>
           <option value=" Tempo Integral">
           <option value=" Meio Período">
         </datalist>
         <input class="entrada" type="text" name="tipo_contrato"
-          value="<?php echo isset($tipo_contrato) ? $tipo_contrato : ''; ?>" placeholder="Tipo de Contrato">
+          value="<?php echo isset($tipo_contrato) ? $tipo_contrato : ''; ?>" placeholder="Tipo de Contrato" list="tipo">
         <datalist id="tipo">
           <input></input>
           <option value=" Estagio">
