@@ -394,7 +394,7 @@ include_once('excluirVagas.php');
           placeholder="Nome da empresa">
         <input class="entrada" type="text" name="localizacao"
           value="<?php echo isset($localizacao) ? $localizacao : ''; ?>" placeholder="Local">
-        <input class="entrada" type="text" name="salario" value="<?php echo isset($salario) ? $salario : ''; ?>"
+        <input class="entrada" type="number" name="salario" value="<?php echo isset($salario) ? $salario : ''; ?>"
           placeholder="Salário">
         <input class="entrada" type="text" name="periodo" value="<?php echo isset($periodo) ? $periodo : ''; ?>"
           placeholder="Periodo" list="periodo">
